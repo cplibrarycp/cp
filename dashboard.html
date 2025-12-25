@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ഡാഷ്ബോർഡ് | THRIPUDI LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <style>
+        .dashboard-section { padding: 40px 0; text-align: center; flex: 1; }
+        .dashboard-section h1 { font-size: 2em; color: var(--secondary-dark); margin-bottom: 5px; }
+        
+        /* Dashboard Cards Grid */
+        .dashboard-grid { 
+            display: grid; gap: 20px; margin-top: 30px;
+            grid-template-columns: repeat(5, 1fr); 
+        }
+        
+        .category-card { 
+            background: white; border: 2px solid var(--outline-color); border-radius: 12px; 
+            padding: 25px 15px; text-align: center; color: var(--secondary-dark); 
+            transition: 0.3s; display: flex; flex-direction: column; align-items: center; 
+        }
+        .category-card:hover { transform: translateY(-5px); border-color: var(--primary-teal); box-shadow: 0 8px 20px rgba(0, 137, 123, 0.15); }
+        
+        .icon-circle { 
+            width: 60px; height: 60px; background-color: var(--background-light); 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            margin-bottom: 12px; font-size: 1.5em; color: var(--primary-teal); transition: 0.3s; 
+        }
+        .category-card:hover .icon-circle { background-color: var(--primary-teal); color: white; }
+        .category-label { font-size: 0.95em; font-weight: 700; }
+
+        marquee { background: #fff; padding: 10px; border-radius: 50px; border: 1.5px solid var(--outline-color); color: var(--secondary-dark); font-size: 0.85em; margin: 20px 0; }
+
+        @media (max-width: 768px) {
+            .dashboard-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 15px; }
+            .category-card { padding: 20px 10px; }
+            .icon-circle { width: 50px; height: 50px; font-size: 1.2em; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" alt="Logo" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <div class="user-avatar-wrap" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <img id="user-avatar-img" class="user-avatar-small">
+                    <span style="color: white; font-size: 0.85em;">സ്വാഗതം, <span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="history.html"><i class="fas fa-history"></i> History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="dashboard-section">
+    <div class="container">
+        <h1>ലൈബ്രറി വിഭാഗങ്ങൾ</h1>
+        <p style="font-size: 0.9em; opacity: 0.8;">നിങ്ങൾക്ക് ഇഷ്ടപ്പെട്ട വിഭാഗം തിരഞ്ഞെടുത്ത് വായന തുടങ്ങൂ</p>
+        
+        <marquee behavior="scroll" direction="left">അറിവിന്‍റെ ലോകത്തേയ്ക്ക് സ്വാഗതം! ത്രിപുടി ലൈബ്രറിയിൽ പുതിയ പുസ്തകങ്ങൾ എത്തിയിരിക്കുന്നു. വായന വളരട്ടെ, ചിന്ത പടരട്ടെ! © എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</marquee>
+
+        <div class="dashboard-grid">
+            <a class="category-card" href="language.html">
+                <div class="icon-circle"><i class="fas fa-pen-nib"></i></div>
+                <span class="category-label">ഭാഷകള്‍</span>
+            </a>
+            <a class="category-card" href="yoga.html">
+                <div class="icon-circle"><i class="fas fa-spa"></i></div>
+                <span class="category-label">Yoga Books</span>
+            </a>
+            <a class="category-card" href="science.html">
+                <div class="icon-circle"><i class="fas fa-flask"></i></div>
+                <span class="category-label">Science Books</span>
+            </a>
+            <a class="category-card" href="computer.html">
+                <div class="icon-circle"><i class="fas fa-laptop-code"></i></div>
+                <span class="category-label">Computer Books</span>
+            </a>
+            <a class="category-card" href="mistery.html">
+                <div class="icon-circle"><i class="fas fa-user-secret"></i></div>
+                <span class="category-label">Mystery Books</span>
+            </a>
+            <a class="category-card" href="horthus.html">
+                <div class="icon-circle"><i class="fas fa-leaf"></i></div>
+                <span class="category-label">Horthus Malabaricus</span>
+            </a>
+            <a class="category-card" href="history.html">
+                <div class="icon-circle"><i class="fas fa-history"></i></div>
+                <span class="category-label">Browse History</span>
+            </a>
+            <a class="category-card" href="ithihasam.html">
+                <div class="icon-circle"><i class="fas fa-book-open"></i></div>
+                <span class="category-label">ഇതിഹാസം</span>
+            </a>
+            <a class="category-card" href="audio_books.html">
+                <div class="icon-circle"><i class="fas fa-headphones"></i></div>
+                <span class="category-label">Audio Books</span>
+            </a>
+            <a class="category-card" href="others.html">
+                <div class="icon-circle"><i class="fas fa-folder-plus"></i></div>
+                <span class="category-label">Other Books</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    
+    const firebaseConfig = { apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", authDomain: "thripudilibrary.firebaseapp.com", projectId: "thripudilibrary", storageBucket: "thripudilibrary.firebasestorage.app", messagingSenderId: "887018912750", appId: "1:887018912750:web:cc05190a72b13db816acff" };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const userAvatarImg = document.getElementById('user-avatar-img');
+    const dName = document.getElementById('display-name');
+    const defaultUserImg = 'assets/cover/default_user.jpg';
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ";
+            userAvatarImg.src = user.photoURL ? user.photoURL : defaultUserImg;
+        } else {
+            window.location.href = "login.html";
+        }
+    });
+</script>
+</body>
+</html>
