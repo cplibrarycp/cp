@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="assets/styles.css">
     
     <style>
-        /* Contact Page Specific Styles */
         .contact-section { padding: 40px 0; flex: 1; }
         .contact-card { 
             background: white; padding: 40px; border-radius: 20px; 
@@ -19,33 +18,19 @@
         }
         .contact-left { flex: 1; min-width: 300px; text-align: center; }
         .contact-right { flex: 1; min-width: 300px; text-align: left; }
-        
-        .contact-thumb { 
-            width: 100%; max-width: 400px; border-radius: 12px; 
-            border: 4px solid var(--outline-color); margin-bottom: 20px; 
-        }
+        .contact-thumb { width: 100%; max-width: 400px; border-radius: 12px; border: 4px solid var(--outline-color); margin-bottom: 20px; }
         
         .form-group { margin-bottom: 20px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--secondary-dark); }
         .form-control { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; font-family: inherit; }
-        .form-control:focus { outline: none; border-color: var(--primary-teal); }
-        
-        .btn-submit { 
-            background: var(--primary-teal); color: white; border: none; 
-            padding: 14px; border-radius: 50px; width: 100%; 
-            font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1.1em; 
-        }
-        .btn-submit:hover { background: var(--secondary-dark); transform: translateY(-2px); }
+        .btn-submit { background: var(--primary-teal); color: white; border: none; padding: 14px; border-radius: 50px; width: 100%; font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1.1em; }
 
-        /* Custom Alert Modal Fix */
-        .msg-popup-modal { 
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.6); z-index: 2005; justify-content: center; align-items: center; 
-        }
-        .msg-box { background: white; width: 90%; max-width: 350px; border-radius: 12px; overflow: hidden; text-align: center; }
-        .msg-header { background: var(--secondary-dark); color: white; padding: 15px; font-weight: 700; }
-        .msg-body { padding: 25px; color: var(--text-color); }
-        .btn-close-msg { background: var(--primary-teal); color: white; border: none; padding: 8px 25px; border-radius: 5px; cursor: pointer; }
+        /* Modal Logo & Header Style */
+        .msg-popup-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2005; justify-content: center; align-items: center; }
+        .msg-box { background: white; width: 90%; max-width: 350px; border-radius: 15px; overflow: hidden; text-align: center; border: 2px solid var(--secondary-dark); padding: 25px; }
+        .modal-logo { width: 60px; height: auto; margin-bottom: 10px; }
+        .modal-header-text { color: var(--secondary-dark); font-weight: 700; font-size: 1.1em; display: block; }
+        .msg-body { padding: 20px 0; color: var(--text-color); font-weight: 500; }
 
         @media (max-width: 768px) {
             .contact-card { padding: 25px; gap: 20px; }
@@ -114,10 +99,12 @@
 
 <div id="statusModal" class="msg-popup-modal">
     <div class="msg-box">
-        <div class="msg-header">ത്രിപുടി ലൈബ്രറി പറയുന്നു</div>
+        <img src="assets/cover/logo.png" alt="Logo" class="modal-logo">
+        <span class="modal-header-text">THRIPUDI LIBRARY</span>
+        <hr style="opacity: 0.2; margin: 10px 0;">
         <div class="msg-body" id="statusMsg"></div>
-        <div style="padding: 15px; background: #f9f9f9;">
-            <button onclick="closeStatusModal()" class="btn-close-msg">ശരി</button>
+        <div style="margin-top: 10px;">
+            <button onclick="closeStatusModal()" class="overlay-btn" style="padding: 10px 30px; width: 100%;">ശരി</button>
         </div>
     </div>
 </div>
@@ -139,7 +126,7 @@
 <script src="assets/scripts.js"></script>
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
     
     const firebaseConfig = { apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", authDomain: "thripudilibrary.firebaseapp.com", projectId: "thripudilibrary", storageBucket: "thripudilibrary.firebasestorage.app", messagingSenderId: "887018912750", appId: "1:887018912750:web:cc05190a72b13db816acff" };
     const app = initializeApp(firebaseConfig);
@@ -158,7 +145,6 @@
         }
     });
 
-    // Form Submit Logic
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8b1l6poc0fDGAVXZRV1LQW8_TXS0ozu0rxjHDzHx0P32zBfk4UcSDcdu9q16KL91lLw/exec"; 
 
     document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -174,7 +160,7 @@
         .then(res => res.json())
         .then(result => {
             if(result.result === 'Success') {
-                statusMsg.innerText = "✅ സന്ദേശം വിജയകരമായി അയച്ചു!";
+                statusMsg.innerHTML = "✅ നിങ്ങളുടെ സന്ദേശം ലഭിച്ചു.<br>നന്ദി!";
                 this.reset();
             } else {
                 statusMsg.innerText = "❌ അയക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.";
