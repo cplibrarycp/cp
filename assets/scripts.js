@@ -1,0 +1,68 @@
+const firebaseConfig = { 
+    apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", 
+    authDomain: "thripudilibrary.firebaseapp.com", 
+    projectId: "thripudilibrary", 
+    storageBucket: "thripudilibrary.firebasestorage.app", 
+    messagingSenderId: "887018912750", 
+    appId: "1:887018912750:web:cc05190a72b13db816acff" 
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+let currentAudioId = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+    const userAvatarImg = document.getElementById('user-avatar-img');
+    const defaultUserImg = 'assets/cover/default_user.jpg';
+    auth.onAuthStateChanged(user => {
+        const dName = document.getElementById('display-name');
+        if (user) {
+            dName.innerText = "സ്വാഗതം, " + (user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ");
+            userAvatarImg.src = user.photoURL ? user.photoURL : defaultUserImg;
+        } else {
+            userAvatarImg.src = defaultUserImg;
+            dName.innerText = "സ്വാഗതം, അതിഥി";
+        }
+    });
+    const profileBtn = document.getElementById('user-profile-btn');
+    const dropdown = document.getElementById('profile-dropdown');
+    if (profileBtn) {
+        profileBtn.onclick = (e) => { e.stopPropagation(); dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block'; };
+    }
+    window.onclick = () => { if(dropdown) dropdown.style.display = 'none'; };
+});
+
+window.checkAccess = function(id, type, cardId) {
+    if (!auth.currentUser) {
+        let msg = "ലോഗിൻ ചെയ്യുക";
+        if(type === 'pdf') msg = "വായിക്കാനായി ലോഗിൻ ചെയ്യുക";
+        else if(type === 'audio') msg = "കേൾക്കാനായി ലോഗിൻ ചെയ്യുക";
+        else if(type === 'video') msg = "കാണാനായി ലോഗിൻ ചെയ്യുക";
+        document.getElementById('loginMsg').innerText = msg;
+        const currentPage = window.location.pathname.split("/").pop();
+        document.getElementById('login-btn-link').href = `login.html?redirect=${currentPage}`;
+        document.getElementById('loginAlertModal').style.setProperty('display', 'flex', 'important');
+    } else {
+        if (type === 'audio') {
+            if (currentAudioId && currentAudioId !== id) {
+                document.getElementById('player-' + currentAudioId).innerHTML = "";
+                document.getElementById('card-' + currentAudioId).classList.remove('audio-active');
+            }
+            document.getElementById('player-' + id).innerHTML = `<div class="player-mask" style="width:80px;height:50px;"></div><iframe src="https://drive.google.com/file/d/${id}/preview?rm=minimal" style="width:100%; height:100%; border:none;" scrolling="no"></iframe>`;
+            document.getElementById(cardId).classList.add('audio-active');
+            currentAudioId = id;
+        } else if (type === 'video') {
+            document.getElementById('videoFrameContainer').innerHTML = `<div class="player-mask" style="width:60px;height:60px;"></div><iframe src="https://drive.google.com/file/d/${id}/preview?rm=minimal" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe>`;
+            document.getElementById('videoOverlay').style.display = 'flex';
+            document.body.style.overflow = "hidden";
+        } else {
+            document.getElementById('pdfFrame').src = `https://drive.google.com/file/d/${id}/preview?rm=minimal`;
+            document.getElementById('pdfModal').style.display = 'flex';
+            document.body.style.overflow = "hidden";
+        }
+    }
+};
+
+function logoutUser() { auth.signOut().then(() => { window.location.href = "logout_success.html"; }); }
+function closeLoginPopup() { document.getElementById('loginAlertModal').style.setProperty('display', 'none', 'important'); }
+function closeVideo() { document.getElementById('videoOverlay').style.display = 'none'; document.getElementById('videoFrameContainer').innerHTML = ""; document.body.style.overflow = "auto"; }
+function closePdfModal() { document.getElementById('pdfModal').style.display = 'none'; document.getElementById('pdfFrame').src = ""; document.body.style.overflow = "auto"; }
