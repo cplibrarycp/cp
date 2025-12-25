@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ഞങ്ങളെക്കുറിച്ച് | THRIPUDI LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <style>
+        /* About Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(rgba(0, 77, 64, 0.85), rgba(0, 77, 64, 0.85)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center; color: white; text-align: center; padding: 60px 20px;
+        }
+        .content-box { 
+            background: white; padding: 40px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin: -40px auto 40px; 
+            position: relative; border: 4px solid var(--outline-color); max-width: 1000px; 
+        }
+        .disclaimer-box { 
+            background: #f1f8f7; border-left: 5px solid var(--primary-teal); 
+            padding: 20px; margin-top: 30px; border-radius: 8px; 
+            font-size: 0.9em; line-height: 1.6; text-align: justify;
+        }
+        .features-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 25px; margin-top: 40px; 
+        }
+        .feature-card { 
+            text-align: center; padding: 25px; border: 2px solid #B2DFDB; 
+            border-radius: 15px; transition: 0.3s; 
+        }
+        .feature-card:hover { transform: translateY(-5px); border-color: var(--primary-teal); }
+        .feature-icon { font-size: 2.2em; color: var(--primary-teal); margin-bottom: 15px; }
+        
+        @media (max-width: 768px) {
+            .content-box { padding: 25px; margin: -20px 15px 30px; }
+            .about-hero h1 { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" alt="Logo" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <div class="user-avatar-wrap" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <img id="user-avatar-img" class="user-avatar-small">
+                    <span style="color: white; font-size: 0.85em;">സ്വാഗതം, <span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="history.html"><i class="fas fa-history"></i> History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="about-hero">
+    <div class="container">
+        <h1>ഞങ്ങളെക്കുറിച്ച്</h1>
+        <p>അറിവിൻ്റെയും വായനയുടെയും പുതിയ ലോകത്തേയ്ക്ക് സ്വാഗതം.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content-box">
+        <h2 style="color: var(--secondary-dark); margin-bottom: 20px;">📚 തൃപുടി ഡിജിറ്റൽ ലൈബ്രറി</h2>
+        <p style="line-height: 1.7;">മലയാള സാഹിത്യത്തെ സ്നേഹിക്കുന്നവർക്കായി ഒരുക്കിയ ഡിജിറ്റൽ ഇടമാണ് തൃപുടി ലൈബ്രറി. കാലഹരണപ്പെട്ടുപോകുന്ന പുസ്തകങ്ങളെ ഡിജിറ്റൽ രൂപത്തിൽ സംരക്ഷിക്കുക, വായന എല്ലാവരിലേയ്ക്കും എത്തിക്കുക എന്നിവയാണ് ഞങ്ങളുടെ ലക്ഷ്യം. ലോകത്തെവിടെയിരുന്നും മലയാള കൃതികൾ വായിക്കാനും ആസ്വദിക്കാനും ഈ പ്ലാറ്റ്‌ഫോം അവസരമൊരുക്കുന്നു.</p>
+
+        <div class="disclaimer-box">
+            <p><strong>ശ്രദ്ധിക്കുക:</strong> ഈ ലൈബ്രറിയിൽ നിങ്ങൾ വായിക്കുകയും കേൾക്കുകയും ചെയ്യുന്ന ഫയലുകളുടെ ഉടമസ്ഥാവകാശം ഈ സൈറ്റിനില്ല. ഇന്റർനെറ്റിൽ പലപല സൈറ്റുകളിൽ നിന്നായി ഡൗൺലോഡ് ചെയ്തിട്ടുള്ളവയാണ് ഇവ. പല ഫയലുകളിലും അതുമായി ബന്ധപ്പെട്ട ഉടമസ്ഥാവകാശ വിവരങ്ങൾ കാണാൻ സാധിക്കും. അത്തരം കൃതികൾ ലഭ്യമാക്കിയ സൈറ്റുകളോടും അവയുടെ ഉടമകളോടുമുള്ള കടപ്പാട് തൃപുടി ലൈബ്രറി ഈ അവസരത്തിൽ അറിയിക്കുന്നു.</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-book-reader feature-icon"></i>
+                <h3>വിപുലമായ ശേഖരം</h3>
+                <p>കഥകൾ, കവിതകൾ, നോവലുകൾ തുടങ്ങി നിരവധി വിഭാഗങ്ങളിലുള്ള പുസ്തകങ്ങൾ.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt feature-icon"></i>
+                <h3>എവിടെയും വായിക്കാം</h3>
+                <p>മൊബൈലിലോ ലാപ്ടോപ്പിലോ എളുപ്പത്തിൽ ഉപയോഗിക്കാവുന്ന ലളിതമായ ഡിസൈൻ.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-history feature-icon"></i>
+                <h3>വായനാ ചരിത്രം</h3>
+                <p>നിങ്ങൾ വായിച്ച പുസ്തകങ്ങൾ ഓട്ടോമാറ്റിക് ആയി സേവ് ചെയ്യപ്പെടുന്നു.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    
+    const firebaseConfig = { apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", authDomain: "thripudilibrary.firebaseapp.com", projectId: "thripudilibrary", storageBucket: "thripudilibrary.firebasestorage.app", messagingSenderId: "887018912750", appId: "1:887018912750:web:cc05190a72b13db816acff" };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const userAvatarImg = document.getElementById('user-avatar-img');
+    const dName = document.getElementById('display-name');
+    const defaultUserImg = 'assets/cover/default_user.jpg';
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ";
+            userAvatarImg.src = user.photoURL ? user.photoURL : defaultUserImg;
+        } else {
+            window.location.href = "login.html";
+        }
+    });
+</script>
+</body>
+</html>

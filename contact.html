@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ബന്ധപ്പെടുക | THRIPUDI LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-section { padding: 40px 0; flex: 1; }
+        .contact-card { 
+            background: white; padding: 40px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); display: flex; 
+            flex-wrap: wrap; gap: 40px; border: 4px solid var(--outline-color); 
+        }
+        .contact-left { flex: 1; min-width: 300px; text-align: center; }
+        .contact-right { flex: 1; min-width: 300px; text-align: left; }
+        
+        .contact-thumb { 
+            width: 100%; max-width: 400px; border-radius: 12px; 
+            border: 4px solid var(--outline-color); margin-bottom: 20px; 
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 700; color: var(--secondary-dark); }
+        .form-control { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; font-family: inherit; }
+        .form-control:focus { outline: none; border-color: var(--primary-teal); }
+        
+        .btn-submit { 
+            background: var(--primary-teal); color: white; border: none; 
+            padding: 14px; border-radius: 50px; width: 100%; 
+            font-weight: 700; cursor: pointer; transition: 0.3s; font-size: 1.1em; 
+        }
+        .btn-submit:hover { background: var(--secondary-dark); transform: translateY(-2px); }
+
+        /* Custom Alert Modal Fix */
+        .msg-popup-modal { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.6); z-index: 2005; justify-content: center; align-items: center; 
+        }
+        .msg-box { background: white; width: 90%; max-width: 350px; border-radius: 12px; overflow: hidden; text-align: center; }
+        .msg-header { background: var(--secondary-dark); color: white; padding: 15px; font-weight: 700; }
+        .msg-body { padding: 25px; color: var(--text-color); }
+        .btn-close-msg { background: var(--primary-teal); color: white; border: none; padding: 8px 25px; border-radius: 5px; cursor: pointer; }
+
+        @media (max-width: 768px) {
+            .contact-card { padding: 25px; gap: 20px; }
+            .contact-left, .contact-right { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" alt="Logo" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <div class="user-profile" id="user-profile-btn">
+                <div class="user-avatar-wrap" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <img id="user-avatar-img" class="user-avatar-small">
+                    <span style="color: white; font-size: 0.85em;">സ്വാഗതം, <span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="history.html"><i class="fas fa-history"></i> History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="contact-section">
+    <div class="container">
+        <h1 style="text-align: center; color: var(--secondary-dark); margin-bottom: 30px;">ഞങ്ങളെ ബന്ധപ്പെടുക</h1>
+        <div class="contact-card">
+            <div class="contact-left">
+                <img alt="Thripudi" class="contact-thumb" src="assets/cover/logo.png"/>
+                <div style="color: #555; margin-top: 15px;">
+                    <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color: var(--primary-teal);"></i> cplibrarycp@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--primary-teal);"></i> Kerala, India</p>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label>പേര്</label>
+                        <input class="form-control" id="name" name="name" placeholder="നിങ്ങളുടെ പേര്" required type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <label>ഇമെയിൽ</label>
+                        <input class="form-control" id="email" name="email" placeholder="example@gmail.com" required type="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label>സന്ദേശം</label>
+                        <textarea class="form-control" id="message" name="message" placeholder="നിങ്ങളുടെ അഭിപ്രായങ്ങൾ..." required rows="4"></textarea>
+                    </div>
+                    <button class="btn-submit" id="submitBtn" type="submit">സന്ദേശം അയക്കൂ <i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="statusModal" class="msg-popup-modal">
+    <div class="msg-box">
+        <div class="msg-header">ത്രിപുടി ലൈബ്രറി പറയുന്നു</div>
+        <div class="msg-body" id="statusMsg"></div>
+        <div style="padding: 15px; background: #f9f9f9;">
+            <button onclick="closeStatusModal()" class="btn-close-msg">ശരി</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    
+    const firebaseConfig = { apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", authDomain: "thripudilibrary.firebaseapp.com", projectId: "thripudilibrary", storageBucket: "thripudilibrary.firebasestorage.app", messagingSenderId: "887018912750", appId: "1:887018912750:web:cc05190a72b13db816acff" };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const userAvatarImg = document.getElementById('user-avatar-img');
+    const dName = document.getElementById('display-name');
+    const defaultUserImg = 'assets/cover/default_user.jpg';
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ";
+            userAvatarImg.src = user.photoURL ? user.photoURL : defaultUserImg;
+        } else {
+            window.location.href = "login.html";
+        }
+    });
+
+    // Form Submit Logic
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8b1l6poc0fDGAVXZRV1LQW8_TXS0ozu0rxjHDzHx0P32zBfk4UcSDcdu9q16KL91lLw/exec"; 
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const statusModal = document.getElementById('statusModal');
+        const statusMsg = document.getElementById('statusMsg');
+
+        btn.innerHTML = 'അയക്കുന്നു... <i class="fas fa-spinner fa-spin"></i>';
+        btn.disabled = true;
+
+        fetch(APPS_SCRIPT_URL, { method: "POST", body: new URLSearchParams(new FormData(this)) })
+        .then(res => res.json())
+        .then(result => {
+            if(result.result === 'Success') {
+                statusMsg.innerText = "✅ സന്ദേശം വിജയകരമായി അയച്ചു!";
+                this.reset();
+            } else {
+                statusMsg.innerText = "❌ അയക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.";
+            }
+            statusModal.style.display = 'flex';
+        })
+        .catch(() => {
+            statusMsg.innerText = "❌ കണക്ഷൻ തകരാർ!";
+            statusModal.style.display = 'flex';
+        })
+        .finally(() => { 
+            btn.innerHTML = 'സന്ദേശം അയക്കൂ <i class="fas fa-paper-plane"></i>'; 
+            btn.disabled = false; 
+        });
+    });
+
+    window.closeStatusModal = () => document.getElementById('statusModal').style.display = 'none';
+</script>
+</body>
+</html>
