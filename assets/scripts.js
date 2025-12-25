@@ -13,24 +13,36 @@ let currentAudioId = null;
 document.addEventListener('DOMContentLoaded', () => {
     const userAvatarImg = document.getElementById('user-avatar-img');
     const defaultUserImg = 'assets/cover/default_user.jpg';
+    const dName = document.getElementById('display-name');
+
+    // Auth state observer for Profile Picture & Name
     auth.onAuthStateChanged(user => {
-        const dName = document.getElementById('display-name');
         if (user) {
-            dName.innerText = "സ്വാഗതം, " + (user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ");
+            dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ";
             userAvatarImg.src = user.photoURL ? user.photoURL : defaultUserImg;
         } else {
             userAvatarImg.src = defaultUserImg;
-            dName.innerText = "സ്വാഗതം, അതിഥി";
+            dName.innerText = "അതിഥി";
         }
     });
+
+    // Dropdown Logic
     const profileBtn = document.getElementById('user-profile-btn');
     const dropdown = document.getElementById('profile-dropdown');
+    
     if (profileBtn) {
-        profileBtn.onclick = (e) => { e.stopPropagation(); dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block'; };
+        profileBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        });
     }
-    window.onclick = () => { if(dropdown) dropdown.style.display = 'none'; };
+
+    window.addEventListener('click', () => {
+        if(dropdown) dropdown.style.display = 'none';
+    });
 });
 
+// Access & Modal Logics (പഴയതുപോലെ തുടരുന്നു)
 window.checkAccess = function(id, type, cardId) {
     if (!auth.currentUser) {
         let msg = "ലോഗിൻ ചെയ്യുക";
@@ -42,6 +54,7 @@ window.checkAccess = function(id, type, cardId) {
         document.getElementById('login-btn-link').href = `login.html?redirect=${currentPage}`;
         document.getElementById('loginAlertModal').style.setProperty('display', 'flex', 'important');
     } else {
+        // Player Logics...
         if (type === 'audio') {
             if (currentAudioId && currentAudioId !== id) {
                 document.getElementById('player-' + currentAudioId).innerHTML = "";
@@ -66,23 +79,3 @@ function logoutUser() { auth.signOut().then(() => { window.location.href = "logo
 function closeLoginPopup() { document.getElementById('loginAlertModal').style.setProperty('display', 'none', 'important'); }
 function closeVideo() { document.getElementById('videoOverlay').style.display = 'none'; document.getElementById('videoFrameContainer').innerHTML = ""; document.body.style.overflow = "auto"; }
 function closePdfModal() { document.getElementById('pdfModal').style.display = 'none'; document.getElementById('pdfFrame').src = ""; document.body.style.overflow = "auto"; }
-function saveToHistory(id, name, thumb) {
-    if (!auth.currentUser) return;
-    const uid = auth.currentUser.uid;
-    let history = JSON.parse(localStorage.getItem('thripudi_history_' + uid)) || [];
-    
-    // പഴയ ഹിസ്റ്ററി ഉണ്ടെങ്കിൽ ഡ്യൂപ്ലിക്കേഷൻ ഒഴിവാക്കുന്നു
-    history = history.filter(item => item.id !== id);
-    
-    history.push({
-        id: id,
-        name: name,
-        thumb: thumb,
-        date: new Date().toLocaleDateString('ml-IN')
-    });
-
-    // പരമാവധി 20 എണ്ണം മാത്രം സൂക്ഷിക്കുന്നു
-    if (history.length > 20) history.shift();
-    
-    localStorage.setItem('thripudi_history_' + uid, JSON.stringify(history));
-}
