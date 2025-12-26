@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Think and Grow Rich | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">Think and Grow Rich</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1EYFbdMRzo5IJkd8-A5lCM5U8hIq_vSt4">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/18.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1EYFbdMRzo5IJkd8-A5lCM5U8hIq_vSt4', 'audio', 'card-1EYFbdMRzo5IJkd8-A5lCM5U8hIq_vSt4')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1EYFbdMRzo5IJkd8-A5lCM5U8hIq_vSt4"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 8</div>
+      </div>
+
+      <div class="book-card" id="card-1xKw80JOVVs_lXZbSH-ie7VouIKzR_1Sx">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/88.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1xKw80JOVVs_lXZbSH-ie7VouIKzR_1Sx', 'audio', 'card-1xKw80JOVVs_lXZbSH-ie7VouIKzR_1Sx')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1xKw80JOVVs_lXZbSH-ie7VouIKzR_1Sx"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-1y7o-MCuHeCSQAsRzk7vOSOrzYk0O1Huh">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/94.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1y7o-MCuHeCSQAsRzk7vOSOrzYk0O1Huh', 'audio', 'card-1y7o-MCuHeCSQAsRzk7vOSOrzYk0O1Huh')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1y7o-MCuHeCSQAsRzk7vOSOrzYk0O1Huh"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 14 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-1-LknpdaZEZZYJh45JxfG_rLe4Mmgm1td">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/99.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1-LknpdaZEZZYJh45JxfG_rLe4Mmgm1td', 'audio', 'card-1-LknpdaZEZZYJh45JxfG_rLe4Mmgm1td')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1-LknpdaZEZZYJh45JxfG_rLe4Mmgm1td"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-10Gep-ljtJUWt_DhyhPKwh4bbH1T5sIMQ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/87.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('10Gep-ljtJUWt_DhyhPKwh4bbH1T5sIMQ', 'audio', 'card-10Gep-ljtJUWt_DhyhPKwh4bbH1T5sIMQ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-10Gep-ljtJUWt_DhyhPKwh4bbH1T5sIMQ"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 11 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-1jQ6G8mGLH-0c7XHoCSxdAmNmbzdK_wVl">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/69.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1jQ6G8mGLH-0c7XHoCSxdAmNmbzdK_wVl', 'audio', 'card-1jQ6G8mGLH-0c7XHoCSxdAmNmbzdK_wVl')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1jQ6G8mGLH-0c7XHoCSxdAmNmbzdK_wVl"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1qJa-Q4ti6nTNJsaWdOIV548iqGPPY0T0">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/57.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qJa-Q4ti6nTNJsaWdOIV548iqGPPY0T0', 'audio', 'card-1qJa-Q4ti6nTNJsaWdOIV548iqGPPY0T0')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qJa-Q4ti6nTNJsaWdOIV548iqGPPY0T0"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 11</div>
+      </div>
+
+      <div class="book-card" id="card-1wRMh0JZfWHiSQzMMvH9kvceXyfoN5RGt">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/82.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wRMh0JZfWHiSQzMMvH9kvceXyfoN5RGt', 'audio', 'card-1wRMh0JZfWHiSQzMMvH9kvceXyfoN5RGt')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wRMh0JZfWHiSQzMMvH9kvceXyfoN5RGt"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 12</div>
+      </div>
+
+      <div class="book-card" id="card-1z-REhglQgGAPFwBKY0FXAMIQ48Ybqv-W">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/84.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1z-REhglQgGAPFwBKY0FXAMIQ48Ybqv-W', 'audio', 'card-1z-REhglQgGAPFwBKY0FXAMIQ48Ybqv-W')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1z-REhglQgGAPFwBKY0FXAMIQ48Ybqv-W"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 13 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-11nv6PA3JPSXnfp1Cpf4bkACcgsyS0g2Z">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/70.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('11nv6PA3JPSXnfp1Cpf4bkACcgsyS0g2Z', 'audio', 'card-11nv6PA3JPSXnfp1Cpf4bkACcgsyS0g2Z')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-11nv6PA3JPSXnfp1Cpf4bkACcgsyS0g2Z"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 12 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1F8xfrZyRQfZywMTcpcxeQ66xeg5a5rs9">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/75.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1F8xfrZyRQfZywMTcpcxeQ66xeg5a5rs9', 'audio', 'card-1F8xfrZyRQfZywMTcpcxeQ66xeg5a5rs9')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1F8xfrZyRQfZywMTcpcxeQ66xeg5a5rs9"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 14 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1WwFa5TI9dqDlhkaORvOlUIWkKZlJjnax">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/78.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1WwFa5TI9dqDlhkaORvOlUIWkKZlJjnax', 'audio', 'card-1WwFa5TI9dqDlhkaORvOlUIWkKZlJjnax')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1WwFa5TI9dqDlhkaORvOlUIWkKZlJjnax"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1_xkOVABECGQgg9Z6cAZG03zpgYK7oFhv">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/99.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1_xkOVABECGQgg9Z6cAZG03zpgYK7oFhv', 'audio', 'card-1_xkOVABECGQgg9Z6cAZG03zpgYK7oFhv')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1_xkOVABECGQgg9Z6cAZG03zpgYK7oFhv"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 10</div>
+      </div>
+
+      <div class="book-card" id="card-12te1SE2LoB1L6DxfDtnpdx5P6NzVe0GR">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/53.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('12te1SE2LoB1L6DxfDtnpdx5P6NzVe0GR', 'audio', 'card-12te1SE2LoB1L6DxfDtnpdx5P6NzVe0GR')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-12te1SE2LoB1L6DxfDtnpdx5P6NzVe0GR"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 7</div>
+      </div>
+
+      <div class="book-card" id="card-1vTpS0S4CCBnhftpHe60Nyv80Ko1OoFeD">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/26.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1vTpS0S4CCBnhftpHe60Nyv80Ko1OoFeD', 'audio', 'card-1vTpS0S4CCBnhftpHe60Nyv80Ko1OoFeD')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1vTpS0S4CCBnhftpHe60Nyv80Ko1OoFeD"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 12 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1cbmrLk2Wk_m_1hdHL0ni1dNcEGnsZqqG">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/12.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1cbmrLk2Wk_m_1hdHL0ni1dNcEGnsZqqG', 'audio', 'card-1cbmrLk2Wk_m_1hdHL0ni1dNcEGnsZqqG')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1cbmrLk2Wk_m_1hdHL0ni1dNcEGnsZqqG"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 6</div>
+      </div>
+
+      <div class="book-card" id="card-1qLLCwmFYKLZqzFWgaKIiWtVa53LYfvu6">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/80.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qLLCwmFYKLZqzFWgaKIiWtVa53LYfvu6', 'audio', 'card-1qLLCwmFYKLZqzFWgaKIiWtVa53LYfvu6')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qLLCwmFYKLZqzFWgaKIiWtVa53LYfvu6"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 11 Part 8</div>
+      </div>
+
+      <div class="book-card" id="card-1PVac9TYV5Xb8t8Sq_SoL6TIHkFNoGTpR">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/100.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1PVac9TYV5Xb8t8Sq_SoL6TIHkFNoGTpR', 'audio', 'card-1PVac9TYV5Xb8t8Sq_SoL6TIHkFNoGTpR')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1PVac9TYV5Xb8t8Sq_SoL6TIHkFNoGTpR"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1epaEgBTCGv2A8upaXlVjiFKPxdaRSijJ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/71.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1epaEgBTCGv2A8upaXlVjiFKPxdaRSijJ', 'audio', 'card-1epaEgBTCGv2A8upaXlVjiFKPxdaRSijJ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1epaEgBTCGv2A8upaXlVjiFKPxdaRSijJ"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 11 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1iEPVfDa7ffwyKHoAnxxLY_QCRZkPGT50">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/50.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1iEPVfDa7ffwyKHoAnxxLY_QCRZkPGT50', 'audio', 'card-1iEPVfDa7ffwyKHoAnxxLY_QCRZkPGT50')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1iEPVfDa7ffwyKHoAnxxLY_QCRZkPGT50"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 11 Part 6</div>
+      </div>
+
+      <div class="book-card" id="card-130w8e00CRf0fi1dB4dssUABNx1C7BgFn">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/100.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('130w8e00CRf0fi1dB4dssUABNx1C7BgFn', 'audio', 'card-130w8e00CRf0fi1dB4dssUABNx1C7BgFn')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-130w8e00CRf0fi1dB4dssUABNx1C7BgFn"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 15 Part 9</div>
+      </div>
+
+      <div class="book-card" id="card-1ocYJW5_9bqMa6lqykKCk6ULIaUXjkrn-">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/83.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ocYJW5_9bqMa6lqykKCk6ULIaUXjkrn-', 'audio', 'card-1ocYJW5_9bqMa6lqykKCk6ULIaUXjkrn-')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ocYJW5_9bqMa6lqykKCk6ULIaUXjkrn-"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 10 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1qnr1L2D3E6nm0WL47iS_kgqXjzjY1OD5">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/98.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qnr1L2D3E6nm0WL47iS_kgqXjzjY1OD5', 'audio', 'card-1qnr1L2D3E6nm0WL47iS_kgqXjzjY1OD5')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qnr1L2D3E6nm0WL47iS_kgqXjzjY1OD5"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 13 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1FBw7XtUMbkGRq8e3Mo7wV74Rsi53BNDB">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/31.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1FBw7XtUMbkGRq8e3Mo7wV74Rsi53BNDB', 'audio', 'card-1FBw7XtUMbkGRq8e3Mo7wV74Rsi53BNDB')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1FBw7XtUMbkGRq8e3Mo7wV74Rsi53BNDB"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 10 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1rX5azyRfr3hPrYsLefl2HlvOD77_x0N2">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/24.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rX5azyRfr3hPrYsLefl2HlvOD77_x0N2', 'audio', 'card-1rX5azyRfr3hPrYsLefl2HlvOD77_x0N2')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rX5azyRfr3hPrYsLefl2HlvOD77_x0N2"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 14 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-122JspNqpRjQqonY6NLPaeT4muD06as1i">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/72.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('122JspNqpRjQqonY6NLPaeT4muD06as1i', 'audio', 'card-122JspNqpRjQqonY6NLPaeT4muD06as1i')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-122JspNqpRjQqonY6NLPaeT4muD06as1i"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 11 Part 7</div>
+      </div>
+
+      <div class="book-card" id="card-1f0QyBp-cCejigpcnKmCNYvFnBdFYY5b1">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/23.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1f0QyBp-cCejigpcnKmCNYvFnBdFYY5b1', 'audio', 'card-1f0QyBp-cCejigpcnKmCNYvFnBdFYY5b1')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1f0QyBp-cCejigpcnKmCNYvFnBdFYY5b1"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 11 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1rvUNJGLZTVESiywXNJ87sYlgIMFhs0x2">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/30.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rvUNJGLZTVESiywXNJ87sYlgIMFhs0x2', 'audio', 'card-1rvUNJGLZTVESiywXNJ87sYlgIMFhs0x2')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rvUNJGLZTVESiywXNJ87sYlgIMFhs0x2"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 14 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-17_o6olXxOQsSsiqzKknO0giAXhNXMBGq">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/34.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('17_o6olXxOQsSsiqzKknO0giAXhNXMBGq', 'audio', 'card-17_o6olXxOQsSsiqzKknO0giAXhNXMBGq')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-17_o6olXxOQsSsiqzKknO0giAXhNXMBGq"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 9 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1Vp1w4JCshlRhSYHZ5ot__e1lDzOQ-BzJ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/14.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Vp1w4JCshlRhSYHZ5ot__e1lDzOQ-BzJ', 'audio', 'card-1Vp1w4JCshlRhSYHZ5ot__e1lDzOQ-BzJ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Vp1w4JCshlRhSYHZ5ot__e1lDzOQ-BzJ"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 9 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1xlahIuv4Nr69GxfHWbad5CuHIzmElPCD">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/51.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1xlahIuv4Nr69GxfHWbad5CuHIzmElPCD', 'audio', 'card-1xlahIuv4Nr69GxfHWbad5CuHIzmElPCD')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1xlahIuv4Nr69GxfHWbad5CuHIzmElPCD"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 9 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-14fRry4KEwZD733Puu9pn9zY-99WNnCn3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/25.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('14fRry4KEwZD733Puu9pn9zY-99WNnCn3', 'audio', 'card-14fRry4KEwZD733Puu9pn9zY-99WNnCn3')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-14fRry4KEwZD733Puu9pn9zY-99WNnCn3"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 12 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1hxz7n3w5IOMFuMcLixjhmW8v-l8GjBfn">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/49.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1hxz7n3w5IOMFuMcLixjhmW8v-l8GjBfn', 'audio', 'card-1hxz7n3w5IOMFuMcLixjhmW8v-l8GjBfn')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1hxz7n3w5IOMFuMcLixjhmW8v-l8GjBfn"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 9 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-18jmip397GQUtGYSaZ1q12qdOL7cnLocJ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/12.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('18jmip397GQUtGYSaZ1q12qdOL7cnLocJ', 'audio', 'card-18jmip397GQUtGYSaZ1q12qdOL7cnLocJ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-18jmip397GQUtGYSaZ1q12qdOL7cnLocJ"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 11 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-1FNxrXz1TGJtcDN2K4ja0nrjpuY0xcqY7">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/60.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1FNxrXz1TGJtcDN2K4ja0nrjpuY0xcqY7', 'audio', 'card-1FNxrXz1TGJtcDN2K4ja0nrjpuY0xcqY7')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1FNxrXz1TGJtcDN2K4ja0nrjpuY0xcqY7"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 11 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1FCyBzVqKTkUEK9Gzz7jommrFiFmHl5Jd">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/86.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1FCyBzVqKTkUEK9Gzz7jommrFiFmHl5Jd', 'audio', 'card-1FCyBzVqKTkUEK9Gzz7jommrFiFmHl5Jd')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1FCyBzVqKTkUEK9Gzz7jommrFiFmHl5Jd"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 8 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-1RuWQBx1_kKgiLQ4k-7SwJS83F9cBoFX-">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/75.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1RuWQBx1_kKgiLQ4k-7SwJS83F9cBoFX-', 'audio', 'card-1RuWQBx1_kKgiLQ4k-7SwJS83F9cBoFX-')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1RuWQBx1_kKgiLQ4k-7SwJS83F9cBoFX-"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 9 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-10sgOrhg0fhPMFQqaJ2kWJMWQiVIOQj7P">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/80.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('10sgOrhg0fhPMFQqaJ2kWJMWQiVIOQj7P', 'audio', 'card-10sgOrhg0fhPMFQqaJ2kWJMWQiVIOQj7P')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-10sgOrhg0fhPMFQqaJ2kWJMWQiVIOQj7P"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 8 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1IwjvGFDZ6ezElNmkuLFaj69_GF2GVNXk">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/98.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1IwjvGFDZ6ezElNmkuLFaj69_GF2GVNXk', 'audio', 'card-1IwjvGFDZ6ezElNmkuLFaj69_GF2GVNXk')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1IwjvGFDZ6ezElNmkuLFaj69_GF2GVNXk"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 9 Part 6</div>
+      </div>
+
+      <div class="book-card" id="card-1EUbbR8lo9C-uPpEpWFyyxNUo5pIiIENB">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/99.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1EUbbR8lo9C-uPpEpWFyyxNUo5pIiIENB', 'audio', 'card-1EUbbR8lo9C-uPpEpWFyyxNUo5pIiIENB')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1EUbbR8lo9C-uPpEpWFyyxNUo5pIiIENB"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 8 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1wFLaOIASOZPhFEnWcHN-FQNj4JRvv0-S">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/58.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wFLaOIASOZPhFEnWcHN-FQNj4JRvv0-S', 'audio', 'card-1wFLaOIASOZPhFEnWcHN-FQNj4JRvv0-S')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wFLaOIASOZPhFEnWcHN-FQNj4JRvv0-S"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 15</div>
+      </div>
+
+      <div class="book-card" id="card-1ZURZNI8oIYYiDNj0mG0uM3XIlf7K-O5F">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/87.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ZURZNI8oIYYiDNj0mG0uM3XIlf7K-O5F', 'audio', 'card-1ZURZNI8oIYYiDNj0mG0uM3XIlf7K-O5F')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ZURZNI8oIYYiDNj0mG0uM3XIlf7K-O5F"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 8 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1ZNoia8j7kig91m9Jd9wt5Cp1DOmMv6HD">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/81.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ZNoia8j7kig91m9Jd9wt5Cp1DOmMv6HD', 'audio', 'card-1ZNoia8j7kig91m9Jd9wt5Cp1DOmMv6HD')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ZNoia8j7kig91m9Jd9wt5Cp1DOmMv6HD"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 14</div>
+      </div>
+
+      <div class="book-card" id="card-1FI8XibF7xkq1nEs5g9ivDO5G-b2HEXCU">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/55.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1FI8XibF7xkq1nEs5g9ivDO5G-b2HEXCU', 'audio', 'card-1FI8XibF7xkq1nEs5g9ivDO5G-b2HEXCU')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1FI8XibF7xkq1nEs5g9ivDO5G-b2HEXCU"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1KjP513Q2DEVLMfu1-TaldPD9By6pEE7q">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/25.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1KjP513Q2DEVLMfu1-TaldPD9By6pEE7q', 'audio', 'card-1KjP513Q2DEVLMfu1-TaldPD9By6pEE7q')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1KjP513Q2DEVLMfu1-TaldPD9By6pEE7q"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 11</div>
+      </div>
+
+      <div class="book-card" id="card-1KsMhdxDyUOBgDqljvByk0jKFUGTX7AQH">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/71.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1KsMhdxDyUOBgDqljvByk0jKFUGTX7AQH', 'audio', 'card-1KsMhdxDyUOBgDqljvByk0jKFUGTX7AQH')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1KsMhdxDyUOBgDqljvByk0jKFUGTX7AQH"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1dSDw8sdg-4SwZwM2DSinG9DITW4nOK_g">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/62.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1dSDw8sdg-4SwZwM2DSinG9DITW4nOK_g', 'audio', 'card-1dSDw8sdg-4SwZwM2DSinG9DITW4nOK_g')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1dSDw8sdg-4SwZwM2DSinG9DITW4nOK_g"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 7</div>
+      </div>
+
+      <div class="book-card" id="card-1hSANXKxGewAPTTymlB3PF3EMNlIIasjr">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/51.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1hSANXKxGewAPTTymlB3PF3EMNlIIasjr', 'audio', 'card-1hSANXKxGewAPTTymlB3PF3EMNlIIasjr')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1hSANXKxGewAPTTymlB3PF3EMNlIIasjr"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 6 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1RT6NawAfyQbga4RgZURJKQF1LUfZHOFx">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/58.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1RT6NawAfyQbga4RgZURJKQF1LUfZHOFx', 'audio', 'card-1RT6NawAfyQbga4RgZURJKQF1LUfZHOFx')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1RT6NawAfyQbga4RgZURJKQF1LUfZHOFx"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 13</div>
+      </div>
+
+      <div class="book-card" id="card-1byxNVibC1GqREBJ0QtBv88y4KPX-hUt3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/36.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1byxNVibC1GqREBJ0QtBv88y4KPX-hUt3', 'audio', 'card-1byxNVibC1GqREBJ0QtBv88y4KPX-hUt3')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1byxNVibC1GqREBJ0QtBv88y4KPX-hUt3"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 6 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1ftEBkCfcX75Wd8tQlFqjU4FXyJGU6oZ8">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/2.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ftEBkCfcX75Wd8tQlFqjU4FXyJGU6oZ8', 'audio', 'card-1ftEBkCfcX75Wd8tQlFqjU4FXyJGU6oZ8')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ftEBkCfcX75Wd8tQlFqjU4FXyJGU6oZ8"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 6</div>
+      </div>
+
+      <div class="book-card" id="card-19QUuyYAh-LeGzr-3CdFjQl5gaIs7hCI_">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/22.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('19QUuyYAh-LeGzr-3CdFjQl5gaIs7hCI_', 'audio', 'card-19QUuyYAh-LeGzr-3CdFjQl5gaIs7hCI_')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-19QUuyYAh-LeGzr-3CdFjQl5gaIs7hCI_"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 6 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-1gwQSWkgLJz2L_5cq9pNijKWekuv_r94f">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/6.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1gwQSWkgLJz2L_5cq9pNijKWekuv_r94f', 'audio', 'card-1gwQSWkgLJz2L_5cq9pNijKWekuv_r94f')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1gwQSWkgLJz2L_5cq9pNijKWekuv_r94f"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-1hyaxntYWWrJbbOXt0yjJld7ax9cGrlwH">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/24.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1hyaxntYWWrJbbOXt0yjJld7ax9cGrlwH', 'audio', 'card-1hyaxntYWWrJbbOXt0yjJld7ax9cGrlwH')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1hyaxntYWWrJbbOXt0yjJld7ax9cGrlwH"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 8</div>
+      </div>
+
+      <div class="book-card" id="card-1BXj4vCSIiSDc502bapikYUz8EBWFsUJ0">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/81.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1BXj4vCSIiSDc502bapikYUz8EBWFsUJ0', 'audio', 'card-1BXj4vCSIiSDc502bapikYUz8EBWFsUJ0')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1BXj4vCSIiSDc502bapikYUz8EBWFsUJ0"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 10</div>
+      </div>
+
+      <div class="book-card" id="card-1QADTbwVkFSkdAMXVkAoV5WZWMkV-9daS">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/71.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1QADTbwVkFSkdAMXVkAoV5WZWMkV-9daS', 'audio', 'card-1QADTbwVkFSkdAMXVkAoV5WZWMkV-9daS')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1QADTbwVkFSkdAMXVkAoV5WZWMkV-9daS"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 5 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1nPerdturonKwVtja2JbW46f34KlXzsWj">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/24.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1nPerdturonKwVtja2JbW46f34KlXzsWj', 'audio', 'card-1nPerdturonKwVtja2JbW46f34KlXzsWj')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1nPerdturonKwVtja2JbW46f34KlXzsWj"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 5 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-1s3snXb5NN8CNvAi4wrTL4UzJiCZuJt1w">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/81.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1s3snXb5NN8CNvAi4wrTL4UzJiCZuJt1w', 'audio', 'card-1s3snXb5NN8CNvAi4wrTL4UzJiCZuJt1w')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1s3snXb5NN8CNvAi4wrTL4UzJiCZuJt1w"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 5 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1A_QCy73p4Cql6oU-F283GY8XIrC0tPNU">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/56.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1A_QCy73p4Cql6oU-F283GY8XIrC0tPNU', 'audio', 'card-1A_QCy73p4Cql6oU-F283GY8XIrC0tPNU')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1A_QCy73p4Cql6oU-F283GY8XIrC0tPNU"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 9</div>
+      </div>
+
+      <div class="book-card" id="card-1GQ3t1FnYJgBEa8Bho9Yr9VYM_3NGPyVu">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/37.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1GQ3t1FnYJgBEa8Bho9Yr9VYM_3NGPyVu', 'audio', 'card-1GQ3t1FnYJgBEa8Bho9Yr9VYM_3NGPyVu')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1GQ3t1FnYJgBEa8Bho9Yr9VYM_3NGPyVu"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1drQAUJJnQ3fqN-UwSbjdRcc__iSCkbSN">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/21.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1drQAUJJnQ3fqN-UwSbjdRcc__iSCkbSN', 'audio', 'card-1drQAUJJnQ3fqN-UwSbjdRcc__iSCkbSN')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1drQAUJJnQ3fqN-UwSbjdRcc__iSCkbSN"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 3 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-1moO6HUpI9hPcesLNCPTb_1O9t98aAOsG">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/70.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1moO6HUpI9hPcesLNCPTb_1O9t98aAOsG', 'audio', 'card-1moO6HUpI9hPcesLNCPTb_1O9t98aAOsG')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1moO6HUpI9hPcesLNCPTb_1O9t98aAOsG"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 5 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1x77JCNubBc_edyhgev3f6-UrtVvGlDIH">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/59.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1x77JCNubBc_edyhgev3f6-UrtVvGlDIH', 'audio', 'card-1x77JCNubBc_edyhgev3f6-UrtVvGlDIH')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1x77JCNubBc_edyhgev3f6-UrtVvGlDIH"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 4 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1P6jyubrpxY7K0nvme4wBRw1EdmrKonRb">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/51.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1P6jyubrpxY7K0nvme4wBRw1EdmrKonRb', 'audio', 'card-1P6jyubrpxY7K0nvme4wBRw1EdmrKonRb')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1P6jyubrpxY7K0nvme4wBRw1EdmrKonRb"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-1ZSLCcL_DHv3oDDCoJ67gxJptPbmmi1Fv">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/1.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ZSLCcL_DHv3oDDCoJ67gxJptPbmmi1Fv', 'audio', 'card-1ZSLCcL_DHv3oDDCoJ67gxJptPbmmi1Fv')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ZSLCcL_DHv3oDDCoJ67gxJptPbmmi1Fv"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 3 Part 6</div>
+      </div>
+
+      <div class="book-card" id="card-15W35M-Ie-sJPE4jauOc7C0ModXEJmSjF">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/37.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('15W35M-Ie-sJPE4jauOc7C0ModXEJmSjF', 'audio', 'card-15W35M-Ie-sJPE4jauOc7C0ModXEJmSjF')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-15W35M-Ie-sJPE4jauOc7C0ModXEJmSjF"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 2 Part 7</div>
+      </div>
+
+      <div class="book-card" id="card-1t4X4x5-_fPPtFndI5iON939duTaQK-yQ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/80.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1t4X4x5-_fPPtFndI5iON939duTaQK-yQ', 'audio', 'card-1t4X4x5-_fPPtFndI5iON939duTaQK-yQ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1t4X4x5-_fPPtFndI5iON939duTaQK-yQ"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 6 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1Cd5WnKTgllFC_y47Tx2XNuBkh2Sp2x1B">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/66.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Cd5WnKTgllFC_y47Tx2XNuBkh2Sp2x1B', 'audio', 'card-1Cd5WnKTgllFC_y47Tx2XNuBkh2Sp2x1B')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Cd5WnKTgllFC_y47Tx2XNuBkh2Sp2x1B"></div>
+        </div>
+        <div class="book-title">Napoleon_Hill_Think_and_Grow_Rich (5)</div>
+      </div>
+
+      <div class="book-card" id="card-1KgYrZSwF1eNnBZOKHg5t9biqlfgllYmL">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/77.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1KgYrZSwF1eNnBZOKHg5t9biqlfgllYmL', 'audio', 'card-1KgYrZSwF1eNnBZOKHg5t9biqlfgllYmL')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1KgYrZSwF1eNnBZOKHg5t9biqlfgllYmL"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 7 Part 12</div>
+      </div>
+
+      <div class="book-card" id="card-1869EtDX3vYXss_VdFjFN2NrLzUkP5cn5">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/67.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1869EtDX3vYXss_VdFjFN2NrLzUkP5cn5', 'audio', 'card-1869EtDX3vYXss_VdFjFN2NrLzUkP5cn5')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1869EtDX3vYXss_VdFjFN2NrLzUkP5cn5"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 6 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-1QRUTj4UWAmQApwi1gU83EaKjzfS9eFds">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/27.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1QRUTj4UWAmQApwi1gU83EaKjzfS9eFds', 'audio', 'card-1QRUTj4UWAmQApwi1gU83EaKjzfS9eFds')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1QRUTj4UWAmQApwi1gU83EaKjzfS9eFds"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 3 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1idVVah4IYh5PObdbD1ABCv3zTWGmnz4U">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/26.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1idVVah4IYh5PObdbD1ABCv3zTWGmnz4U', 'audio', 'card-1idVVah4IYh5PObdbD1ABCv3zTWGmnz4U')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1idVVah4IYh5PObdbD1ABCv3zTWGmnz4U"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 2 Part 6</div>
+      </div>
+
+      <div class="book-card" id="card-1ASQzpog2gg4PcgUEKave7Uoit9cpLB76">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/25.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ASQzpog2gg4PcgUEKave7Uoit9cpLB76', 'audio', 'card-1ASQzpog2gg4PcgUEKave7Uoit9cpLB76')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ASQzpog2gg4PcgUEKave7Uoit9cpLB76"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 2 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-1Z0lzpJu-LxOioQkSBb98riGMoXSLSTI7">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/75.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Z0lzpJu-LxOioQkSBb98riGMoXSLSTI7', 'audio', 'card-1Z0lzpJu-LxOioQkSBb98riGMoXSLSTI7')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Z0lzpJu-LxOioQkSBb98riGMoXSLSTI7"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 4 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1wJ5HcqCPx7pRHfvo2o4vceTGYwGeWY2C">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/64.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wJ5HcqCPx7pRHfvo2o4vceTGYwGeWY2C', 'audio', 'card-1wJ5HcqCPx7pRHfvo2o4vceTGYwGeWY2C')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wJ5HcqCPx7pRHfvo2o4vceTGYwGeWY2C"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 2 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-11M2roQkCTSgB2vX7Q7Of7AqEbBJwMGTv">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/40.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('11M2roQkCTSgB2vX7Q7Of7AqEbBJwMGTv', 'audio', 'card-11M2roQkCTSgB2vX7Q7Of7AqEbBJwMGTv')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-11M2roQkCTSgB2vX7Q7Of7AqEbBJwMGTv"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 3 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-19UMaxpRcd7rKr66ZCajv5fubsOc8ZTjW">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/93.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('19UMaxpRcd7rKr66ZCajv5fubsOc8ZTjW', 'audio', 'card-19UMaxpRcd7rKr66ZCajv5fubsOc8ZTjW')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-19UMaxpRcd7rKr66ZCajv5fubsOc8ZTjW"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 2 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1JlOBHSAhORXrXqfkmojsCLV-6RLPLlhV">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/78.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1JlOBHSAhORXrXqfkmojsCLV-6RLPLlhV', 'audio', 'card-1JlOBHSAhORXrXqfkmojsCLV-6RLPLlhV')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1JlOBHSAhORXrXqfkmojsCLV-6RLPLlhV"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 5 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-1ZMiIRPv2hpivSE7-WX_n6ukRAPJ-BkSI">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/30.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ZMiIRPv2hpivSE7-WX_n6ukRAPJ-BkSI', 'audio', 'card-1ZMiIRPv2hpivSE7-WX_n6ukRAPJ-BkSI')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ZMiIRPv2hpivSE7-WX_n6ukRAPJ-BkSI"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 3 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-1otUpwGWaosD1pX2hqteNKn0H51o8u8qW">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/28.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1otUpwGWaosD1pX2hqteNKn0H51o8u8qW', 'audio', 'card-1otUpwGWaosD1pX2hqteNKn0H51o8u8qW')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1otUpwGWaosD1pX2hqteNKn0H51o8u8qW"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 3 Part 7</div>
+      </div>
+
+      <div class="book-card" id="card-1wWsKlRmCmL3GQ0_ID23Ac0ANC0ozCwrO">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/47.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wWsKlRmCmL3GQ0_ID23Ac0ANC0ozCwrO', 'audio', 'card-1wWsKlRmCmL3GQ0_ID23Ac0ANC0ozCwrO')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wWsKlRmCmL3GQ0_ID23Ac0ANC0ozCwrO"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 3 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1XiDurj7I-AEUJ6KR9VHvOQx736YEtHF1">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/50.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1XiDurj7I-AEUJ6KR9VHvOQx736YEtHF1', 'audio', 'card-1XiDurj7I-AEUJ6KR9VHvOQx736YEtHF1')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1XiDurj7I-AEUJ6KR9VHvOQx736YEtHF1"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 2 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1JISDqzS-MSvIfD2DpfseIBPxVDCZ8M6g">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/4.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1JISDqzS-MSvIfD2DpfseIBPxVDCZ8M6g', 'audio', 'card-1JISDqzS-MSvIfD2DpfseIBPxVDCZ8M6g')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1JISDqzS-MSvIfD2DpfseIBPxVDCZ8M6g"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 1 Part 3</div>
+      </div>
+
+      <div class="book-card" id="card-1QkyKM3UyGCE4jwWswNg4E8AQCpcBJJJG">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/15.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1QkyKM3UyGCE4jwWswNg4E8AQCpcBJJJG', 'audio', 'card-1QkyKM3UyGCE4jwWswNg4E8AQCpcBJJJG')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1QkyKM3UyGCE4jwWswNg4E8AQCpcBJJJG"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 1 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-1g4deIzQy4CsJGh1jVeOlZLjpaIKBYFBU">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/61.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1g4deIzQy4CsJGh1jVeOlZLjpaIKBYFBU', 'audio', 'card-1g4deIzQy4CsJGh1jVeOlZLjpaIKBYFBU')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1g4deIzQy4CsJGh1jVeOlZLjpaIKBYFBU"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 1 Part 4</div>
+      </div>
+
+      <div class="book-card" id="card-1Lm0UOVDHyk7iFiDQtW3ElFFcUAG-CTrj">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/38.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Lm0UOVDHyk7iFiDQtW3ElFFcUAG-CTrj', 'audio', 'card-1Lm0UOVDHyk7iFiDQtW3ElFFcUAG-CTrj')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Lm0UOVDHyk7iFiDQtW3ElFFcUAG-CTrj"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 1 Part 5</div>
+      </div>
+
+      <div class="book-card" id="card-1iWb0uhq_NNm2xVAMzi4Wv9z7c6JrpA8C">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/28.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1iWb0uhq_NNm2xVAMzi4Wv9z7c6JrpA8C', 'audio', 'card-1iWb0uhq_NNm2xVAMzi4Wv9z7c6JrpA8C')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1iWb0uhq_NNm2xVAMzi4Wv9z7c6JrpA8C"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 1 Part 2</div>
+      </div>
+
+      <div class="book-card" id="card-1uGhN0rvm2Rj6mAzhIDznFCu43sBG-JKp">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/77.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1uGhN0rvm2Rj6mAzhIDznFCu43sBG-JKp', 'audio', 'card-1uGhN0rvm2Rj6mAzhIDznFCu43sBG-JKp')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1uGhN0rvm2Rj6mAzhIDznFCu43sBG-JKp"></div>
+        </div>
+        <div class="book-title">Napoleon Hill - Think and Grow Rich - Chapter 2 Part 1</div>
+      </div>
+
+      <div class="book-card" id="card-12NiDPugRRtsc4TF6TA7RFUXTGge6JGzH">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/16.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('12NiDPugRRtsc4TF6TA7RFUXTGge6JGzH', 'audio', 'card-12NiDPugRRtsc4TF6TA7RFUXTGge6JGzH')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-12NiDPugRRtsc4TF6TA7RFUXTGge6JGzH"></div>
+        </div>
+        <div class="book-title">Napoleon_Hill_Think_and_Grow_Rich (6)</div>
+      </div>
+
+      <div class="book-card" id="card-1SXD8qzqw85aK1is9xh_YC_913cAAWNPP">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/55.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1SXD8qzqw85aK1is9xh_YC_913cAAWNPP', 'audio', 'card-1SXD8qzqw85aK1is9xh_YC_913cAAWNPP')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1SXD8qzqw85aK1is9xh_YC_913cAAWNPP"></div>
+        </div>
+        <div class="book-title">Napoleon_Hill_Think_and_Grow_Rich (4)</div>
+      </div>
+
+      <div class="book-card" id="card-1vMenn7meT8g4ODmRT8RGWfC3HIzHLsOf">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/100.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1vMenn7meT8g4ODmRT8RGWfC3HIzHLsOf', 'audio', 'card-1vMenn7meT8g4ODmRT8RGWfC3HIzHLsOf')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1vMenn7meT8g4ODmRT8RGWfC3HIzHLsOf"></div>
+        </div>
+        <div class="book-title">Napoleon_Hill_Think_and_Grow_Rich (3)</div>
+      </div>
+
+      <div class="book-card" id="card-1m9DSOUSxd8FOaeLaTLGss8C8RUenc5Ah">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/49.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1m9DSOUSxd8FOaeLaTLGss8C8RUenc5Ah', 'audio', 'card-1m9DSOUSxd8FOaeLaTLGss8C8RUenc5Ah')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1m9DSOUSxd8FOaeLaTLGss8C8RUenc5Ah"></div>
+        </div>
+        <div class="book-title">Napoleon_Hill_Think_and_Grow_Rich (2)</div>
+      </div>
+
+      <div class="book-card" id="card-1TX3PAVLbYv-WCT7gQjpiZwKVWxEvhQxG">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/60.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1TX3PAVLbYv-WCT7gQjpiZwKVWxEvhQxG', 'audio', 'card-1TX3PAVLbYv-WCT7gQjpiZwKVWxEvhQxG')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1TX3PAVLbYv-WCT7gQjpiZwKVWxEvhQxG"></div>
+        </div>
+        <div class="book-title">Napoleon_Hill_Think_and_Grow_Rich</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

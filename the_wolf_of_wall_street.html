@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wolf of Wall Street | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">The Wolf of Wall Street</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1dw9OuqlxWNca-oBOYS_hrVj9Wh-_F-Kp">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/39.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1dw9OuqlxWNca-oBOYS_hrVj9Wh-_F-Kp', 'audio', 'card-1dw9OuqlxWNca-oBOYS_hrVj9Wh-_F-Kp')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1dw9OuqlxWNca-oBOYS_hrVj9Wh-_F-Kp"></div>
+        </div>
+        <div class="book-title">14 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1e0NnV0jI7yIjNw8gFb1pr12UvD-kEOwg">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/36.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1e0NnV0jI7yIjNw8gFb1pr12UvD-kEOwg', 'audio', 'card-1e0NnV0jI7yIjNw8gFb1pr12UvD-kEOwg')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1e0NnV0jI7yIjNw8gFb1pr12UvD-kEOwg"></div>
+        </div>
+        <div class="book-title">06 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1O-Yi91hrWY1f8UGonTQn-wZ_cqzsCfSL">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/50.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1O-Yi91hrWY1f8UGonTQn-wZ_cqzsCfSL', 'audio', 'card-1O-Yi91hrWY1f8UGonTQn-wZ_cqzsCfSL')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1O-Yi91hrWY1f8UGonTQn-wZ_cqzsCfSL"></div>
+        </div>
+        <div class="book-title">05 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1xDgRmWA-Lsw7UeAJJaHTY-qRb6R54Lfs">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/74.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1xDgRmWA-Lsw7UeAJJaHTY-qRb6R54Lfs', 'audio', 'card-1xDgRmWA-Lsw7UeAJJaHTY-qRb6R54Lfs')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1xDgRmWA-Lsw7UeAJJaHTY-qRb6R54Lfs"></div>
+        </div>
+        <div class="book-title">19 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1zZ1wQcq7EQoBkNcUxQvWzyV9p3SP_nnN">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/48.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1zZ1wQcq7EQoBkNcUxQvWzyV9p3SP_nnN', 'audio', 'card-1zZ1wQcq7EQoBkNcUxQvWzyV9p3SP_nnN')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1zZ1wQcq7EQoBkNcUxQvWzyV9p3SP_nnN"></div>
+        </div>
+        <div class="book-title">16 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1GInagyK_YVNDrmIvN0EE_UiKBzor8kql">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/46.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1GInagyK_YVNDrmIvN0EE_UiKBzor8kql', 'audio', 'card-1GInagyK_YVNDrmIvN0EE_UiKBzor8kql')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1GInagyK_YVNDrmIvN0EE_UiKBzor8kql"></div>
+        </div>
+        <div class="book-title">09 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1o4ePDy9Hkjhwcf40DIRIbURWQ1Lt1R3g">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/86.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1o4ePDy9Hkjhwcf40DIRIbURWQ1Lt1R3g', 'audio', 'card-1o4ePDy9Hkjhwcf40DIRIbURWQ1Lt1R3g')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1o4ePDy9Hkjhwcf40DIRIbURWQ1Lt1R3g"></div>
+        </div>
+        <div class="book-title">18 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1uWJ6wCsW-QIWVBgMfGkrFVOZs10T5DIO">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/92.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1uWJ6wCsW-QIWVBgMfGkrFVOZs10T5DIO', 'audio', 'card-1uWJ6wCsW-QIWVBgMfGkrFVOZs10T5DIO')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1uWJ6wCsW-QIWVBgMfGkrFVOZs10T5DIO"></div>
+        </div>
+        <div class="book-title">17 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1HtR44tTtwHQ03FdC8xwAsDrFKH9PTO1z">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/27.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1HtR44tTtwHQ03FdC8xwAsDrFKH9PTO1z', 'audio', 'card-1HtR44tTtwHQ03FdC8xwAsDrFKH9PTO1z')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1HtR44tTtwHQ03FdC8xwAsDrFKH9PTO1z"></div>
+        </div>
+        <div class="book-title">13 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1frfatJPS1-WXv6QUT8uu6jDXJ4pgEuOT">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/25.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1frfatJPS1-WXv6QUT8uu6jDXJ4pgEuOT', 'audio', 'card-1frfatJPS1-WXv6QUT8uu6jDXJ4pgEuOT')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1frfatJPS1-WXv6QUT8uu6jDXJ4pgEuOT"></div>
+        </div>
+        <div class="book-title">10 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1SGg934raHiiWc6BgVH3KYYPzNOB21k1i">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/37.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1SGg934raHiiWc6BgVH3KYYPzNOB21k1i', 'audio', 'card-1SGg934raHiiWc6BgVH3KYYPzNOB21k1i')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1SGg934raHiiWc6BgVH3KYYPzNOB21k1i"></div>
+        </div>
+        <div class="book-title">12 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-14FCZK2-HdoPGBNfSVD8jZEQYsb5kftxt">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/37.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('14FCZK2-HdoPGBNfSVD8jZEQYsb5kftxt', 'audio', 'card-14FCZK2-HdoPGBNfSVD8jZEQYsb5kftxt')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-14FCZK2-HdoPGBNfSVD8jZEQYsb5kftxt"></div>
+        </div>
+        <div class="book-title">04 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1fwaJohZwDp7sSAwK9RGUu7lYB0aI9AYw">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/44.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1fwaJohZwDp7sSAwK9RGUu7lYB0aI9AYw', 'audio', 'card-1fwaJohZwDp7sSAwK9RGUu7lYB0aI9AYw')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1fwaJohZwDp7sSAwK9RGUu7lYB0aI9AYw"></div>
+        </div>
+        <div class="book-title">08 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1ohNiDvBrbGrjoFURbbb3PtzYDAudIXpn">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/73.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ohNiDvBrbGrjoFURbbb3PtzYDAudIXpn', 'audio', 'card-1ohNiDvBrbGrjoFURbbb3PtzYDAudIXpn')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ohNiDvBrbGrjoFURbbb3PtzYDAudIXpn"></div>
+        </div>
+        <div class="book-title">15 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1kDxP_M5hvSyqswDKG1AqnC0DieoiE8Az">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/79.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1kDxP_M5hvSyqswDKG1AqnC0DieoiE8Az', 'audio', 'card-1kDxP_M5hvSyqswDKG1AqnC0DieoiE8Az')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1kDxP_M5hvSyqswDKG1AqnC0DieoiE8Az"></div>
+        </div>
+        <div class="book-title">20 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1wijbUdoZUPriOENCDG8fo7ewUsC7eK0G">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/67.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wijbUdoZUPriOENCDG8fo7ewUsC7eK0G', 'audio', 'card-1wijbUdoZUPriOENCDG8fo7ewUsC7eK0G')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wijbUdoZUPriOENCDG8fo7ewUsC7eK0G"></div>
+        </div>
+        <div class="book-title">11 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-145yyK9QCizTCVou-hjfWtwtyFacSjHE4">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/56.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('145yyK9QCizTCVou-hjfWtwtyFacSjHE4', 'audio', 'card-145yyK9QCizTCVou-hjfWtwtyFacSjHE4')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-145yyK9QCizTCVou-hjfWtwtyFacSjHE4"></div>
+        </div>
+        <div class="book-title">07 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-17cIPVKDApG2lKbYjRqi_AUYDZZcd0yuv">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/43.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('17cIPVKDApG2lKbYjRqi_AUYDZZcd0yuv', 'audio', 'card-17cIPVKDApG2lKbYjRqi_AUYDZZcd0yuv')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-17cIPVKDApG2lKbYjRqi_AUYDZZcd0yuv"></div>
+        </div>
+        <div class="book-title">03 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1DPF72Znd6Vc2tvfbqOazTs69xl6E0uSd">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/47.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1DPF72Znd6Vc2tvfbqOazTs69xl6E0uSd', 'audio', 'card-1DPF72Znd6Vc2tvfbqOazTs69xl6E0uSd')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1DPF72Znd6Vc2tvfbqOazTs69xl6E0uSd"></div>
+        </div>
+        <div class="book-title">01 - The Wolf of Wall Street</div>
+      </div>
+
+      <div class="book-card" id="card-1CEb6ychJCG7lYZ-3sp-n4uXyp5wdqepw">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/48.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1CEb6ychJCG7lYZ-3sp-n4uXyp5wdqepw', 'audio', 'card-1CEb6ychJCG7lYZ-3sp-n4uXyp5wdqepw')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1CEb6ychJCG7lYZ-3sp-n4uXyp5wdqepw"></div>
+        </div>
+        <div class="book-title">02 - The Wolf of Wall Street</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Power of Now | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">The Power of Now</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1rg-5EwfrvDXNWl9BCNXMtaUxyYdFsMLo">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/95.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rg-5EwfrvDXNWl9BCNXMtaUxyYdFsMLo', 'audio', 'card-1rg-5EwfrvDXNWl9BCNXMtaUxyYdFsMLo')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rg-5EwfrvDXNWl9BCNXMtaUxyYdFsMLo"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (16)</div>
+      </div>
+
+      <div class="book-card" id="card-1U9luxzW4FdG9sjjDqutmaJ6EL-Dau1MP">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/39.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1U9luxzW4FdG9sjjDqutmaJ6EL-Dau1MP', 'audio', 'card-1U9luxzW4FdG9sjjDqutmaJ6EL-Dau1MP')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1U9luxzW4FdG9sjjDqutmaJ6EL-Dau1MP"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (14)</div>
+      </div>
+
+      <div class="book-card" id="card-1ZyR9pJxWJ-VgAOB8ykQmye8qH9RfflKQ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/22.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ZyR9pJxWJ-VgAOB8ykQmye8qH9RfflKQ', 'audio', 'card-1ZyR9pJxWJ-VgAOB8ykQmye8qH9RfflKQ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ZyR9pJxWJ-VgAOB8ykQmye8qH9RfflKQ"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (6)</div>
+      </div>
+
+      <div class="book-card" id="card-12fpa9oA333lLPQRyixUnQieoWJLRCrcA">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/31.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('12fpa9oA333lLPQRyixUnQieoWJLRCrcA', 'audio', 'card-12fpa9oA333lLPQRyixUnQieoWJLRCrcA')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-12fpa9oA333lLPQRyixUnQieoWJLRCrcA"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (9)</div>
+      </div>
+
+      <div class="book-card" id="card-1SRISH9WkP9uFplWPXIv9x1zD_DeB7vH3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/62.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1SRISH9WkP9uFplWPXIv9x1zD_DeB7vH3', 'audio', 'card-1SRISH9WkP9uFplWPXIv9x1zD_DeB7vH3')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1SRISH9WkP9uFplWPXIv9x1zD_DeB7vH3"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (12)</div>
+      </div>
+
+      <div class="book-card" id="card-13nhgtGb_-Lp2UUMK5UF0jSm9ynlQwBoD">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/82.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('13nhgtGb_-Lp2UUMK5UF0jSm9ynlQwBoD', 'audio', 'card-13nhgtGb_-Lp2UUMK5UF0jSm9ynlQwBoD')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-13nhgtGb_-Lp2UUMK5UF0jSm9ynlQwBoD"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (4)</div>
+      </div>
+
+      <div class="book-card" id="card-1Jc9oc4UQU3_7GhjCT6YhTXuHESjueqzM">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/47.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Jc9oc4UQU3_7GhjCT6YhTXuHESjueqzM', 'audio', 'card-1Jc9oc4UQU3_7GhjCT6YhTXuHESjueqzM')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Jc9oc4UQU3_7GhjCT6YhTXuHESjueqzM"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (2)</div>
+      </div>
+
+      <div class="book-card" id="card-1HQtK7HbKf6RLjIHxxA-miHRGBbj4ikg8">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/52.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1HQtK7HbKf6RLjIHxxA-miHRGBbj4ikg8', 'audio', 'card-1HQtK7HbKf6RLjIHxxA-miHRGBbj4ikg8')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1HQtK7HbKf6RLjIHxxA-miHRGBbj4ikg8"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (10)</div>
+      </div>
+
+      <div class="book-card" id="card-1IPM0s-l9TJC1x5Rd8xGAHdTk3KtqFouI">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/61.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1IPM0s-l9TJC1x5Rd8xGAHdTk3KtqFouI', 'audio', 'card-1IPM0s-l9TJC1x5Rd8xGAHdTk3KtqFouI')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1IPM0s-l9TJC1x5Rd8xGAHdTk3KtqFouI"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (15)</div>
+      </div>
+
+      <div class="book-card" id="card-1S9X5fQsqaT0RKQYQhq0B0E6aDU6fkC9_">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/20.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1S9X5fQsqaT0RKQYQhq0B0E6aDU6fkC9_', 'audio', 'card-1S9X5fQsqaT0RKQYQhq0B0E6aDU6fkC9_')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1S9X5fQsqaT0RKQYQhq0B0E6aDU6fkC9_"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (7)</div>
+      </div>
+
+      <div class="book-card" id="card-1rp_gSSjAUeWPrZPAg7XW48t9Ray4nNNO">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/46.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rp_gSSjAUeWPrZPAg7XW48t9Ray4nNNO', 'audio', 'card-1rp_gSSjAUeWPrZPAg7XW48t9Ray4nNNO')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rp_gSSjAUeWPrZPAg7XW48t9Ray4nNNO"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (11)</div>
+      </div>
+
+      <div class="book-card" id="card-1Jcz7o8tsGI5fVeynG5Nzvy-ywGIa5-qY">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/96.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Jcz7o8tsGI5fVeynG5Nzvy-ywGIa5-qY', 'audio', 'card-1Jcz7o8tsGI5fVeynG5Nzvy-ywGIa5-qY')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Jcz7o8tsGI5fVeynG5Nzvy-ywGIa5-qY"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (13)</div>
+      </div>
+
+      <div class="book-card" id="card-1TG1B489pocFmF5_BMINl_Ys7anXVrwOW">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/99.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1TG1B489pocFmF5_BMINl_Ys7anXVrwOW', 'audio', 'card-1TG1B489pocFmF5_BMINl_Ys7anXVrwOW')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1TG1B489pocFmF5_BMINl_Ys7anXVrwOW"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (8)</div>
+      </div>
+
+      <div class="book-card" id="card-1SpRqQtg6N0iHayEK2fObFDG0vCG9HT0W">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/4.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1SpRqQtg6N0iHayEK2fObFDG0vCG9HT0W', 'audio', 'card-1SpRqQtg6N0iHayEK2fObFDG0vCG9HT0W')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1SpRqQtg6N0iHayEK2fObFDG0vCG9HT0W"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (3)</div>
+      </div>
+
+      <div class="book-card" id="card-1IFcsgFLyYDEc3_UG_Q0h0HDMOoZBExXK">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/80.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1IFcsgFLyYDEc3_UG_Q0h0HDMOoZBExXK', 'audio', 'card-1IFcsgFLyYDEc3_UG_Q0h0HDMOoZBExXK')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1IFcsgFLyYDEc3_UG_Q0h0HDMOoZBExXK"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio (5)</div>
+      </div>
+
+      <div class="book-card" id="card-1mQZDfK99Vy_dg852cPNFd45AVV887fbD">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/80.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1mQZDfK99Vy_dg852cPNFd45AVV887fbD', 'audio', 'card-1mQZDfK99Vy_dg852cPNFd45AVV887fbD')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1mQZDfK99Vy_dg852cPNFd45AVV887fbD"></div>
+        </div>
+        <div class="book-title">Ekhart_Tolle_The_Power_Of_Now_Audio</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hate U Give by Angie Thomas | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">The Hate U Give by Angie Thomas</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-16CHAovzYLNomMQ_fNNSha9-9U5oH1nJQ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/9.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('16CHAovzYLNomMQ_fNNSha9-9U5oH1nJQ', 'audio', 'card-16CHAovzYLNomMQ_fNNSha9-9U5oH1nJQ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-16CHAovzYLNomMQ_fNNSha9-9U5oH1nJQ"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 021 - Chapter 20</div>
+      </div>
+
+      <div class="book-card" id="card-16vOKkQ69fZ5avKdA8qpPysLwilbNHyj3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/3.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('16vOKkQ69fZ5avKdA8qpPysLwilbNHyj3', 'audio', 'card-16vOKkQ69fZ5avKdA8qpPysLwilbNHyj3')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-16vOKkQ69fZ5avKdA8qpPysLwilbNHyj3"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 010 - Chapter 9</div>
+      </div>
+
+      <div class="book-card" id="card-1HrI4FR5jsjuaNEyULOMQ8jTQLPzaj66q">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/83.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1HrI4FR5jsjuaNEyULOMQ8jTQLPzaj66q', 'audio', 'card-1HrI4FR5jsjuaNEyULOMQ8jTQLPzaj66q')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1HrI4FR5jsjuaNEyULOMQ8jTQLPzaj66q"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 012 - Chapter 11</div>
+      </div>
+
+      <div class="book-card" id="card-1QEia0c23wLyLe9mNgF5VBCdfjsOvANGL">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/1.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1QEia0c23wLyLe9mNgF5VBCdfjsOvANGL', 'audio', 'card-1QEia0c23wLyLe9mNgF5VBCdfjsOvANGL')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1QEia0c23wLyLe9mNgF5VBCdfjsOvANGL"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 013 - Chapter 12</div>
+      </div>
+
+      <div class="book-card" id="card-1VVY74HXXzNpKnRtr2Ls8Xa3ALcJhAmKX">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/15.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1VVY74HXXzNpKnRtr2Ls8Xa3ALcJhAmKX', 'audio', 'card-1VVY74HXXzNpKnRtr2Ls8Xa3ALcJhAmKX')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1VVY74HXXzNpKnRtr2Ls8Xa3ALcJhAmKX"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 018 - Chapter 17</div>
+      </div>
+
+      <div class="book-card" id="card-1uDPDJVFpH8suXiiVm0p5zDe4CQ2UrDFm">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/19.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1uDPDJVFpH8suXiiVm0p5zDe4CQ2UrDFm', 'audio', 'card-1uDPDJVFpH8suXiiVm0p5zDe4CQ2UrDFm')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1uDPDJVFpH8suXiiVm0p5zDe4CQ2UrDFm"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 022 - Chapter 21</div>
+      </div>
+
+      <div class="book-card" id="card-117VN6LHVGmQB1FrZ_0v4w8Jm5ZB_gQuW">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/13.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('117VN6LHVGmQB1FrZ_0v4w8Jm5ZB_gQuW', 'audio', 'card-117VN6LHVGmQB1FrZ_0v4w8Jm5ZB_gQuW')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-117VN6LHVGmQB1FrZ_0v4w8Jm5ZB_gQuW"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 019 - Chapter 18</div>
+      </div>
+
+      <div class="book-card" id="card-10bsnAgBCZVu_6fh-XJ_Pa_E7aneCbjUr">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/70.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('10bsnAgBCZVu_6fh-XJ_Pa_E7aneCbjUr', 'audio', 'card-10bsnAgBCZVu_6fh-XJ_Pa_E7aneCbjUr')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-10bsnAgBCZVu_6fh-XJ_Pa_E7aneCbjUr"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 004 - Chapter 3</div>
+      </div>
+
+      <div class="book-card" id="card-16xbT8FVdYx2ed96aV07H0Ms5ay4eSG0G">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/8.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('16xbT8FVdYx2ed96aV07H0Ms5ay4eSG0G', 'audio', 'card-16xbT8FVdYx2ed96aV07H0Ms5ay4eSG0G')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-16xbT8FVdYx2ed96aV07H0Ms5ay4eSG0G"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 025 - Chapter 24</div>
+      </div>
+
+      <div class="book-card" id="card-1TAbtilkQ_pT41nUhSKq4w_m9R0Y5AMrk">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/55.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1TAbtilkQ_pT41nUhSKq4w_m9R0Y5AMrk', 'audio', 'card-1TAbtilkQ_pT41nUhSKq4w_m9R0Y5AMrk')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1TAbtilkQ_pT41nUhSKq4w_m9R0Y5AMrk"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 006 - Chapter 5</div>
+      </div>
+
+      <div class="book-card" id="card-19bY9mBaQdYaYrL3w9qqfexSaKCcXqttk">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/47.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('19bY9mBaQdYaYrL3w9qqfexSaKCcXqttk', 'audio', 'card-19bY9mBaQdYaYrL3w9qqfexSaKCcXqttk')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-19bY9mBaQdYaYrL3w9qqfexSaKCcXqttk"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 023 - Chapter 22</div>
+      </div>
+
+      <div class="book-card" id="card-1AihtykMWf6AwkFMXTnPHWvsgJhaEWBnl">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/45.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1AihtykMWf6AwkFMXTnPHWvsgJhaEWBnl', 'audio', 'card-1AihtykMWf6AwkFMXTnPHWvsgJhaEWBnl')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1AihtykMWf6AwkFMXTnPHWvsgJhaEWBnl"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 027 - Chapter 26</div>
+      </div>
+
+      <div class="book-card" id="card-1zXA-lhu9OCeLDs8bxKBW3F3xj8tRZ-MI">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/9.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1zXA-lhu9OCeLDs8bxKBW3F3xj8tRZ-MI', 'audio', 'card-1zXA-lhu9OCeLDs8bxKBW3F3xj8tRZ-MI')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1zXA-lhu9OCeLDs8bxKBW3F3xj8tRZ-MI"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 016 - Chapter 15</div>
+      </div>
+
+      <div class="book-card" id="card-1B4bwVv1jDkCo2LoaoWihaW-ld3JuYq6C">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/33.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1B4bwVv1jDkCo2LoaoWihaW-ld3JuYq6C', 'audio', 'card-1B4bwVv1jDkCo2LoaoWihaW-ld3JuYq6C')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1B4bwVv1jDkCo2LoaoWihaW-ld3JuYq6C"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 026 - Chapter 25</div>
+      </div>
+
+      <div class="book-card" id="card-12oQtzyVqalgczdMMIatk2YmUM0Ecmgw8">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/20.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('12oQtzyVqalgczdMMIatk2YmUM0Ecmgw8', 'audio', 'card-12oQtzyVqalgczdMMIatk2YmUM0Ecmgw8')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-12oQtzyVqalgczdMMIatk2YmUM0Ecmgw8"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 014 - Chapter 13</div>
+      </div>
+
+      <div class="book-card" id="card-1LyLGqf0lwHCanT4EQuJQM3usT0uUAQHa">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/93.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1LyLGqf0lwHCanT4EQuJQM3usT0uUAQHa', 'audio', 'card-1LyLGqf0lwHCanT4EQuJQM3usT0uUAQHa')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1LyLGqf0lwHCanT4EQuJQM3usT0uUAQHa"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 024 - Chapter 23</div>
+      </div>
+
+      <div class="book-card" id="card-1rqZ9xVEtmRSvAl13TRbF4jlTRAmHKCHP">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/55.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rqZ9xVEtmRSvAl13TRbF4jlTRAmHKCHP', 'audio', 'card-1rqZ9xVEtmRSvAl13TRbF4jlTRAmHKCHP')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rqZ9xVEtmRSvAl13TRbF4jlTRAmHKCHP"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 015 - Chapter 14</div>
+      </div>
+
+      <div class="book-card" id="card-1oh9G34qRK91WG0Uv4G7JGPB7CE8Fx3-D">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/29.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1oh9G34qRK91WG0Uv4G7JGPB7CE8Fx3-D', 'audio', 'card-1oh9G34qRK91WG0Uv4G7JGPB7CE8Fx3-D')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1oh9G34qRK91WG0Uv4G7JGPB7CE8Fx3-D"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 011 - Chapter 10</div>
+      </div>
+
+      <div class="book-card" id="card-1c9nBQ6jwxF0RPC2t4mxd4kbeHe-E_xOu">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/40.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1c9nBQ6jwxF0RPC2t4mxd4kbeHe-E_xOu', 'audio', 'card-1c9nBQ6jwxF0RPC2t4mxd4kbeHe-E_xOu')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1c9nBQ6jwxF0RPC2t4mxd4kbeHe-E_xOu"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 020 - Chapter 19</div>
+      </div>
+
+      <div class="book-card" id="card-1IaIL5Mve2tlWgJNLUlSCBJvNNYjYaCL_">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/37.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1IaIL5Mve2tlWgJNLUlSCBJvNNYjYaCL_', 'audio', 'card-1IaIL5Mve2tlWgJNLUlSCBJvNNYjYaCL_')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1IaIL5Mve2tlWgJNLUlSCBJvNNYjYaCL_"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 009 - Chapter 8</div>
+      </div>
+
+      <div class="book-card" id="card-1aGFOqV5eBnGeTPPblFLbNCHKtAZAAG3B">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/23.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1aGFOqV5eBnGeTPPblFLbNCHKtAZAAG3B', 'audio', 'card-1aGFOqV5eBnGeTPPblFLbNCHKtAZAAG3B')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1aGFOqV5eBnGeTPPblFLbNCHKtAZAAG3B"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 008 - Chapter 7</div>
+      </div>
+
+      <div class="book-card" id="card-1GWPcWIIDWvoVF-Iirj4Ju4Wi1W-KLZfr">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/12.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1GWPcWIIDWvoVF-Iirj4Ju4Wi1W-KLZfr', 'audio', 'card-1GWPcWIIDWvoVF-Iirj4Ju4Wi1W-KLZfr')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1GWPcWIIDWvoVF-Iirj4Ju4Wi1W-KLZfr"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 028 - Credits</div>
+      </div>
+
+      <div class="book-card" id="card-1oFpAqLJn60IO3aTclemgnmtJgZpRMCNn">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/52.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1oFpAqLJn60IO3aTclemgnmtJgZpRMCNn', 'audio', 'card-1oFpAqLJn60IO3aTclemgnmtJgZpRMCNn')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1oFpAqLJn60IO3aTclemgnmtJgZpRMCNn"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 005 - Chapter 4</div>
+      </div>
+
+      <div class="book-card" id="card-1LvMuauGiwzmNcF2l8yVzrfrnxCg8JZ7a">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/67.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1LvMuauGiwzmNcF2l8yVzrfrnxCg8JZ7a', 'audio', 'card-1LvMuauGiwzmNcF2l8yVzrfrnxCg8JZ7a')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1LvMuauGiwzmNcF2l8yVzrfrnxCg8JZ7a"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 017 - Chapter 16</div>
+      </div>
+
+      <div class="book-card" id="card-1TmZDUXauD2XizdVsRmU51_An5jYuAwWC">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/12.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1TmZDUXauD2XizdVsRmU51_An5jYuAwWC', 'audio', 'card-1TmZDUXauD2XizdVsRmU51_An5jYuAwWC')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1TmZDUXauD2XizdVsRmU51_An5jYuAwWC"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 002 - Chapter 1</div>
+      </div>
+
+      <div class="book-card" id="card-1E1wlhn3pfSzFxtvYwrlgiCjkLcT_Pavd">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/97.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1E1wlhn3pfSzFxtvYwrlgiCjkLcT_Pavd', 'audio', 'card-1E1wlhn3pfSzFxtvYwrlgiCjkLcT_Pavd')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1E1wlhn3pfSzFxtvYwrlgiCjkLcT_Pavd"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 007 - Chapter 6</div>
+      </div>
+
+      <div class="book-card" id="card-16QmzBDwWz1-6phJkamnadF43lTfXmsDc">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/1.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('16QmzBDwWz1-6phJkamnadF43lTfXmsDc', 'audio', 'card-16QmzBDwWz1-6phJkamnadF43lTfXmsDc')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-16QmzBDwWz1-6phJkamnadF43lTfXmsDc"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 003 - Chapter 2</div>
+      </div>
+
+      <div class="book-card" id="card-1uKjBFeGwK77GmMXhithjv2O8lGehd0xF">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/95.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1uKjBFeGwK77GmMXhithjv2O8lGehd0xF', 'audio', 'card-1uKjBFeGwK77GmMXhithjv2O8lGehd0xF')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1uKjBFeGwK77GmMXhithjv2O8lGehd0xF"></div>
+        </div>
+        <div class="book-title">The Hate U Give - 001 - The Hate U Give</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

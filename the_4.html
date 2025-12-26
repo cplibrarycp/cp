@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 4-Hour Workweek | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">The 4-Hour Workweek</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1lVSoNUdIZtrMXTz83Lh2RO59O8ZdGYwh">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/21.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1lVSoNUdIZtrMXTz83Lh2RO59O8ZdGYwh', 'audio', 'card-1lVSoNUdIZtrMXTz83Lh2RO59O8ZdGYwh')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1lVSoNUdIZtrMXTz83Lh2RO59O8ZdGYwh"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [15-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1aEw3QoadfjQIYf0AGnz8R3u_cV1c6agx">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/49.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1aEw3QoadfjQIYf0AGnz8R3u_cV1c6agx', 'audio', 'card-1aEw3QoadfjQIYf0AGnz8R3u_cV1c6agx')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1aEw3QoadfjQIYf0AGnz8R3u_cV1c6agx"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [16-18]</div>
+      </div>
+
+      <div class="book-card" id="card-19Ujk8e5j0UqxP4nKnGfgOHhGhr9WuMmS">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/30.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('19Ujk8e5j0UqxP4nKnGfgOHhGhr9WuMmS', 'audio', 'card-19Ujk8e5j0UqxP4nKnGfgOHhGhr9WuMmS')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-19Ujk8e5j0UqxP4nKnGfgOHhGhr9WuMmS"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [14-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1no1VxZUboEoAUkCZah6a_rQYrlGucLD5">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/14.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1no1VxZUboEoAUkCZah6a_rQYrlGucLD5', 'audio', 'card-1no1VxZUboEoAUkCZah6a_rQYrlGucLD5')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1no1VxZUboEoAUkCZah6a_rQYrlGucLD5"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [17-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1wOhBHRjSFodK2Knxp3E6rXRzbXi3scUu">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/24.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wOhBHRjSFodK2Knxp3E6rXRzbXi3scUu', 'audio', 'card-1wOhBHRjSFodK2Knxp3E6rXRzbXi3scUu')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wOhBHRjSFodK2Knxp3E6rXRzbXi3scUu"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [18-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1FllKg2d1YubifckWgV6cSZHwFo1vv2-N">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/61.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1FllKg2d1YubifckWgV6cSZHwFo1vv2-N', 'audio', 'card-1FllKg2d1YubifckWgV6cSZHwFo1vv2-N')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1FllKg2d1YubifckWgV6cSZHwFo1vv2-N"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [09-18]</div>
+      </div>
+
+      <div class="book-card" id="card-183aBrteuvRd5bQ7bVbAd5nTYxlRowKxH">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/90.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('183aBrteuvRd5bQ7bVbAd5nTYxlRowKxH', 'audio', 'card-183aBrteuvRd5bQ7bVbAd5nTYxlRowKxH')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-183aBrteuvRd5bQ7bVbAd5nTYxlRowKxH"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [10-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1ajsrEC8NQlP0aFrYXV6E6ufpfUUk_WxE">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/51.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ajsrEC8NQlP0aFrYXV6E6ufpfUUk_WxE', 'audio', 'card-1ajsrEC8NQlP0aFrYXV6E6ufpfUUk_WxE')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ajsrEC8NQlP0aFrYXV6E6ufpfUUk_WxE"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [08-18]</div>
+      </div>
+
+      <div class="book-card" id="card-10HXkyf4phBJRubJgWiQVzFYYfTwTUDby">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/68.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('10HXkyf4phBJRubJgWiQVzFYYfTwTUDby', 'audio', 'card-10HXkyf4phBJRubJgWiQVzFYYfTwTUDby')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-10HXkyf4phBJRubJgWiQVzFYYfTwTUDby"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [06-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1hUjy4e2PDWcr9qa5oHOsL8xk3CEDBqiG">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/86.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1hUjy4e2PDWcr9qa5oHOsL8xk3CEDBqiG', 'audio', 'card-1hUjy4e2PDWcr9qa5oHOsL8xk3CEDBqiG')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1hUjy4e2PDWcr9qa5oHOsL8xk3CEDBqiG"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [12-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1L-r00GXQAfzr-Fd7OvYXJcCEx02z_isE">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/70.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1L-r00GXQAfzr-Fd7OvYXJcCEx02z_isE', 'audio', 'card-1L-r00GXQAfzr-Fd7OvYXJcCEx02z_isE')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1L-r00GXQAfzr-Fd7OvYXJcCEx02z_isE"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [11-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1569mN5rL1Fu3-MNYs5fwtKZuWFvO4vhm">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/29.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1569mN5rL1Fu3-MNYs5fwtKZuWFvO4vhm', 'audio', 'card-1569mN5rL1Fu3-MNYs5fwtKZuWFvO4vhm')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1569mN5rL1Fu3-MNYs5fwtKZuWFvO4vhm"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [13-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1pC69lUQOIeZtg8pGCaPBDFRXwcqZIuYV">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/8.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1pC69lUQOIeZtg8pGCaPBDFRXwcqZIuYV', 'audio', 'card-1pC69lUQOIeZtg8pGCaPBDFRXwcqZIuYV')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1pC69lUQOIeZtg8pGCaPBDFRXwcqZIuYV"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [04-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1fPN2KbYKWHkrPxltLynPqch4fscHjh19">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/16.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1fPN2KbYKWHkrPxltLynPqch4fscHjh19', 'audio', 'card-1fPN2KbYKWHkrPxltLynPqch4fscHjh19')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1fPN2KbYKWHkrPxltLynPqch4fscHjh19"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [05-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1ZEZPbiZBcDwRejx390KnLVMLd5gsDsME">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/32.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ZEZPbiZBcDwRejx390KnLVMLd5gsDsME', 'audio', 'card-1ZEZPbiZBcDwRejx390KnLVMLd5gsDsME')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ZEZPbiZBcDwRejx390KnLVMLd5gsDsME"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [07-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1mWPY0XKT6z8nr3pGovXU54Twe9doFZBr">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/41.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1mWPY0XKT6z8nr3pGovXU54Twe9doFZBr', 'audio', 'card-1mWPY0XKT6z8nr3pGovXU54Twe9doFZBr')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1mWPY0XKT6z8nr3pGovXU54Twe9doFZBr"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [01-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1rgd3orHIuKyTdUeyoUcE7YKdsNCx2mLG">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/95.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rgd3orHIuKyTdUeyoUcE7YKdsNCx2mLG', 'audio', 'card-1rgd3orHIuKyTdUeyoUcE7YKdsNCx2mLG')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rgd3orHIuKyTdUeyoUcE7YKdsNCx2mLG"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [03-18]</div>
+      </div>
+
+      <div class="book-card" id="card-1YEQfdfniugbF9HF3h7Dei82JiNklozr8">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/70.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1YEQfdfniugbF9HF3h7Dei82JiNklozr8', 'audio', 'card-1YEQfdfniugbF9HF3h7Dei82JiNklozr8')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1YEQfdfniugbF9HF3h7Dei82JiNklozr8"></div>
+        </div>
+        <div class="book-title">The 4-Hour Workweek [02-18]</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

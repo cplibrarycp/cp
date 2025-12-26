@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Are A Badass How To Stop Doubting | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">You Are A Badass How To Stop Doubting</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1IO2rJ_L78UOBDjmLi0uuRpG-mcnvy-A8">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/15.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1IO2rJ_L78UOBDjmLi0uuRpG-mcnvy-A8', 'audio', 'card-1IO2rJ_L78UOBDjmLi0uuRpG-mcnvy-A8')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1IO2rJ_L78UOBDjmLi0uuRpG-mcnvy-A8"></div>
+        </div>
+        <div class="book-title">25 Chapter 25</div>
+      </div>
+
+      <div class="book-card" id="card-1_0SaeshUsF4O9YTrqDZ6gbPNMmQ5KIEV">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/5.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1_0SaeshUsF4O9YTrqDZ6gbPNMmQ5KIEV', 'audio', 'card-1_0SaeshUsF4O9YTrqDZ6gbPNMmQ5KIEV')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1_0SaeshUsF4O9YTrqDZ6gbPNMmQ5KIEV"></div>
+        </div>
+        <div class="book-title">22 Chapter 22</div>
+      </div>
+
+      <div class="book-card" id="card-1AZd8tiuMcsKkKsZ6FfmACHFn0ewzFmoU">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/81.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1AZd8tiuMcsKkKsZ6FfmACHFn0ewzFmoU', 'audio', 'card-1AZd8tiuMcsKkKsZ6FfmACHFn0ewzFmoU')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1AZd8tiuMcsKkKsZ6FfmACHFn0ewzFmoU"></div>
+        </div>
+        <div class="book-title">18 Chapter 18</div>
+      </div>
+
+      <div class="book-card" id="card-1JF7l5BKDqLaTctzrnz-mz6_fjRajHZpJ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/5.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1JF7l5BKDqLaTctzrnz-mz6_fjRajHZpJ', 'audio', 'card-1JF7l5BKDqLaTctzrnz-mz6_fjRajHZpJ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1JF7l5BKDqLaTctzrnz-mz6_fjRajHZpJ"></div>
+        </div>
+        <div class="book-title">27 Chapter 27</div>
+      </div>
+
+      <div class="book-card" id="card-13aKP7WPu3v0i-A7pc4J9Sw6lmj1qXzu7">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/3.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('13aKP7WPu3v0i-A7pc4J9Sw6lmj1qXzu7', 'audio', 'card-13aKP7WPu3v0i-A7pc4J9Sw6lmj1qXzu7')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-13aKP7WPu3v0i-A7pc4J9Sw6lmj1qXzu7"></div>
+        </div>
+        <div class="book-title">21 Chapter 21</div>
+      </div>
+
+      <div class="book-card" id="card-1T-ngBF1D1aVa837fBqutLd9X0e0DXa8K">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/30.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1T-ngBF1D1aVa837fBqutLd9X0e0DXa8K', 'audio', 'card-1T-ngBF1D1aVa837fBqutLd9X0e0DXa8K')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1T-ngBF1D1aVa837fBqutLd9X0e0DXa8K"></div>
+        </div>
+        <div class="book-title">20 Chapter 20</div>
+      </div>
+
+      <div class="book-card" id="card-1MdLSzFc86TBigQFWj5wJpbRBkwsYL33x">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/25.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1MdLSzFc86TBigQFWj5wJpbRBkwsYL33x', 'audio', 'card-1MdLSzFc86TBigQFWj5wJpbRBkwsYL33x')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1MdLSzFc86TBigQFWj5wJpbRBkwsYL33x"></div>
+        </div>
+        <div class="book-title">07 Chapter 7</div>
+      </div>
+
+      <div class="book-card" id="card-1Kpx5tNpY2HJRuj77rZGhmmxvsXJqK6O0">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/45.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Kpx5tNpY2HJRuj77rZGhmmxvsXJqK6O0', 'audio', 'card-1Kpx5tNpY2HJRuj77rZGhmmxvsXJqK6O0')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Kpx5tNpY2HJRuj77rZGhmmxvsXJqK6O0"></div>
+        </div>
+        <div class="book-title">24 Chapter 24</div>
+      </div>
+
+      <div class="book-card" id="card-1iMOCzCe5EfRxYByHBaAM2EyjhQTNTokd">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/40.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1iMOCzCe5EfRxYByHBaAM2EyjhQTNTokd', 'audio', 'card-1iMOCzCe5EfRxYByHBaAM2EyjhQTNTokd')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1iMOCzCe5EfRxYByHBaAM2EyjhQTNTokd"></div>
+        </div>
+        <div class="book-title">09 Chapter 9</div>
+      </div>
+
+      <div class="book-card" id="card-13Am21I1vrU0DJTvKLF43ANVt3ZxDHQ62">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/68.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('13Am21I1vrU0DJTvKLF43ANVt3ZxDHQ62', 'audio', 'card-13Am21I1vrU0DJTvKLF43ANVt3ZxDHQ62')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-13Am21I1vrU0DJTvKLF43ANVt3ZxDHQ62"></div>
+        </div>
+        <div class="book-title">16 Chapter 16</div>
+      </div>
+
+      <div class="book-card" id="card-1gEGj9N3ZpxGvsKsyh-6ocucF0R_vvwoz">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/38.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1gEGj9N3ZpxGvsKsyh-6ocucF0R_vvwoz', 'audio', 'card-1gEGj9N3ZpxGvsKsyh-6ocucF0R_vvwoz')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1gEGj9N3ZpxGvsKsyh-6ocucF0R_vvwoz"></div>
+        </div>
+        <div class="book-title">12 Chapter 12</div>
+      </div>
+
+      <div class="book-card" id="card-1kGnarRKT3bjzV2b1LuF5NbH-wxDJVqhZ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/68.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1kGnarRKT3bjzV2b1LuF5NbH-wxDJVqhZ', 'audio', 'card-1kGnarRKT3bjzV2b1LuF5NbH-wxDJVqhZ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1kGnarRKT3bjzV2b1LuF5NbH-wxDJVqhZ"></div>
+        </div>
+        <div class="book-title">26 Chapter 26</div>
+      </div>
+
+      <div class="book-card" id="card-1aFY8IsVjPqHyOgWNm7OuMboV-1rArdPq">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/6.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1aFY8IsVjPqHyOgWNm7OuMboV-1rArdPq', 'audio', 'card-1aFY8IsVjPqHyOgWNm7OuMboV-1rArdPq')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1aFY8IsVjPqHyOgWNm7OuMboV-1rArdPq"></div>
+        </div>
+        <div class="book-title">13 Chapter 13</div>
+      </div>
+
+      <div class="book-card" id="card-1YUmSPZ9u5kr_iN0wOnDjo9O1nKDhannW">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/69.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1YUmSPZ9u5kr_iN0wOnDjo9O1nKDhannW', 'audio', 'card-1YUmSPZ9u5kr_iN0wOnDjo9O1nKDhannW')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1YUmSPZ9u5kr_iN0wOnDjo9O1nKDhannW"></div>
+        </div>
+        <div class="book-title">08 Chapter 8</div>
+      </div>
+
+      <div class="book-card" id="card-1kA6_KsS4OqSTL8SBYLA6sIGDhGqJQ7gS">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/89.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1kA6_KsS4OqSTL8SBYLA6sIGDhGqJQ7gS', 'audio', 'card-1kA6_KsS4OqSTL8SBYLA6sIGDhGqJQ7gS')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1kA6_KsS4OqSTL8SBYLA6sIGDhGqJQ7gS"></div>
+        </div>
+        <div class="book-title">15 Chapter 15</div>
+      </div>
+
+      <div class="book-card" id="card-1U8AK7t4fLR0m4MZoiO6eCf0zbjBi6zm9">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/76.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1U8AK7t4fLR0m4MZoiO6eCf0zbjBi6zm9', 'audio', 'card-1U8AK7t4fLR0m4MZoiO6eCf0zbjBi6zm9')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1U8AK7t4fLR0m4MZoiO6eCf0zbjBi6zm9"></div>
+        </div>
+        <div class="book-title">19 Chapter 19</div>
+      </div>
+
+      <div class="book-card" id="card-1gluHA5TN06uAuIM9RunvGIVAhQuLl1WS">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/54.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1gluHA5TN06uAuIM9RunvGIVAhQuLl1WS', 'audio', 'card-1gluHA5TN06uAuIM9RunvGIVAhQuLl1WS')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1gluHA5TN06uAuIM9RunvGIVAhQuLl1WS"></div>
+        </div>
+        <div class="book-title">17 Chapter 17</div>
+      </div>
+
+      <div class="book-card" id="card-1SncPuk6lEMKcTls63w3nLGJhUiHUPSxS">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/37.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1SncPuk6lEMKcTls63w3nLGJhUiHUPSxS', 'audio', 'card-1SncPuk6lEMKcTls63w3nLGJhUiHUPSxS')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1SncPuk6lEMKcTls63w3nLGJhUiHUPSxS"></div>
+        </div>
+        <div class="book-title">14 Chapter 14</div>
+      </div>
+
+      <div class="book-card" id="card-1fxvitgAEN2R5BdJmdOb2C4GgEyyQj0z4">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/78.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1fxvitgAEN2R5BdJmdOb2C4GgEyyQj0z4', 'audio', 'card-1fxvitgAEN2R5BdJmdOb2C4GgEyyQj0z4')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1fxvitgAEN2R5BdJmdOb2C4GgEyyQj0z4"></div>
+        </div>
+        <div class="book-title">23 Chapter 23</div>
+      </div>
+
+      <div class="book-card" id="card-1x4wdlzQkkQeMCQh5bjjcjxwauok26CWt">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/100.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1x4wdlzQkkQeMCQh5bjjcjxwauok26CWt', 'audio', 'card-1x4wdlzQkkQeMCQh5bjjcjxwauok26CWt')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1x4wdlzQkkQeMCQh5bjjcjxwauok26CWt"></div>
+        </div>
+        <div class="book-title">28 Chapter 28</div>
+      </div>
+
+      <div class="book-card" id="card-1A2vFsKnFhw6jNM4ORn9oA6t8eZqLuXvi">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/76.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1A2vFsKnFhw6jNM4ORn9oA6t8eZqLuXvi', 'audio', 'card-1A2vFsKnFhw6jNM4ORn9oA6t8eZqLuXvi')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1A2vFsKnFhw6jNM4ORn9oA6t8eZqLuXvi"></div>
+        </div>
+        <div class="book-title">05 Chapter 5</div>
+      </div>
+
+      <div class="book-card" id="card-1SXzoDkM7wvwRuLKzDL7-YrXeYKaD6-D4">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/95.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1SXzoDkM7wvwRuLKzDL7-YrXeYKaD6-D4', 'audio', 'card-1SXzoDkM7wvwRuLKzDL7-YrXeYKaD6-D4')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1SXzoDkM7wvwRuLKzDL7-YrXeYKaD6-D4"></div>
+        </div>
+        <div class="book-title">11 Chapter 11</div>
+      </div>
+
+      <div class="book-card" id="card-1ZuPEieWkl8GqizRnZyg_LIzt5-NrMSLn">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/95.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ZuPEieWkl8GqizRnZyg_LIzt5-NrMSLn', 'audio', 'card-1ZuPEieWkl8GqizRnZyg_LIzt5-NrMSLn')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ZuPEieWkl8GqizRnZyg_LIzt5-NrMSLn"></div>
+        </div>
+        <div class="book-title">03 Chapter 3</div>
+      </div>
+
+      <div class="book-card" id="card-1zxaka3h4p6Lctf4cBhCFEOwJPEqgE9cz">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/16.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1zxaka3h4p6Lctf4cBhCFEOwJPEqgE9cz', 'audio', 'card-1zxaka3h4p6Lctf4cBhCFEOwJPEqgE9cz')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1zxaka3h4p6Lctf4cBhCFEOwJPEqgE9cz"></div>
+        </div>
+        <div class="book-title">02 Chapter 2</div>
+      </div>
+
+      <div class="book-card" id="card-1wqhtUQ6BOxUTwj9TI9rIjz3umYUr1guI">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/4.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wqhtUQ6BOxUTwj9TI9rIjz3umYUr1guI', 'audio', 'card-1wqhtUQ6BOxUTwj9TI9rIjz3umYUr1guI')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wqhtUQ6BOxUTwj9TI9rIjz3umYUr1guI"></div>
+        </div>
+        <div class="book-title">10 Chapter 10</div>
+      </div>
+
+      <div class="book-card" id="card-11Nxnw5RXhMYtrDaFUrW6C8O01-kgcwaE">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/7.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('11Nxnw5RXhMYtrDaFUrW6C8O01-kgcwaE', 'audio', 'card-11Nxnw5RXhMYtrDaFUrW6C8O01-kgcwaE')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-11Nxnw5RXhMYtrDaFUrW6C8O01-kgcwaE"></div>
+        </div>
+        <div class="book-title">04 Chapter 4</div>
+      </div>
+
+      <div class="book-card" id="card-17gFLeNDYCAh1BplwrCW2KaXRJk8aVqgw">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/13.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('17gFLeNDYCAh1BplwrCW2KaXRJk8aVqgw', 'audio', 'card-17gFLeNDYCAh1BplwrCW2KaXRJk8aVqgw')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-17gFLeNDYCAh1BplwrCW2KaXRJk8aVqgw"></div>
+        </div>
+        <div class="book-title">01 Chapter 1</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Immortals of Meluha The Shiva Trilogy | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">The Immortals of Meluha The Shiva Trilogy</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1XDBRs_SDh3oKKH7JJ7-Rl9FVAB8b22N9">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/11.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1XDBRs_SDh3oKKH7JJ7-Rl9FVAB8b22N9', 'audio', 'card-1XDBRs_SDh3oKKH7JJ7-Rl9FVAB8b22N9')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1XDBRs_SDh3oKKH7JJ7-Rl9FVAB8b22N9"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 011</div>
+      </div>
+
+      <div class="book-card" id="card-19LoJlGqeK7z53sZjMph-8zXCVjAkjrR2">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/42.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('19LoJlGqeK7z53sZjMph-8zXCVjAkjrR2', 'audio', 'card-19LoJlGqeK7z53sZjMph-8zXCVjAkjrR2')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-19LoJlGqeK7z53sZjMph-8zXCVjAkjrR2"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 009</div>
+      </div>
+
+      <div class="book-card" id="card-1JQIUZoGgRgvEX9akc7BWZW9PWiwp1hNa">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/46.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1JQIUZoGgRgvEX9akc7BWZW9PWiwp1hNa', 'audio', 'card-1JQIUZoGgRgvEX9akc7BWZW9PWiwp1hNa')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1JQIUZoGgRgvEX9akc7BWZW9PWiwp1hNa"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 024</div>
+      </div>
+
+      <div class="book-card" id="card-1heWLVYlz-qqY0IZzS3yuPxmN-xc0ZSMB">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/43.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1heWLVYlz-qqY0IZzS3yuPxmN-xc0ZSMB', 'audio', 'card-1heWLVYlz-qqY0IZzS3yuPxmN-xc0ZSMB')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1heWLVYlz-qqY0IZzS3yuPxmN-xc0ZSMB"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 012</div>
+      </div>
+
+      <div class="book-card" id="card-1LoJDNvHoTVoyZHzr2s21twsQb4_4Hq2r">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/51.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1LoJDNvHoTVoyZHzr2s21twsQb4_4Hq2r', 'audio', 'card-1LoJDNvHoTVoyZHzr2s21twsQb4_4Hq2r')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1LoJDNvHoTVoyZHzr2s21twsQb4_4Hq2r"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 022</div>
+      </div>
+
+      <div class="book-card" id="card-1_08aa64cWGYgN7Wr8x3uUhr2QKyrlThe">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/87.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1_08aa64cWGYgN7Wr8x3uUhr2QKyrlThe', 'audio', 'card-1_08aa64cWGYgN7Wr8x3uUhr2QKyrlThe')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1_08aa64cWGYgN7Wr8x3uUhr2QKyrlThe"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 010</div>
+      </div>
+
+      <div class="book-card" id="card-1WmzTUWDN1wTd4fJlCLVP7WEwnprrfQzu">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/84.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1WmzTUWDN1wTd4fJlCLVP7WEwnprrfQzu', 'audio', 'card-1WmzTUWDN1wTd4fJlCLVP7WEwnprrfQzu')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1WmzTUWDN1wTd4fJlCLVP7WEwnprrfQzu"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 015</div>
+      </div>
+
+      <div class="book-card" id="card-1kqbZfv5_O6pJlRvBwcFIDT4I75_7ASCy">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/53.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1kqbZfv5_O6pJlRvBwcFIDT4I75_7ASCy', 'audio', 'card-1kqbZfv5_O6pJlRvBwcFIDT4I75_7ASCy')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1kqbZfv5_O6pJlRvBwcFIDT4I75_7ASCy"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 005</div>
+      </div>
+
+      <div class="book-card" id="card-1Aw1qX3M1tuWto8fMaDLEKklDNgEjudER">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/55.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Aw1qX3M1tuWto8fMaDLEKklDNgEjudER', 'audio', 'card-1Aw1qX3M1tuWto8fMaDLEKklDNgEjudER')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Aw1qX3M1tuWto8fMaDLEKklDNgEjudER"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 027</div>
+      </div>
+
+      <div class="book-card" id="card-1Jzny3mP_woRNDzFfhiGM5FrAI9SWXO5w">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/32.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Jzny3mP_woRNDzFfhiGM5FrAI9SWXO5w', 'audio', 'card-1Jzny3mP_woRNDzFfhiGM5FrAI9SWXO5w')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Jzny3mP_woRNDzFfhiGM5FrAI9SWXO5w"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 020</div>
+      </div>
+
+      <div class="book-card" id="card-1pMaFhGrlsF9Ow0C0Aa87t7H8Gc600Unm">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/43.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1pMaFhGrlsF9Ow0C0Aa87t7H8Gc600Unm', 'audio', 'card-1pMaFhGrlsF9Ow0C0Aa87t7H8Gc600Unm')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1pMaFhGrlsF9Ow0C0Aa87t7H8Gc600Unm"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 017</div>
+      </div>
+
+      <div class="book-card" id="card-126ROgOXPFUm6jyBoh4v2kelz5-oM4DkE">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/97.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('126ROgOXPFUm6jyBoh4v2kelz5-oM4DkE', 'audio', 'card-126ROgOXPFUm6jyBoh4v2kelz5-oM4DkE')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-126ROgOXPFUm6jyBoh4v2kelz5-oM4DkE"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 003</div>
+      </div>
+
+      <div class="book-card" id="card-1EYtmSwklRw9uS2zH9UGj9XjdPAjvUQLI">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/73.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1EYtmSwklRw9uS2zH9UGj9XjdPAjvUQLI', 'audio', 'card-1EYtmSwklRw9uS2zH9UGj9XjdPAjvUQLI')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1EYtmSwklRw9uS2zH9UGj9XjdPAjvUQLI"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 026</div>
+      </div>
+
+      <div class="book-card" id="card-1S8olAf3Osi5kEG3quRYWQUaq0zyXec5U">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/37.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1S8olAf3Osi5kEG3quRYWQUaq0zyXec5U', 'audio', 'card-1S8olAf3Osi5kEG3quRYWQUaq0zyXec5U')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1S8olAf3Osi5kEG3quRYWQUaq0zyXec5U"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 002</div>
+      </div>
+
+      <div class="book-card" id="card-1Fw076h2PSzT9CWeiCqzupAukAUUQIuxs">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/53.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Fw076h2PSzT9CWeiCqzupAukAUUQIuxs', 'audio', 'card-1Fw076h2PSzT9CWeiCqzupAukAUUQIuxs')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Fw076h2PSzT9CWeiCqzupAukAUUQIuxs"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 025</div>
+      </div>
+
+      <div class="book-card" id="card-1Ac6ekaZFDxiltVpz7w0-bAyf_rAz6Ha9">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/21.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Ac6ekaZFDxiltVpz7w0-bAyf_rAz6Ha9', 'audio', 'card-1Ac6ekaZFDxiltVpz7w0-bAyf_rAz6Ha9')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Ac6ekaZFDxiltVpz7w0-bAyf_rAz6Ha9"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 023</div>
+      </div>
+
+      <div class="book-card" id="card-11EdPac_6T3cmpGl63Cir_X_rnA8RHKhx">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/64.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('11EdPac_6T3cmpGl63Cir_X_rnA8RHKhx', 'audio', 'card-11EdPac_6T3cmpGl63Cir_X_rnA8RHKhx')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-11EdPac_6T3cmpGl63Cir_X_rnA8RHKhx"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 007</div>
+      </div>
+
+      <div class="book-card" id="card-1241-SRMjK9x9cRd_zCPlMevjpOQZqQmz">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/45.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1241-SRMjK9x9cRd_zCPlMevjpOQZqQmz', 'audio', 'card-1241-SRMjK9x9cRd_zCPlMevjpOQZqQmz')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1241-SRMjK9x9cRd_zCPlMevjpOQZqQmz"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 016</div>
+      </div>
+
+      <div class="book-card" id="card-1QvSBRp7M0HpKLkiS6WwLt2pAGeBynw1w">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/94.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1QvSBRp7M0HpKLkiS6WwLt2pAGeBynw1w', 'audio', 'card-1QvSBRp7M0HpKLkiS6WwLt2pAGeBynw1w')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1QvSBRp7M0HpKLkiS6WwLt2pAGeBynw1w"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 004</div>
+      </div>
+
+      <div class="book-card" id="card-1nQwIFQCtPYZdCRoycLYsy-ZJyyRdhbf3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/98.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1nQwIFQCtPYZdCRoycLYsy-ZJyyRdhbf3', 'audio', 'card-1nQwIFQCtPYZdCRoycLYsy-ZJyyRdhbf3')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1nQwIFQCtPYZdCRoycLYsy-ZJyyRdhbf3"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 021</div>
+      </div>
+
+      <div class="book-card" id="card-1UHrpaPTPQnSe95i3IufDeJMrkxwfYhew">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/15.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1UHrpaPTPQnSe95i3IufDeJMrkxwfYhew', 'audio', 'card-1UHrpaPTPQnSe95i3IufDeJMrkxwfYhew')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1UHrpaPTPQnSe95i3IufDeJMrkxwfYhew"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 008</div>
+      </div>
+
+      <div class="book-card" id="card-1DnjVWqXkbDuN864IWSdevgcyAdaSqvay">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/1.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1DnjVWqXkbDuN864IWSdevgcyAdaSqvay', 'audio', 'card-1DnjVWqXkbDuN864IWSdevgcyAdaSqvay')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1DnjVWqXkbDuN864IWSdevgcyAdaSqvay"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 006</div>
+      </div>
+
+      <div class="book-card" id="card-1Af6hlzI1uBmHIa2N3LQkI6nzZ5jElZeb">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/89.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Af6hlzI1uBmHIa2N3LQkI6nzZ5jElZeb', 'audio', 'card-1Af6hlzI1uBmHIa2N3LQkI6nzZ5jElZeb')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Af6hlzI1uBmHIa2N3LQkI6nzZ5jElZeb"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 028</div>
+      </div>
+
+      <div class="book-card" id="card-1xMhZ6t-94AExrlXdeimdivLGdTZQgEsp">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/2.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1xMhZ6t-94AExrlXdeimdivLGdTZQgEsp', 'audio', 'card-1xMhZ6t-94AExrlXdeimdivLGdTZQgEsp')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1xMhZ6t-94AExrlXdeimdivLGdTZQgEsp"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 014</div>
+      </div>
+
+      <div class="book-card" id="card-1laU5ItKIrRJZwznNBc9nzFLfTLYaKBw4">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/6.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1laU5ItKIrRJZwznNBc9nzFLfTLYaKBw4', 'audio', 'card-1laU5ItKIrRJZwznNBc9nzFLfTLYaKBw4')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1laU5ItKIrRJZwznNBc9nzFLfTLYaKBw4"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 013</div>
+      </div>
+
+      <div class="book-card" id="card-139HBXPKJq6_qz2NYULD_lJfC8CK5jfNV">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/24.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('139HBXPKJq6_qz2NYULD_lJfC8CK5jfNV', 'audio', 'card-139HBXPKJq6_qz2NYULD_lJfC8CK5jfNV')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-139HBXPKJq6_qz2NYULD_lJfC8CK5jfNV"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 018</div>
+      </div>
+
+      <div class="book-card" id="card-1Oj-0M7Ithc6KNH-x7BEq3qaue4YMkanO">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/36.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Oj-0M7Ithc6KNH-x7BEq3qaue4YMkanO', 'audio', 'card-1Oj-0M7Ithc6KNH-x7BEq3qaue4YMkanO')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Oj-0M7Ithc6KNH-x7BEq3qaue4YMkanO"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 029</div>
+      </div>
+
+      <div class="book-card" id="card-14G0eenmdEEp-a2kZXJ_PrmAVUHcoJsMl">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/75.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('14G0eenmdEEp-a2kZXJ_PrmAVUHcoJsMl', 'audio', 'card-14G0eenmdEEp-a2kZXJ_PrmAVUHcoJsMl')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-14G0eenmdEEp-a2kZXJ_PrmAVUHcoJsMl"></div>
+        </div>
+        <div class="book-title">The Immortals of Meluha The Shiva Trilogy (Unabridged) - 001</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

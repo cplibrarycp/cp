@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What I know for Sure by Oprah Winfrey | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">What I know for Sure by Oprah Winfrey</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1SWyBj7V02gmfNrlBEFSAZr1FziVnrauK">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/11.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1SWyBj7V02gmfNrlBEFSAZr1FziVnrauK', 'audio', 'card-1SWyBj7V02gmfNrlBEFSAZr1FziVnrauK')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1SWyBj7V02gmfNrlBEFSAZr1FziVnrauK"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 013</div>
+      </div>
+
+      <div class="book-card" id="card-1TBvybrj1TkNGiicRAy59Rbkr-1nqpdEp">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/63.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1TBvybrj1TkNGiicRAy59Rbkr-1nqpdEp', 'audio', 'card-1TBvybrj1TkNGiicRAy59Rbkr-1nqpdEp')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1TBvybrj1TkNGiicRAy59Rbkr-1nqpdEp"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 015</div>
+      </div>
+
+      <div class="book-card" id="card-1f5BXIsWVon_2KUAHx_pcnCqz8AgL-peR">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/20.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1f5BXIsWVon_2KUAHx_pcnCqz8AgL-peR', 'audio', 'card-1f5BXIsWVon_2KUAHx_pcnCqz8AgL-peR')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1f5BXIsWVon_2KUAHx_pcnCqz8AgL-peR"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 017</div>
+      </div>
+
+      <div class="book-card" id="card-10U1fuuSPKPLQ-W_eSH81ojCl0ABtnpvI">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/88.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('10U1fuuSPKPLQ-W_eSH81ojCl0ABtnpvI', 'audio', 'card-10U1fuuSPKPLQ-W_eSH81ojCl0ABtnpvI')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-10U1fuuSPKPLQ-W_eSH81ojCl0ABtnpvI"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 014</div>
+      </div>
+
+      <div class="book-card" id="card-1Y_ZXG0KIgTkDgLAJI9U7BOpOsyWYD-hb">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/73.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Y_ZXG0KIgTkDgLAJI9U7BOpOsyWYD-hb', 'audio', 'card-1Y_ZXG0KIgTkDgLAJI9U7BOpOsyWYD-hb')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Y_ZXG0KIgTkDgLAJI9U7BOpOsyWYD-hb"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 010</div>
+      </div>
+
+      <div class="book-card" id="card-1jKGwWQ2Qk7xjlftB1iPPPzJCdINj6iKE">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/20.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1jKGwWQ2Qk7xjlftB1iPPPzJCdINj6iKE', 'audio', 'card-1jKGwWQ2Qk7xjlftB1iPPPzJCdINj6iKE')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1jKGwWQ2Qk7xjlftB1iPPPzJCdINj6iKE"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 018</div>
+      </div>
+
+      <div class="book-card" id="card-1pPsb4u0wIBlOU-FRgmQ_s3wmYL34bcMY">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/98.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1pPsb4u0wIBlOU-FRgmQ_s3wmYL34bcMY', 'audio', 'card-1pPsb4u0wIBlOU-FRgmQ_s3wmYL34bcMY')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1pPsb4u0wIBlOU-FRgmQ_s3wmYL34bcMY"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 016</div>
+      </div>
+
+      <div class="book-card" id="card-1FODAgP-DQv9nvBf-pgTSMZX83XZFr2g_">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/86.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1FODAgP-DQv9nvBf-pgTSMZX83XZFr2g_', 'audio', 'card-1FODAgP-DQv9nvBf-pgTSMZX83XZFr2g_')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1FODAgP-DQv9nvBf-pgTSMZX83XZFr2g_"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 019</div>
+      </div>
+
+      <div class="book-card" id="card-1WaisllD-jW8j3sovKxfAalQn2sN_FI6K">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/13.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1WaisllD-jW8j3sovKxfAalQn2sN_FI6K', 'audio', 'card-1WaisllD-jW8j3sovKxfAalQn2sN_FI6K')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1WaisllD-jW8j3sovKxfAalQn2sN_FI6K"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 007</div>
+      </div>
+
+      <div class="book-card" id="card-1LWmaJtoAh2UaXIX4eG0zglv0gdbGfGG6">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/51.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1LWmaJtoAh2UaXIX4eG0zglv0gdbGfGG6', 'audio', 'card-1LWmaJtoAh2UaXIX4eG0zglv0gdbGfGG6')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1LWmaJtoAh2UaXIX4eG0zglv0gdbGfGG6"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 012</div>
+      </div>
+
+      <div class="book-card" id="card-1rhQPxbhuR-1dE4juU6MOXidM97JTxRNZ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/26.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rhQPxbhuR-1dE4juU6MOXidM97JTxRNZ', 'audio', 'card-1rhQPxbhuR-1dE4juU6MOXidM97JTxRNZ')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rhQPxbhuR-1dE4juU6MOXidM97JTxRNZ"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 011</div>
+      </div>
+
+      <div class="book-card" id="card-1Hg3xYsh2oL4mjkBrvM9VAhTVq_QLcSXq">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/63.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Hg3xYsh2oL4mjkBrvM9VAhTVq_QLcSXq', 'audio', 'card-1Hg3xYsh2oL4mjkBrvM9VAhTVq_QLcSXq')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Hg3xYsh2oL4mjkBrvM9VAhTVq_QLcSXq"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 006</div>
+      </div>
+
+      <div class="book-card" id="card-18TqQPduCKONeURY2vAn77Oz6NA4uLjt3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/1.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('18TqQPduCKONeURY2vAn77Oz6NA4uLjt3', 'audio', 'card-18TqQPduCKONeURY2vAn77Oz6NA4uLjt3')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-18TqQPduCKONeURY2vAn77Oz6NA4uLjt3"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 004</div>
+      </div>
+
+      <div class="book-card" id="card-193M2PCqpdFkK-uOPABaSoc7jRVHZ8Kd6">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/3.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('193M2PCqpdFkK-uOPABaSoc7jRVHZ8Kd6', 'audio', 'card-193M2PCqpdFkK-uOPABaSoc7jRVHZ8Kd6')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-193M2PCqpdFkK-uOPABaSoc7jRVHZ8Kd6"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 009</div>
+      </div>
+
+      <div class="book-card" id="card-1qz-9r44Jkjx072tyVnmau0Qlp-JWpxa6">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/80.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qz-9r44Jkjx072tyVnmau0Qlp-JWpxa6', 'audio', 'card-1qz-9r44Jkjx072tyVnmau0Qlp-JWpxa6')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qz-9r44Jkjx072tyVnmau0Qlp-JWpxa6"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 008</div>
+      </div>
+
+      <div class="book-card" id="card-1qZb_G0Ap_gmjp6x82d4LtOe29CbqWgT4">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/88.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qZb_G0Ap_gmjp6x82d4LtOe29CbqWgT4', 'audio', 'card-1qZb_G0Ap_gmjp6x82d4LtOe29CbqWgT4')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qZb_G0Ap_gmjp6x82d4LtOe29CbqWgT4"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 003</div>
+      </div>
+
+      <div class="book-card" id="card-1kckU2GE26IrbM7cQ4z-s0GWksb1uErNy">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/72.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1kckU2GE26IrbM7cQ4z-s0GWksb1uErNy', 'audio', 'card-1kckU2GE26IrbM7cQ4z-s0GWksb1uErNy')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1kckU2GE26IrbM7cQ4z-s0GWksb1uErNy"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 005</div>
+      </div>
+
+      <div class="book-card" id="card-1drSqq3akBvaZTjV72SwAHsCpohZi6SJh">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/34.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1drSqq3akBvaZTjV72SwAHsCpohZi6SJh', 'audio', 'card-1drSqq3akBvaZTjV72SwAHsCpohZi6SJh')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1drSqq3akBvaZTjV72SwAHsCpohZi6SJh"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 002</div>
+      </div>
+
+      <div class="book-card" id="card-1I_BC85MEA_BKOozQFwzJRuFNipDyoWP5">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/73.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1I_BC85MEA_BKOozQFwzJRuFNipDyoWP5', 'audio', 'card-1I_BC85MEA_BKOozQFwzJRuFNipDyoWP5')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1I_BC85MEA_BKOozQFwzJRuFNipDyoWP5"></div>
+        </div>
+        <div class="book-title">What I Know For Sure - 001</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

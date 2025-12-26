@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Purpose Driven Life by Rick Warren | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">The Purpose Driven Life by Rick Warren</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1RUlCSbIl-orRUgMagHbWJG8s6df26DYu">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/92.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1RUlCSbIl-orRUgMagHbWJG8s6df26DYu', 'audio', 'card-1RUlCSbIl-orRUgMagHbWJG8s6df26DYu')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1RUlCSbIl-orRUgMagHbWJG8s6df26DYu"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 32</div>
+      </div>
+
+      <div class="book-card" id="card-1n0oL7T1LUyiYn4q8CnAITLjdjrbEj4Jp">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/18.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1n0oL7T1LUyiYn4q8CnAITLjdjrbEj4Jp', 'audio', 'card-1n0oL7T1LUyiYn4q8CnAITLjdjrbEj4Jp')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1n0oL7T1LUyiYn4q8CnAITLjdjrbEj4Jp"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 42</div>
+      </div>
+
+      <div class="book-card" id="card-1EJuStA_2kRX5t21RVxFdnDlJr6p7W1wi">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/61.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1EJuStA_2kRX5t21RVxFdnDlJr6p7W1wi', 'audio', 'card-1EJuStA_2kRX5t21RVxFdnDlJr6p7W1wi')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1EJuStA_2kRX5t21RVxFdnDlJr6p7W1wi"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 19</div>
+      </div>
+
+      <div class="book-card" id="card-1HO0InXchJNeVIq0Y_mEJGsg9A5sv2B9A">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/7.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1HO0InXchJNeVIq0Y_mEJGsg9A5sv2B9A', 'audio', 'card-1HO0InXchJNeVIq0Y_mEJGsg9A5sv2B9A')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1HO0InXchJNeVIq0Y_mEJGsg9A5sv2B9A"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 34</div>
+      </div>
+
+      <div class="book-card" id="card-1XUoO6uLYRDJSeD-vC5YxQKjadJi4NZtX">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/1.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1XUoO6uLYRDJSeD-vC5YxQKjadJi4NZtX', 'audio', 'card-1XUoO6uLYRDJSeD-vC5YxQKjadJi4NZtX')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1XUoO6uLYRDJSeD-vC5YxQKjadJi4NZtX"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 23</div>
+      </div>
+
+      <div class="book-card" id="card-1udGlX5z8rJo3IZZOrzdQxw_jkjnD2Mla">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/74.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1udGlX5z8rJo3IZZOrzdQxw_jkjnD2Mla', 'audio', 'card-1udGlX5z8rJo3IZZOrzdQxw_jkjnD2Mla')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1udGlX5z8rJo3IZZOrzdQxw_jkjnD2Mla"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 05</div>
+      </div>
+
+      <div class="book-card" id="card-1FL5r8jt3n1H_pSU5lthVb0sKagCcfxqt">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/73.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1FL5r8jt3n1H_pSU5lthVb0sKagCcfxqt', 'audio', 'card-1FL5r8jt3n1H_pSU5lthVb0sKagCcfxqt')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1FL5r8jt3n1H_pSU5lthVb0sKagCcfxqt"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 22</div>
+      </div>
+
+      <div class="book-card" id="card-1eWWyILIIUuEabHBCGEpyNgsv5q5Zs4E9">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/3.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1eWWyILIIUuEabHBCGEpyNgsv5q5Zs4E9', 'audio', 'card-1eWWyILIIUuEabHBCGEpyNgsv5q5Zs4E9')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1eWWyILIIUuEabHBCGEpyNgsv5q5Zs4E9"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 39</div>
+      </div>
+
+      <div class="book-card" id="card-124M6erzb8Z9n7FP2Vf1mFn_d0gM_PZ0z">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/11.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('124M6erzb8Z9n7FP2Vf1mFn_d0gM_PZ0z', 'audio', 'card-124M6erzb8Z9n7FP2Vf1mFn_d0gM_PZ0z')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-124M6erzb8Z9n7FP2Vf1mFn_d0gM_PZ0z"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 16</div>
+      </div>
+
+      <div class="book-card" id="card-1TLd0c20sVudkl4kifGUdq0obmRyq__iR">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/76.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1TLd0c20sVudkl4kifGUdq0obmRyq__iR', 'audio', 'card-1TLd0c20sVudkl4kifGUdq0obmRyq__iR')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1TLd0c20sVudkl4kifGUdq0obmRyq__iR"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 03</div>
+      </div>
+
+      <div class="book-card" id="card-1suopFVZ-u32msgpq_QgFigJOVxC8l_GI">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/22.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1suopFVZ-u32msgpq_QgFigJOVxC8l_GI', 'audio', 'card-1suopFVZ-u32msgpq_QgFigJOVxC8l_GI')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1suopFVZ-u32msgpq_QgFigJOVxC8l_GI"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 41</div>
+      </div>
+
+      <div class="book-card" id="card-1v59Yt5htNya2S2fSv9ZSsOzuBYmKXR2u">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/84.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1v59Yt5htNya2S2fSv9ZSsOzuBYmKXR2u', 'audio', 'card-1v59Yt5htNya2S2fSv9ZSsOzuBYmKXR2u')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1v59Yt5htNya2S2fSv9ZSsOzuBYmKXR2u"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 36</div>
+      </div>
+
+      <div class="book-card" id="card-1d3HbijeqaJVqXi-3NewqMklrFSFAvCwu">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/32.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1d3HbijeqaJVqXi-3NewqMklrFSFAvCwu', 'audio', 'card-1d3HbijeqaJVqXi-3NewqMklrFSFAvCwu')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1d3HbijeqaJVqXi-3NewqMklrFSFAvCwu"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 33</div>
+      </div>
+
+      <div class="book-card" id="card-1lrdyNme4QXrRckLJr6Z4rezfo72Ma09J">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/14.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1lrdyNme4QXrRckLJr6Z4rezfo72Ma09J', 'audio', 'card-1lrdyNme4QXrRckLJr6Z4rezfo72Ma09J')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1lrdyNme4QXrRckLJr6Z4rezfo72Ma09J"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 40</div>
+      </div>
+
+      <div class="book-card" id="card-1vjrZ0OFSbByOauP_c9cuJwthQE6fTmz6">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/49.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1vjrZ0OFSbByOauP_c9cuJwthQE6fTmz6', 'audio', 'card-1vjrZ0OFSbByOauP_c9cuJwthQE6fTmz6')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1vjrZ0OFSbByOauP_c9cuJwthQE6fTmz6"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 38</div>
+      </div>
+
+      <div class="book-card" id="card-1XDdyI7NPWlyqF9TM5LDT5ab-NILn7Fwv">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/32.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1XDdyI7NPWlyqF9TM5LDT5ab-NILn7Fwv', 'audio', 'card-1XDdyI7NPWlyqF9TM5LDT5ab-NILn7Fwv')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1XDdyI7NPWlyqF9TM5LDT5ab-NILn7Fwv"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 28</div>
+      </div>
+
+      <div class="book-card" id="card-1EligvaTxBDuXwilynAsKRPG8h2EcYNyB">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/88.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1EligvaTxBDuXwilynAsKRPG8h2EcYNyB', 'audio', 'card-1EligvaTxBDuXwilynAsKRPG8h2EcYNyB')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1EligvaTxBDuXwilynAsKRPG8h2EcYNyB"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 25</div>
+      </div>
+
+      <div class="book-card" id="card-1_TiMvtWjgH2zVQ4w1VLHfbFolDRpSBTR">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/44.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1_TiMvtWjgH2zVQ4w1VLHfbFolDRpSBTR', 'audio', 'card-1_TiMvtWjgH2zVQ4w1VLHfbFolDRpSBTR')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1_TiMvtWjgH2zVQ4w1VLHfbFolDRpSBTR"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 31</div>
+      </div>
+
+      <div class="book-card" id="card-1h8ZnfEaGVuNSqslIqP8YsteATRm_yzm-">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/45.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1h8ZnfEaGVuNSqslIqP8YsteATRm_yzm-', 'audio', 'card-1h8ZnfEaGVuNSqslIqP8YsteATRm_yzm-')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1h8ZnfEaGVuNSqslIqP8YsteATRm_yzm-"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 29</div>
+      </div>
+
+      <div class="book-card" id="card-1kgLFASbdNE940lsH91K3rHRvyk2y2pkj">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/71.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1kgLFASbdNE940lsH91K3rHRvyk2y2pkj', 'audio', 'card-1kgLFASbdNE940lsH91K3rHRvyk2y2pkj')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1kgLFASbdNE940lsH91K3rHRvyk2y2pkj"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 21</div>
+      </div>
+
+      <div class="book-card" id="card-1eYAVKc1Gf6eIhbgc_JL8qOsinU2UiRYo">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/67.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1eYAVKc1Gf6eIhbgc_JL8qOsinU2UiRYo', 'audio', 'card-1eYAVKc1Gf6eIhbgc_JL8qOsinU2UiRYo')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1eYAVKc1Gf6eIhbgc_JL8qOsinU2UiRYo"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 18</div>
+      </div>
+
+      <div class="book-card" id="card-1Nu2O_KJrnDh-YNRnAU2j-GdQe1HMTU0m">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/59.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Nu2O_KJrnDh-YNRnAU2j-GdQe1HMTU0m', 'audio', 'card-1Nu2O_KJrnDh-YNRnAU2j-GdQe1HMTU0m')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Nu2O_KJrnDh-YNRnAU2j-GdQe1HMTU0m"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 26</div>
+      </div>
+
+      <div class="book-card" id="card-1MOe-iH0TWn5_wKQIGXSSd-HMR4wsbD-e">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/86.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1MOe-iH0TWn5_wKQIGXSSd-HMR4wsbD-e', 'audio', 'card-1MOe-iH0TWn5_wKQIGXSSd-HMR4wsbD-e')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1MOe-iH0TWn5_wKQIGXSSd-HMR4wsbD-e"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 17</div>
+      </div>
+
+      <div class="book-card" id="card-1wVWuQqIQqZDVL8pI3n3IwERZ8BoNF6Cb">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/81.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wVWuQqIQqZDVL8pI3n3IwERZ8BoNF6Cb', 'audio', 'card-1wVWuQqIQqZDVL8pI3n3IwERZ8BoNF6Cb')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wVWuQqIQqZDVL8pI3n3IwERZ8BoNF6Cb"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 24</div>
+      </div>
+
+      <div class="book-card" id="card-15z2VtyfgcbsK_kOF7LLkxhkVIycqK5wf">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/18.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('15z2VtyfgcbsK_kOF7LLkxhkVIycqK5wf', 'audio', 'card-15z2VtyfgcbsK_kOF7LLkxhkVIycqK5wf')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-15z2VtyfgcbsK_kOF7LLkxhkVIycqK5wf"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 10</div>
+      </div>
+
+      <div class="book-card" id="card-1Us2JfiJkGPC3HkdHvvrjSj8ma7zmY1LO">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/53.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Us2JfiJkGPC3HkdHvvrjSj8ma7zmY1LO', 'audio', 'card-1Us2JfiJkGPC3HkdHvvrjSj8ma7zmY1LO')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Us2JfiJkGPC3HkdHvvrjSj8ma7zmY1LO"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 20</div>
+      </div>
+
+      <div class="book-card" id="card-1chwXgUOGBs1Sfn0rv1btXXYwwyzsD7W2">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/38.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1chwXgUOGBs1Sfn0rv1btXXYwwyzsD7W2', 'audio', 'card-1chwXgUOGBs1Sfn0rv1btXXYwwyzsD7W2')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1chwXgUOGBs1Sfn0rv1btXXYwwyzsD7W2"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 37</div>
+      </div>
+
+      <div class="book-card" id="card-1WjDXoQVzRWYaXaVmGsIqsKPPL67J64NN">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/61.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1WjDXoQVzRWYaXaVmGsIqsKPPL67J64NN', 'audio', 'card-1WjDXoQVzRWYaXaVmGsIqsKPPL67J64NN')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1WjDXoQVzRWYaXaVmGsIqsKPPL67J64NN"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 35</div>
+      </div>
+
+      <div class="book-card" id="card-11-sLraJ9MDerTC4AQVwn1XCGI0DAFDgH">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/92.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('11-sLraJ9MDerTC4AQVwn1XCGI0DAFDgH', 'audio', 'card-11-sLraJ9MDerTC4AQVwn1XCGI0DAFDgH')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-11-sLraJ9MDerTC4AQVwn1XCGI0DAFDgH"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 27</div>
+      </div>
+
+      <div class="book-card" id="card-1LG97Pt7oSmU02oLJ-ddykxRVf227B43R">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/30.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1LG97Pt7oSmU02oLJ-ddykxRVf227B43R', 'audio', 'card-1LG97Pt7oSmU02oLJ-ddykxRVf227B43R')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1LG97Pt7oSmU02oLJ-ddykxRVf227B43R"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 12</div>
+      </div>
+
+      <div class="book-card" id="card-1DDQhpcm6j1s0zTrQvyX-AYrwaTE7CbgK">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/55.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1DDQhpcm6j1s0zTrQvyX-AYrwaTE7CbgK', 'audio', 'card-1DDQhpcm6j1s0zTrQvyX-AYrwaTE7CbgK')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1DDQhpcm6j1s0zTrQvyX-AYrwaTE7CbgK"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 09</div>
+      </div>
+
+      <div class="book-card" id="card-1aFN2EGnZk2pwxeKdQ9reqMJvgNGyxK77">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/44.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1aFN2EGnZk2pwxeKdQ9reqMJvgNGyxK77', 'audio', 'card-1aFN2EGnZk2pwxeKdQ9reqMJvgNGyxK77')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1aFN2EGnZk2pwxeKdQ9reqMJvgNGyxK77"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 30</div>
+      </div>
+
+      <div class="book-card" id="card-1PIN0vw_H5CHqhu1xnQ32-6Fg9STr4GYj">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/57.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1PIN0vw_H5CHqhu1xnQ32-6Fg9STr4GYj', 'audio', 'card-1PIN0vw_H5CHqhu1xnQ32-6Fg9STr4GYj')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1PIN0vw_H5CHqhu1xnQ32-6Fg9STr4GYj"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 13</div>
+      </div>
+
+      <div class="book-card" id="card-1mE7pg0dTqO5Hq9y2rg1xb3Bg4ZKq78ej">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/1.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1mE7pg0dTqO5Hq9y2rg1xb3Bg4ZKq78ej', 'audio', 'card-1mE7pg0dTqO5Hq9y2rg1xb3Bg4ZKq78ej')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1mE7pg0dTqO5Hq9y2rg1xb3Bg4ZKq78ej"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 14</div>
+      </div>
+
+      <div class="book-card" id="card-1iwvXAXt8_J2_LPDpkVWmQ3ZEM4jGQRMB">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/57.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1iwvXAXt8_J2_LPDpkVWmQ3ZEM4jGQRMB', 'audio', 'card-1iwvXAXt8_J2_LPDpkVWmQ3ZEM4jGQRMB')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1iwvXAXt8_J2_LPDpkVWmQ3ZEM4jGQRMB"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 11</div>
+      </div>
+
+      <div class="book-card" id="card-1Soh-CU6qBHHSu5_susbeaRiCujERVziA">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/23.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Soh-CU6qBHHSu5_susbeaRiCujERVziA', 'audio', 'card-1Soh-CU6qBHHSu5_susbeaRiCujERVziA')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Soh-CU6qBHHSu5_susbeaRiCujERVziA"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 07</div>
+      </div>
+
+      <div class="book-card" id="card-1IOc9tLnKRuK071uZpqnKxs8hv8gN-rH5">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/56.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1IOc9tLnKRuK071uZpqnKxs8hv8gN-rH5', 'audio', 'card-1IOc9tLnKRuK071uZpqnKxs8hv8gN-rH5')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1IOc9tLnKRuK071uZpqnKxs8hv8gN-rH5"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 02</div>
+      </div>
+
+      <div class="book-card" id="card-1iv4cThRuknvx44ultUcHKupV74_hfY_7">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/10.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1iv4cThRuknvx44ultUcHKupV74_hfY_7', 'audio', 'card-1iv4cThRuknvx44ultUcHKupV74_hfY_7')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1iv4cThRuknvx44ultUcHKupV74_hfY_7"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 15</div>
+      </div>
+
+      <div class="book-card" id="card-1JYR2x-MUVkTL-Gu0iGrBo4asfqUgr07U">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/10.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1JYR2x-MUVkTL-Gu0iGrBo4asfqUgr07U', 'audio', 'card-1JYR2x-MUVkTL-Gu0iGrBo4asfqUgr07U')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1JYR2x-MUVkTL-Gu0iGrBo4asfqUgr07U"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 04</div>
+      </div>
+
+      <div class="book-card" id="card-1rWcQvC1ZbCMgvp4IRKR5dM4Np6E0Tv3k">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/75.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rWcQvC1ZbCMgvp4IRKR5dM4Np6E0Tv3k', 'audio', 'card-1rWcQvC1ZbCMgvp4IRKR5dM4Np6E0Tv3k')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rWcQvC1ZbCMgvp4IRKR5dM4Np6E0Tv3k"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 06</div>
+      </div>
+
+      <div class="book-card" id="card-1SOVhy_dpdDc2nOS8oK43U-ZVfDoc6qiS">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/47.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1SOVhy_dpdDc2nOS8oK43U-ZVfDoc6qiS', 'audio', 'card-1SOVhy_dpdDc2nOS8oK43U-ZVfDoc6qiS')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1SOVhy_dpdDc2nOS8oK43U-ZVfDoc6qiS"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 08</div>
+      </div>
+
+      <div class="book-card" id="card-1O-jRxpZ8zApslpJMdSURJwcPeash3LzK">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/84.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1O-jRxpZ8zApslpJMdSURJwcPeash3LzK', 'audio', 'card-1O-jRxpZ8zApslpJMdSURJwcPeash3LzK')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1O-jRxpZ8zApslpJMdSURJwcPeash3LzK"></div>
+        </div>
+        <div class="book-title">The Purpose Driven Life - Rick Warren - Day 01</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>

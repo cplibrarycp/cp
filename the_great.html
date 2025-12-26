@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Influenza | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">The Great Influenza</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-154_h3kH24UCagBw5upvAHAkgjh_V9_1S">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/79.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('154_h3kH24UCagBw5upvAHAkgjh_V9_1S', 'audio', 'card-154_h3kH24UCagBw5upvAHAkgjh_V9_1S')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-154_h3kH24UCagBw5upvAHAkgjh_V9_1S"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 14 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1zpUnCpgWbyBIMAIDjEPnuZoFZSRGQUGA">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/17.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1zpUnCpgWbyBIMAIDjEPnuZoFZSRGQUGA', 'audio', 'card-1zpUnCpgWbyBIMAIDjEPnuZoFZSRGQUGA')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1zpUnCpgWbyBIMAIDjEPnuZoFZSRGQUGA"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 13 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-17xg2sR3SJXXG8UsASqXKMjve-70-iUxE">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/29.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('17xg2sR3SJXXG8UsASqXKMjve-70-iUxE', 'audio', 'card-17xg2sR3SJXXG8UsASqXKMjve-70-iUxE')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-17xg2sR3SJXXG8UsASqXKMjve-70-iUxE"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 11 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1wA-LAGBOWw4gJXnVyWH1elN_CPiCCSHl">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/72.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1wA-LAGBOWw4gJXnVyWH1elN_CPiCCSHl', 'audio', 'card-1wA-LAGBOWw4gJXnVyWH1elN_CPiCCSHl')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1wA-LAGBOWw4gJXnVyWH1elN_CPiCCSHl"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 12 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1x0YReQtcrlkErbBmVXmgj3Phg0EFEPB1">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/72.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1x0YReQtcrlkErbBmVXmgj3Phg0EFEPB1', 'audio', 'card-1x0YReQtcrlkErbBmVXmgj3Phg0EFEPB1')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1x0YReQtcrlkErbBmVXmgj3Phg0EFEPB1"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 16 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1cKuYuCBvWsouBbrYYJkuSYs4AeaOnu3A">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/1.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1cKuYuCBvWsouBbrYYJkuSYs4AeaOnu3A', 'audio', 'card-1cKuYuCBvWsouBbrYYJkuSYs4AeaOnu3A')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1cKuYuCBvWsouBbrYYJkuSYs4AeaOnu3A"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 07 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-13sl0ZGmAlgyUCq8JbokeHp1TrpJ-kYIl">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/84.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('13sl0ZGmAlgyUCq8JbokeHp1TrpJ-kYIl', 'audio', 'card-13sl0ZGmAlgyUCq8JbokeHp1TrpJ-kYIl')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-13sl0ZGmAlgyUCq8JbokeHp1TrpJ-kYIl"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 05 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1ABTxsLYhh_ZKCkyvo2kWtgHEbekC3644">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/78.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ABTxsLYhh_ZKCkyvo2kWtgHEbekC3644', 'audio', 'card-1ABTxsLYhh_ZKCkyvo2kWtgHEbekC3644')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ABTxsLYhh_ZKCkyvo2kWtgHEbekC3644"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 06 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1LsAaKuyZDWVwZJKw40zcLnFR4JTyJzLn">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/46.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1LsAaKuyZDWVwZJKw40zcLnFR4JTyJzLn', 'audio', 'card-1LsAaKuyZDWVwZJKw40zcLnFR4JTyJzLn')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1LsAaKuyZDWVwZJKw40zcLnFR4JTyJzLn"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 03 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-14pzNroArGc4iuLxUGDdleKHm1hVFqZqY">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/77.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('14pzNroArGc4iuLxUGDdleKHm1hVFqZqY', 'audio', 'card-14pzNroArGc4iuLxUGDdleKHm1hVFqZqY')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-14pzNroArGc4iuLxUGDdleKHm1hVFqZqY"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 04 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1qkvLN3tdeVLKgHMSW8D_LvXf-jbq3dS6">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/88.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qkvLN3tdeVLKgHMSW8D_LvXf-jbq3dS6', 'audio', 'card-1qkvLN3tdeVLKgHMSW8D_LvXf-jbq3dS6')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qkvLN3tdeVLKgHMSW8D_LvXf-jbq3dS6"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 08 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1rgsG8_rsBavzb2yazS-82gW6rOSc4HDi">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/53.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rgsG8_rsBavzb2yazS-82gW6rOSc4HDi', 'audio', 'card-1rgsG8_rsBavzb2yazS-82gW6rOSc4HDi')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rgsG8_rsBavzb2yazS-82gW6rOSc4HDi"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 02 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1DDcydXgdzhwz4NUtPe6cDbOHpepqaEHj">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/5.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1DDcydXgdzhwz4NUtPe6cDbOHpepqaEHj', 'audio', 'card-1DDcydXgdzhwz4NUtPe6cDbOHpepqaEHj')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1DDcydXgdzhwz4NUtPe6cDbOHpepqaEHj"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 10 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-115h40KzHyf8SDmNzVp8fLm1yIwBJakXE">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/53.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('115h40KzHyf8SDmNzVp8fLm1yIwBJakXE', 'audio', 'card-115h40KzHyf8SDmNzVp8fLm1yIwBJakXE')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-115h40KzHyf8SDmNzVp8fLm1yIwBJakXE"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 01 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1iCKdV90uWgag9_QA-EOl_RERAV22AC8C">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/27.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1iCKdV90uWgag9_QA-EOl_RERAV22AC8C', 'audio', 'card-1iCKdV90uWgag9_QA-EOl_RERAV22AC8C')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1iCKdV90uWgag9_QA-EOl_RERAV22AC8C"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 15 of 16</div>
+      </div>
+
+      <div class="book-card" id="card-1PeSMaL3BBsITlb95_FmWKNroJ8qb0saw">
+        <div class="image-wrapper">
+          <img class="book-cover" src="assets/cover/5.JPG" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1PeSMaL3BBsITlb95_FmWKNroJ8qb0saw', 'audio', 'card-1PeSMaL3BBsITlb95_FmWKNroJ8qb0saw')">കേൾക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1PeSMaL3BBsITlb95_FmWKNroJ8qb0saw"></div>
+        </div>
+        <div class="book-title">John M. Barry - The Great Influenza - 09 of 16</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>
