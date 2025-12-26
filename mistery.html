@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Mystery & Suspense | THRIPUDI LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <style>
+        /* തൃപുടി മാസ്റ്റർ ടെമ്പ്ലറ്റ് ഹെഡർ സ്റ്റൈൽ */
+        .logo-container { gap: 15px !important; }
+        .logo-img { height: 75px !important; }
+        .logo-text { font-size: 1.8em !important; letter-spacing: 1.5px !important; font-weight: 700; color: white; }
+
+        .dashboard-section { padding: 40px 0; text-align: center; flex: 1; }
+        .dashboard-section h1 { font-size: 2.2em; color: var(--secondary-dark); margin-bottom: 10px; }
+        
+        /* ത്രിപുടി ഗ്രീഡ് & ആനിമേഷൻ */
+        .dashboard-grid { 
+            display: grid; gap: 20px; 
+            grid-template-columns: repeat(5, 1fr); 
+        }
+        
+        .category-card { 
+            background: white; border-radius: 20px; padding: 30px 15px;
+            text-align: center; color: var(--secondary-dark); 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; flex-direction: column; 
+            align-items: center; border: 1px solid rgba(0,137,123,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-decoration: none;
+        }
+        
+        .category-card:hover { 
+            transform: translateY(-12px); 
+            border-color: var(--primary-teal);
+            background: var(--primary-teal);
+            color: white !important;
+            box-shadow: 0 15px 30px rgba(0, 137, 123, 0.25);
+        }
+        
+        .icon-circle { 
+            width: 70px; height: 70px; background-color: var(--background-light); 
+            border-radius: 20px; display: flex; align-items: center; 
+            justify-content: center; margin-bottom: 15px; 
+            font-size: 1.8em; color: var(--primary-teal); transition: 0.3s;
+        }
+        
+        .category-card:hover .icon-circle {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            transform: rotate(10deg);
+        }
+
+        .category-label { font-size: 1em; font-weight: 700; letter-spacing: 0.5px; }
+
+        @media (max-width: 768px) {
+            .dashboard-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 15px; }
+            .category-card { padding: 25px 10px; }
+            .icon-circle { width: 60px; height: 60px; font-size: 1.5em; }
+            .logo-img { height: 60px !important; }
+            .logo-text { font-size: 1.4em !important; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" alt="Logo" class="logo-img" style="height:75px;">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            
+            <div class="user-profile" id="user-profile-btn">
+                <div class="user-avatar-wrap" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                    <span style="color: white; font-size: 0.85em;"><span id="display-name">അതിഥി</span> <i class="fas fa-caret-down"></i></span>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="history.html"><i class="fas fa-history"></i> History</a>
+                    <a href="javascript:void(0)" id="logout-trigger" style="color:red;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="dashboard-section">
+    <div class="container">
+        <h1>Mistery & Suspense</h1>
+        <p style="font-size: 0.9em; opacity: 0.8; margin-bottom: 40px;">നിങ്ങൾക്ക് ഇഷ്ടപ്പെട്ട വിഭാഗം തിരഞ്ഞെടുത്ത് വായന തുടങ്ങൂ</p>
+
+        <div class="dashboard-grid">
+            <a class="category-card" href="intrigue_novels.html">
+                <div class="icon-circle"><i class="fas fa-user-secret"></i></div>
+                <span class="category-label">Intrigue Novels</span>
+            </a>
+            <a class="category-card" href="mistery_novels.html">
+                <div class="icon-circle"><i class="fas fa-search"></i></div>
+                <span class="category-label">Mistery Novels</span>
+            </a>
+            <a class="category-card" href="police_novel.html">
+                <div class="icon-circle"><i class="fas fa-handcuffs"></i></div>
+                <span class="category-label">Police Novels</span>
+            </a>
+            <a class="category-card" href="suspense_novels.html">
+                <div class="icon-circle"><i class="fas fa-bolt"></i></div>
+                <span class="category-label">Suspense Novels</span>
+            </a>
+            <a class="category-card" href="vampire_novels.html">
+                <div class="icon-circle"><i class="fas fa-bat"></i></div>
+                <span class="category-label">Vampire Novels</span>
+            </a>
+            <a class="category-card" href="dashboard.html" style="background: #f5f5f5;">
+                <div class="icon-circle"><i class="fas fa-arrow-left"></i></div>
+                <span class="category-label">പുറകിലേക്ക്</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    
+    const firebaseConfig = { 
+        apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", 
+        authDomain: "thripudilibrary.firebaseapp.com", 
+        projectId: "thripudilibrary" 
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, (user) => {
+        const dName = document.getElementById('display-name');
+        const userAvatarImg = document.getElementById('user-avatar-img');
+        if (user) {
+            dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "User";
+            userAvatarImg.src = user.photoURL || 'assets/cover/default_user.jpg';
+        } else {
+            dName.innerText = "അതിഥി";
+            userAvatarImg.src = 'assets/cover/default_user.jpg';
+        }
+    });
+
+    document.getElementById('logout-trigger').onclick = () => {
+        signOut(auth).then(() => { window.location.href = "logout-success.html"; });
+    };
+
+    const profileBtn = document.getElementById('user-profile-btn');
+    const dropdown = document.getElementById('profile-dropdown');
+    profileBtn.onclick = (e) => {
+        e.stopPropagation();
+        dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+    };
+    window.onclick = () => { dropdown.style.display = 'none'; };
+</script>
+</body>
+</html>
