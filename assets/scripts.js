@@ -1,4 +1,4 @@
-// --- THRIPUDI MASTER SCRIPT (V35 - ABSOLUTE MOBILE FIX) ---
+// --- THRIPUDI MASTER SCRIPT (V37 - FINAL AUDIO & FREEZE FIX) ---
 
 const firebaseConfig = { 
     apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", 
@@ -62,9 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (user) {
                 if(dName) dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ";
                 if(userAvatarImg) userAvatarImg.src = user.photoURL || 'assets/cover/default_user.jpg';
-            } else {
-                if(userAvatarImg) userAvatarImg.src = 'assets/cover/default_user.jpg';
-                if(dName) dName.innerText = "അതിഥി";
             }
         });
     }
@@ -80,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.onclick = () => { if(dropdown) dropdown.style.display = 'none'; };
 });
 
-// 2. ആക്സസ് & പ്ലെയർ ലോജിക് (രാവിലെ ശരിയാക്കിയ അതേ ലോജിക്)
+// 2. ആക്സസ് & പ്ലെയർ ലോജിക് (ഓഡിയോ ഫിക്സ് ചെയ്തത്)
 window.checkAccess = function(id, type, cardId) {
     if (!auth || !auth.currentUser) {
         document.getElementById('loginAlertModal').style.setProperty('display', 'flex', 'important');
@@ -88,15 +85,14 @@ window.checkAccess = function(id, type, cardId) {
     }
 
     const cardElement = document.getElementById(cardId);
-    if (cardElement) {
-        const bName = cardElement.querySelector('.book-title').innerText;
-        const bThumb = cardElement.querySelector('.book-cover').src;
-        const uid = auth.currentUser.uid;
-        let history = JSON.parse(localStorage.getItem('thripudi_history_' + uid)) || [];
-        history = history.filter(item => item.id !== id);
-        history.push({ id, name: bName, thumb: bThumb, date: new Date().toLocaleDateString('ml-IN') });
-        localStorage.setItem('thripudi_history_' + uid, JSON.stringify(history.slice(-20)));
-    }
+    const bName = cardElement.querySelector('.book-title').innerText;
+    const bThumb = cardElement.querySelector('.book-cover').src;
+    const uid = auth.currentUser.uid;
+
+    let history = JSON.parse(localStorage.getItem('thripudi_history_' + uid)) || [];
+    history = history.filter(item => item.id !== id);
+    history.push({ id, name: bName, thumb: bThumb, date: new Date().toLocaleDateString('ml-IN') });
+    localStorage.setItem('thripudi_history_' + uid, JSON.stringify(history.slice(-20)));
 
     if(type !== 'pdf' && bgMusic) bgMusic.pause();
 
@@ -107,11 +103,8 @@ window.checkAccess = function(id, type, cardId) {
             const oldCard = document.getElementById('card-' + currentAudioId);
             if(oldCard) oldCard.classList.remove('audio-active');
         }
-        const currentPlayer = document.getElementById('player-' + id);
-        if(currentPlayer) {
-            currentPlayer.innerHTML = `<div class="player-mask" style="width:80px;height:50px;position:absolute;z-index:9;"></div><iframe src="https://drive.google.com/file/d/${id}/preview?rm=minimal" style="width:100%; height:100%; border:none;" scrolling="no"></iframe>`;
-        }
-        if(cardElement) cardElement.classList.add('audio-active');
+        document.getElementById('player-' + id).innerHTML = `<div class="player-mask" style="width:80px;height:50px;position:absolute;z-index:9;"></div><iframe src="https://drive.google.com/file/d/${id}/preview?rm=minimal" style="width:100%; height:100%; border:none;" scrolling="no"></iframe>`;
+        document.getElementById(cardId).classList.add('audio-active');
         currentAudioId = id;
     } else if (type === 'video') {
         window.history.pushState({modalOpen: "video"}, ""); 
@@ -121,37 +114,35 @@ window.checkAccess = function(id, type, cardId) {
                 <i class="fas fa-arrow-left" style="color:#333; font-size:20px;"></i>
             </button>
             <iframe src="https://drive.google.com/file/d/${id}/preview?rm=minimal" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe>`;
-        
         document.getElementById('videoOverlay').style.display = 'flex';
-        // മൊബൈൽ ഫ്രീസ് മാറ്റാൻ ഏറ്റവും ശക്തമായ രീതി
-        document.body.style.cssText = "overflow:hidden; position:fixed; width:100%; height:100%;";
-    } else {
+        document.body.style.overflow = "hidden";
+    } else if (type === 'pdf') {
         window.history.pushState({modalOpen: "pdf"}, "");
         document.getElementById('pdfFrame').src = `https://drive.google.com/file/d/${id}/preview?rm=minimal`;
         document.getElementById('pdfModal').style.display = 'flex';
-        document.body.style.cssText = "overflow:hidden; position:fixed; width:100%; height:100%;";
+        document.body.style.overflow = "hidden";
     }
 };
 
 window.onpopstate = function() {
-    if (document.getElementById('videoOverlay').style.display === 'flex') closeVideoLogic();
-    if (document.getElementById('pdfModal').style.display === 'flex') closePdfLogic();
+    closeVideoLogic();
+    closePdfLogic();
 };
 
 function closeVideoLogic() {
     document.getElementById('videoOverlay').style.display = 'none';
     document.getElementById('videoFrameContainer').innerHTML = "";
-    // സ്ക്രോളിംഗ് നിർബന്ധമായും തിരികെ നൽകുന്നു
-    document.body.style.cssText = "overflow:auto; position:static; width:auto; height:auto;";
-    if (bgMusic && document.getElementById("music-icon") && document.getElementById("music-icon").classList.contains("fa-volume-up")) {
-        bgMusic.play();
-    }
+    // ഫ്രീസ് മാറ്റാനുള്ള ശക്തമായ ലോജിക്
+    document.body.style.overflow = "auto";
+    document.body.style.removeProperty('overflow');
+    if (bgMusic && document.getElementById("music-icon") && document.getElementById("music-icon").classList.contains("fa-volume-up")) bgMusic.play();
 }
 
 function closePdfLogic() {
     document.getElementById('pdfModal').style.display = 'none';
     document.getElementById('pdfFrame').src = "";
-    document.body.style.cssText = "overflow:auto; position:static; width:auto; height:auto;";
+    document.body.style.overflow = "auto";
+    document.body.style.removeProperty('overflow');
 }
 
 window.logoutUser = () => { if(auth) auth.signOut().then(() => { window.location.href = "logout_success.html"; }); };
