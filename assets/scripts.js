@@ -1,5 +1,3 @@
-// --- THRIPUDI MASTER SCRIPT (V37 - FINAL AUDIO & FREEZE FIX) ---
-
 const firebaseConfig = { 
     apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", 
     authDomain: "thripudilibrary.firebaseapp.com", 
@@ -77,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.onclick = () => { if(dropdown) dropdown.style.display = 'none'; };
 });
 
-// 2. ആക്സസ് & പ്ലെയർ ലോജിക് (ഓഡിയോ ഫിക്സ് ചെയ്തത്)
+// 2. ആക്സസ് & പ്ലെയർ ലോജിക്
 window.checkAccess = function(id, type, cardId) {
     if (!auth || !auth.currentUser) {
         document.getElementById('loginAlertModal').style.setProperty('display', 'flex', 'important');
@@ -115,12 +113,12 @@ window.checkAccess = function(id, type, cardId) {
             </button>
             <iframe src="https://drive.google.com/file/d/${id}/preview?rm=minimal" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe>`;
         document.getElementById('videoOverlay').style.display = 'flex';
-        document.body.style.overflow = "hidden";
+        // SCROLL LOCK REMOVED
     } else if (type === 'pdf') {
         window.history.pushState({modalOpen: "pdf"}, "");
         document.getElementById('pdfFrame').src = `https://drive.google.com/file/d/${id}/preview?rm=minimal`;
         document.getElementById('pdfModal').style.display = 'flex';
-        document.body.style.overflow = "hidden";
+        // SCROLL LOCK REMOVED
     }
 };
 
@@ -132,17 +130,12 @@ window.onpopstate = function() {
 function closeVideoLogic() {
     document.getElementById('videoOverlay').style.display = 'none';
     document.getElementById('videoFrameContainer').innerHTML = "";
-    // ഫ്രീസ് മാറ്റാനുള്ള ശക്തമായ ലോജിക്
-    document.body.style.overflow = "auto";
-    document.body.style.removeProperty('overflow');
     if (bgMusic && document.getElementById("music-icon") && document.getElementById("music-icon").classList.contains("fa-volume-up")) bgMusic.play();
 }
 
 function closePdfLogic() {
     document.getElementById('pdfModal').style.display = 'none';
     document.getElementById('pdfFrame').src = "";
-    document.body.style.overflow = "auto";
-    document.body.style.removeProperty('overflow');
 }
 
 window.logoutUser = () => { if(auth) auth.signOut().then(() => { window.location.href = "logout_success.html"; }); };
