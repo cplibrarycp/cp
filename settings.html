@@ -36,7 +36,6 @@
         label { display: block; margin-bottom: 5px; font-weight: 700; color: var(--secondary-dark); font-size: 0.85em; }
         input, select, textarea { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; outline: none; transition: 0.3s; font-family: inherit; }
         .btn-update { background: var(--primary-teal); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; }
-        .btn-update:hover { background: var(--secondary-dark); }
         #fileInput { display: none; }
     </style>
 </head>
@@ -96,12 +95,10 @@
                 <label>ഇമെയിൽ</label>
                 <input type="text" id="emailBox" disabled>
             </div>
-
             <div class="form-group">
                 <label>പേര് (Display Name)</label>
                 <input type="text" id="nameBox" placeholder="നിങ്ങളുടെ പേര്" oninput="calculateProgress()">
             </div>
-
             <div class="form-row">
                 <div class="form-group">
                     <label>വയസ്സ്</label>
@@ -116,17 +113,14 @@
                     </select>
                 </div>
             </div>
-
             <div class="form-group">
                 <label>ഫോൺ നമ്പർ</label>
                 <input type="tel" id="phoneBox" placeholder="ഫോൺ നമ്പർ" oninput="calculateProgress()">
             </div>
-
             <div class="form-group">
                 <label>വാട്സ്ആപ്പ് നമ്പർ</label>
                 <input type="tel" id="whatsappBox" placeholder="വാട്സ്ആപ്പ് നമ്പർ" oninput="calculateProgress()">
             </div>
-
             <div class="form-group">
                 <label>അഡ്രസ്സ്</label>
                 <textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ് ഇവിടെ നൽകുക" oninput="calculateProgress()"></textarea>
@@ -160,14 +154,13 @@
     const firebaseConfig = { apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", authDomain: "thripudilibrary.firebaseapp.com", projectId: "thripudilibrary" };
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwone2MeuhMzyFXTYFKHW0OOherDw4wo517f7daK1bs6VxV7A2XvQkpRaKVBO4_FHSjGw/exec";
+https://script.google.com/macros/s/AKfycbwone2MeuhMzyFXTYFKHW0OOherDw4wo517f7daK1bs6VxV7A2XvQkpRaKVBO4_FHSjGw/exec";
 
     const nameBox = document.getElementById('nameBox'), ageBox = document.getElementById('ageBox'), genderBox = document.getElementById('genderBox'), phoneBox = document.getElementById('phoneBox'), whatsappBox = document.getElementById('whatsappBox'), addressBox = document.getElementById('addressBox'), currentPic = document.getElementById('currentPic'), userAvatarImg = document.getElementById('user-avatar-img'), dName = document.getElementById('display-name'), msg = document.getElementById('msg'), saveBtn = document.getElementById('saveBtn');
 
     let fileData = null;
 
-    // ഷീറ്റിൽ നിന്ന് വിവരങ്ങൾ ലോഡ് ചെയ്യുന്നു
+    // ഷീറ്റിൽ നിന്ന് ഡാറ്റ ലോഡ് ചെയ്യുന്നു
     const loadFromSheet = async (email) => {
         try {
             const res = await fetch(`${SCRIPT_URL}?email=${email}`);
@@ -212,23 +205,27 @@
 
     saveBtn.onclick = async () => {
         const user = auth.currentUser; if (!user) return;
-        saveBtn.disabled = true; msg.innerText = "വിവരങ്ങൾ പുതുക്കുന്നു..."; msg.style.color = "blue";
+        saveBtn.disabled = true; msg.innerText = "സേവ് ചെയ്യുന്നു..."; msg.style.color = "blue";
 
         try {
             let finalPhotoUrl = user.photoURL;
 
-            // 1. ഫോട്ടോ അപ്‌ലോഡ് (പഴയ വർക്കിംഗ് രീതി - No action parameter)
+            // 1. ഫോട്ടോ അപ്‌ലോഡ് (താങ്കൾ നൽകിയ പഴയ വർക്കിംഗ് രീതി - No action parameter)
             if (fileData) {
                 const p = new URLSearchParams();
                 p.append('fileData', fileData.base64);
                 p.append('mimeType', fileData.type);
-                p.append('fileName', fileData.name);
+                // ഫയൽ നെയിമിലെ സ്പെഷ്യൽ ക്യാരക്ടറുകൾ ഒഴിവാക്കുന്നു
+                const safeName = fileData.name.replace(/[^a-zA-Z0-9.]/g, "_");
+                p.append('fileName', safeName);
+
                 const r = await fetch(SCRIPT_URL, { method: 'POST', body: p });
                 const j = await r.json();
-                if (j.result === "Success") finalPhotoUrl = j.photoUrl;
+                // പഴയ സ്ക്രിപ്റ്റിൽ photoUrl അല്ലെങ്കിൽ url ആണ് വരുന്നത് എന്ന് ഉറപ്പുവരുത്തുന്നു
+                if (j.result === "Success") finalPhotoUrl = j.photoUrl || j.url || finalPhotoUrl;
             }
 
-            // 2. ബാക്കി വിവരങ്ങൾ ഷീറ്റിലേക്ക് (Action: saveProfile)
+            // 2. വിവരങ്ങൾ ഷീറ്റിലേക്ക് (Action: saveProfile)
             const s = new URLSearchParams();
             s.append('action', 'saveProfile');
             s.append('email', user.email);
