@@ -191,7 +191,7 @@
 
     let fileData = null;
 
-    // ഷീറ്റിൽ നിന്ന് വിവരങ്ങൾ എടുക്കുന്നു
+    // ഷീറ്റിൽ നിന്ന് വിവരങ്ങൾ ലോഡ് ചെയ്യുന്നു
     const loadExtraData = async (email) => {
         try {
             const response = await fetch(`${SCRIPT_URL}?email=${email}`);
@@ -205,7 +205,7 @@
                 addressBox.value = d.address || "";
                 calculateProgress();
             }
-        } catch (e) { console.log("Data load error"); }
+        } catch (e) { console.log("Load error"); }
     };
 
     onAuthStateChanged(auth, (user) => {
@@ -216,7 +216,7 @@
             const photo = user.photoURL || 'assets/cover/default_user.jpg';
             currentPic.src = photo;
             userAvatarImg.src = photo;
-            loadExtraData(user.email); // ഇമെയിൽ ഉപയോഗിച്ച് ഷീറ്റിൽ നിന്ന് ലോഡ് ചെയ്യുന്നു
+            loadExtraData(user.email);
         } else { location.href = "login.html"; }
     });
 
@@ -251,28 +251,29 @@
         if (!user) return;
 
         saveBtn.disabled = true;
-        msg.innerText = "പ്രൊഫൈൽ പുതുക്കുന്നു...";
+        msg.innerText = "വിവരങ്ങൾ പുതുക്കുന്നു...";
         msg.style.color = "blue";
 
         try {
             let finalPhotoUrl = user.photoURL;
 
-            // ഫോട്ടോ അപ്‌ലോഡ് ലോജിക് (പഴയതുപോലെ തന്നെ)
+            // ഫോട്ടോ അപ്‌ലോഡ്
             if (fileData) {
-                const formData = new FormData();
-                formData.append('fileData', fileData.base64);
-                formData.append('mimeType', fileData.type);
-                formData.append('fileName', user.uid + "_" + fileData.name);
+                const photoParams = new URLSearchParams();
+                photoParams.append('action', 'saveProfile');
+                photoParams.append('fileData', fileData.base64);
+                photoParams.append('mimeType', fileData.type);
+                photoParams.append('fileName', user.uid + "_" + fileData.name);
+                photoParams.append('email', user.email);
 
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: new URLSearchParams(formData)
-                });
-                const result = await response.json();
-                if (result.result === "Success") finalPhotoUrl = result.photoUrl || result.url;
+                const photoRes = await fetch(SCRIPT_URL, { method: 'POST', body: photoParams });
+                const photoResult = await photoRes.json();
+                if (photoResult.result === "Success") {
+                    finalPhotoUrl = photoResult.photoUrl || photoResult.url;
+                }
             }
 
-            // ഷീറ്റിലേക്ക് വിവരങ്ങൾ അയക്കുന്നു
+            // വിവരങ്ങൾ ഷീറ്റിലേക്ക് അയക്കുന്നു
             const sheetParams = new URLSearchParams();
             sheetParams.append('action', 'saveProfile');
             sheetParams.append('email', user.email);
@@ -284,21 +285,24 @@
             sheetParams.append('address', addressBox.value);
             sheetParams.append('photoUrl', finalPhotoUrl);
 
-            await fetch(SCRIPT_URL, { method: 'POST', body: sheetParams });
+            const finalRes = await fetch(SCRIPT_URL, { method: 'POST', body: sheetParams });
+            const finalResult = await finalRes.json();
 
-            // ഫയർബേസ് അപ്ഡേറ്റ്
-            await updateProfile(user, { 
-                displayName: nameBox.value,
-                photoURL: finalPhotoUrl
-            });
-
-            msg.style.color = "green";
-            msg.innerText = "വിവരങ്ങൾ വിജയകരമായി സേവ് ചെയ്തു!";
-            setTimeout(() => location.reload(), 1000);
+            if (finalResult.result === "Success") {
+                await updateProfile(user, { 
+                    displayName: nameBox.value,
+                    photoURL: finalPhotoUrl
+                });
+                msg.style.color = "green";
+                msg.innerText = "വിവരങ്ങൾ വിജയകരമായി സേവ് ചെയ്തു!";
+                setTimeout(() => location.reload(), 1000);
+            } else {
+                throw new Error("Sheet API Error");
+            }
 
         } catch (e) {
             msg.style.color = "red";
-            msg.innerText = "Error: വിവരങ്ങൾ സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല.";
+            msg.innerText = "Error: സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല.";
             saveBtn.disabled = false;
         }
     };
