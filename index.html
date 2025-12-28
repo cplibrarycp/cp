@@ -24,7 +24,7 @@
       overflow-x: hidden; 
     }
     
-    .logo-img-main { height: 75px; width: auto; margin-right: 15px; } /* ലോഗോ സ്റ്റൈൽ */
+    .logo-img-main { height: 75px; width: auto; margin-right: 15px; }
     .thripudi-logo { display: flex; align-items: center; font-size: 2.2rem; font-weight: bold; color: var(--thripudi-gold); text-decoration: none; }
 
     /* ഹെഡർ */
@@ -54,6 +54,30 @@
       background: var(--thripudi-gold); 
       color: #000 !important; 
       border-color: var(--thripudi-gold); 
+    }
+
+    /* മൊബൈൽ ആപ്പ് ബ്രീത്തിംഗ് - എഴുത്ത് എപ്പോഴും ബ്ലാക്ക് ആക്കാൻ നിർബന്ധിക്കുന്നു */
+    @keyframes breathingBackground {
+      0% { 
+        background-color: var(--thripudi-gold); 
+        transform: scale(1); 
+      }
+      50% { 
+        background-color: #ffffff; 
+        transform: scale(1.08); 
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+      }
+      100% { 
+        background-color: var(--thripudi-gold); 
+        transform: scale(1); 
+      }
+    }
+
+    .blink-btn {
+      border: 2px solid var(--thripudi-gold) !important;
+      font-weight: bold !important;
+      color: #000 !important; /* എഴുത്ത് എപ്പോഴും കറുപ്പ് എന്ന് ഉറപ്പാക്കുന്നു */
+      animation: breathingBackground 2.5s ease-in-out infinite;
     }
 
     /* സ്മൂത്ത് ആനിമേഷൻ */
@@ -170,6 +194,8 @@
           <span>Thripudi Library®</span>
         </a>
         <div class="nav-links-group">
+          <a class="nav-btn blink-btn" href="app.html"><i class="fa fa-android"></i> Mobile App</a>
+          
           <a class="nav-btn active" href="dashboard.html">Dashboard</a>
           <a class="nav-btn" href="login.html">Login</a>
           <a class="nav-btn" href="about.html">About</a>

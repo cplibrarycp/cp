@@ -4,64 +4,28 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Login / Register | THRIPUDI LIBRARY</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
     <style>
         :root { --primary-teal: #00897B; --secondary-dark: #004D40; --text-white: #FFFFFF; }
         * { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; box-sizing: border-box; }
-        
-        .hero {
-            height: 100vh; width: 100%;
-            background-image: linear-gradient(rgba(0, 77, 64, 0.9), rgba(0, 77, 64, 0.9)), url(assets/cover/bi.jpg);
-            background-position: center; background-size: cover; 
-            display: flex; align-items: center; justify-content: center;
-            padding: 20px;
-        }
-
-        .form-box {
-            width: 100%; max-width: 400px; height: auto; min-height: 550px; 
-            position: relative; background: rgba(255, 255, 255, 0.1); 
-            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); 
-            border: 1px solid rgba(255, 255, 255, 0.2); 
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
-            padding: 20px; overflow: hidden; border-radius: 20px; 
-            text-align: center;
-        }
-
-        /* ലോഗോയും ഹെഡറും */
+        .hero { height: 100vh; width: 100%; background-image: linear-gradient(rgba(0, 77, 64, 0.9), rgba(0, 77, 64, 0.9)), url(assets/cover/bi.jpg); background-position: center; background-size: cover; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .form-box { width: 100%; max-width: 400px; min-height: 550px; position: relative; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); padding: 20px; overflow: hidden; border-radius: 20px; text-align: center; }
         .form-header { margin-top: 10px; margin-bottom: 5px; }
         .form-logo { height: 50px; width: auto; margin-bottom: 5px; }
-        .form-header h2 { color: white; font-size: 1.4em; font-weight: 700; letter-spacing: 1px; }
-
-        .button-box { 
-            width: 240px; margin: 25px auto; position: relative; border-radius: 30px; 
-            background: rgba(0, 0, 0, 0.25); display: flex; justify-content: space-between; 
-            padding: 5px; box-shadow: inset 0 2px 5px rgba(0,0,0,0.2); 
-        }
-
-        .toggle-btn { padding: 10px 0; cursor: pointer; background: transparent; border: 0; outline: none; position: relative; font-weight: 600; color: #ccc; flex: 1; transition: color 0.5s; z-index: 1; font-size: 14px; }
-        #btn { top: 5px; left: 5px; position: absolute; width: 115px; height: calc(100% - 10px); background: #fff; border-radius: 25px; transition: .5s; box-shadow: 0 2px 5px rgba(0,0,0,0.3); }
-        
+        .form-header h2 { color: white; font-size: 1.4em; font-weight: 700; }
+        .button-box { width: 240px; margin: 25px auto; position: relative; border-radius: 30px; background: rgba(0, 0, 0, 0.25); display: flex; padding: 5px; }
+        .toggle-btn { padding: 10px 0; cursor: pointer; background: transparent; border: 0; outline: none; position: relative; font-weight: 600; color: #ccc; flex: 1; z-index: 1; font-size: 14px; }
+        #btn { top: 5px; left: 5px; position: absolute; width: 115px; height: calc(100% - 10px); background: #fff; border-radius: 25px; transition: .5s; }
         .input-group { position: absolute; width: 85%; transition: .5s; left: 50px; margin-top: 20px; }
-        .input-field { width: 100%; padding: 10px 0; margin: 8px 0; border: none; border-bottom: 1px solid rgba(255,255,255,0.5); outline: none; background: transparent; color: #fff; font-size: 14px; }
-        ::placeholder { color: #ddd; opacity: 0.8; font-size: 13px; }
-        
-        .submit-btn { width: 100%; padding: 12px 0; cursor: pointer; display: block; margin: 25px auto; background: linear-gradient(to right, var(--primary-teal), var(--secondary-dark)); border: 0; outline: none; border-radius: 30px; color: #fff; font-weight: bold; font-size: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: 0.3s; }
-        .submit-btn:active { transform: scale(0.95); }
-        
-        .forgot-pass { display: block; text-align: center; margin-top: 10px; color: #fff; font-size: 12px; text-decoration: none; cursor: pointer; opacity: 0.8; }
-        #messageBox { position: absolute; bottom: 15px; width: 100%; left: 0; text-align: center; font-size: 12px; font-weight: 600; padding: 0 20px; }
-        
+        .input-field { width: 100%; padding: 10px 0; margin: 8px 0; border: none; border-bottom: 1px solid rgba(255,255,255,0.5); outline: none; background: transparent; color: #fff; }
+        .submit-btn { width: 100%; padding: 12px 0; cursor: pointer; display: block; margin: 25px auto; background: linear-gradient(to right, var(--primary-teal), var(--secondary-dark)); border: 0; border-radius: 30px; color: #fff; font-weight: bold; }
+        #messageBox { position: absolute; bottom: 15px; width: 100%; left: 0; text-align: center; font-size: 12px; }
         .success { color: #69F0AE; }
         .error { color: #FF5252; }
         #register { left: 450px; }
-
-        /* മൊബൈൽ സ്ക്രീൻ മാറ്റങ്ങൾ */
-        @media (max-width: 450px) {
-            .form-box { width: 100%; padding: 15px; min-height: 520px; }
-            .input-group { left: 30px; width: calc(100% - 60px); }
-            #register { left: 450px; }
-            .form-header h2 { font-size: 1.2em; }
-        }
     </style>
 </head>
 <body>
@@ -72,52 +36,29 @@
             <img src="assets/cover/logo.png" class="form-logo" alt="Logo">
             <h2>THRIPUDI LIBRARY</h2>
         </div>
-
         <div class="button-box">
             <div id="btn"></div>
-            <button class="toggle-btn" id="loginToggle" onclick="openLogin()" style="color: var(--primary-teal);" type="button">Log In</button>
-            <button class="toggle-btn" id="regToggle" onclick="openRegister()" type="button">Register</button>
+            <button class="toggle-btn" id="loginToggle" onclick="openLogin()">Log In</button>
+            <button class="toggle-btn" id="regToggle" onclick="openRegister()">Register</button>
         </div>
-
         <form class="input-group" id="login">
             <input class="input-field" id="loginEmail" placeholder="Email Id" required type="email"/>
             <input class="input-field" id="loginPassword" placeholder="Password" required type="password"/>
             <button class="submit-btn" id="loginBtn" type="button">Log In</button>
-            <a class="forgot-pass" onclick="handleForgot()">Forgot Password?</a>
+            <a style="color:white; font-size:12px; cursor:pointer" onclick="handleForgot()">Forgot Password?</a>
         </form>
-
         <form class="input-group" id="register">
             <input class="input-field" id="regUser" placeholder="Full Name" required type="text"/>
             <input class="input-field" id="regEmail" placeholder="Email Id" required type="email"/>
-            <input class="input-field" id="regPassword" minlength="6" placeholder="Password" required type="password"/>
+            <input class="input-field" id="regPassword" placeholder="Password" required type="password"/>
             <button class="submit-btn" id="regBtn" type="button">Register</button>
         </form>
-
         <div id="messageBox"></div>
     </div>
 </div>
 
 <script>
-    var x = document.getElementById("login");
-    var y = document.getElementById("register");
-    var z = document.getElementById("btn");
-    var loginToggle = document.getElementById("loginToggle");
-    var regToggle = document.getElementById("regToggle");
-
-    function openRegister() { 
-        x.style.left = "-400px"; y.style.left = "30px"; z.style.left = "120px"; 
-        loginToggle.style.color = "#ccc"; regToggle.style.color = "var(--primary-teal)"; 
-    }
-    function openLogin() { 
-        x.style.left = "30px"; y.style.left = "450px"; z.style.left = "5px"; 
-        loginToggle.style.color = "var(--primary-teal)"; regToggle.style.color = "#ccc"; 
-    }
-</script>
-
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-
+    // Firebase Config
     const firebaseConfig = {
         apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA",
         authDomain: "thripudilibrary.firebaseapp.com",
@@ -126,9 +67,11 @@
         messagingSenderId: "887018912750",
         appId: "1:887018912750:web:cc05190a72b13db816acff"
     };
+    firebase.initializeApp(firebaseConfig);
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+    const x = document.getElementById("login");
+    const y = document.getElementById("register");
+    const z = document.getElementById("btn");
     const messageBox = document.getElementById("messageBox");
 
     function showMessage(msg, type) {
@@ -137,51 +80,52 @@
         setTimeout(() => { messageBox.textContent = ""; }, 5000);
     }
 
+    function openRegister() { x.style.left = "-400px"; y.style.left = "30px"; z.style.left = "120px"; }
+    function openLogin() { x.style.left = "30px"; y.style.left = "450px"; z.style.left = "5px"; }
+
+    // മർമ്മപ്രധാനമായ റീഡയറക്ട് ലോജിക്
+    
     function handleRedirect() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const targetPage = urlParams.get('redirect');
-        if (targetPage) {
-            window.location.href = targetPage;
+        const returnTo = localStorage.getItem('return_to');
+        if (returnTo) {
+            localStorage.removeItem('return_to');
+            window.location.href = returnTo;
         } else {
             window.location.href = "dashboard.html";
         }
     }
 
-    document.getElementById("loginBtn").addEventListener("click", () => {
+    // Login Action
+    document.getElementById("loginBtn").onclick = function() {
         const email = document.getElementById("loginEmail").value;
         const pass = document.getElementById("loginPassword").value;
-        if(!email || !pass) { showMessage("Enter details", "error"); return; }
-
-        signInWithEmailAndPassword(auth, email, pass)
+        firebase.auth().signInWithEmailAndPassword(email, pass)
             .then(() => {
-                showMessage("Success! Redirecting...", "success");
-                setTimeout(handleRedirect, 1000);
+                showMessage("Success!", "success");
+                handleRedirect();
             })
-            .catch((err) => showMessage("Check Email/Password", "error"));
-    });
+            .catch(err => showMessage("Error: " + err.message, "error"));
+    };
 
-    document.getElementById("regBtn").addEventListener("click", () => {
+    // Register Action
+    document.getElementById("regBtn").onclick = function() {
         const name = document.getElementById("regUser").value;
         const email = document.getElementById("regEmail").value;
         const pass = document.getElementById("regPassword").value;
-        if(!name || !email || !pass) { showMessage("Fill all fields", "error"); return; }
-
-        createUserWithEmailAndPassword(auth, email, pass)
-            .then((res) => {
-                updateProfile(res.user, { displayName: name }).then(() => {
-                    showMessage("Account Created!", "success");
-                    setTimeout(handleRedirect, 1000);
+        firebase.auth().createUserWithEmailAndPassword(email, pass)
+            .then(res => {
+                res.user.updateProfile({ displayName: name }).then(() => {
+                    showMessage("Created!", "success");
+                    handleRedirect();
                 });
             })
-            .catch((err) => showMessage("Registration Failed", "error"));
-    });
+            .catch(err => showMessage("Failed!", "error"));
+    };
 
     window.handleForgot = function() {
         const email = document.getElementById("loginEmail").value;
-        if(!email) { showMessage("Enter email first", "error"); return; }
-        sendPasswordResetEmail(auth, email)
-            .then(() => showMessage("Reset link sent!", "success"))
-            .catch((err) => showMessage("Email not found", "error"));
+        if(!email) return showMessage("Enter email", "error");
+        firebase.auth().sendPasswordResetEmail(email).then(() => showMessage("Sent!", "success"));
     };
 </script>
 </body>

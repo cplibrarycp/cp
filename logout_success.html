@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ലോഗൗട്ട് വിജയിച്ചു | THRIPUDI LIBRARY</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="assets/styles.css">
+    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background-image: url('assets/cover/logout.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .logout-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* കാർഡ് മൊത്തത്തിൽ അല്പം കൂടി ചെറുതാക്കി */
+        .logout-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            max-width: 340px; 
+            width: 95%;
+            text-align: center;
+            overflow: hidden;
+            animation: slideUp 0.6s ease;
+        }
+
+        /* പച്ച ഹെഡർ ഭാഗം ഒന്നുകൂടി ചെറുതാക്കി */
+        .card-header-brand {
+            background-color: var(--primary-teal);
+            padding: 15px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            color: white;
+        }
+        .card-logo-img { 
+            height: 40px; 
+            width: auto;
+        }
+        .card-brand-text { 
+            font-size: 1em; 
+            font-weight: 700; 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+        }
+
+        .card-content { padding: 25px 20px; }
+
+        .icon-box {
+            font-size: 35px;
+            color: var(--primary-teal);
+            margin-bottom: 12px;
+        }
+
+        .card-content h1 { color: var(--secondary-dark); margin-bottom: 8px; font-size: 1.3em; font-weight: 700; }
+        .card-content p { color: #555; margin-bottom: 20px; line-height: 1.5; font-size: 0.85em; }
+
+        .btn-home {
+            display: block;
+            background-color: var(--primary-teal);
+            color: white;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: 0.3s;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        .btn-home:hover { background-color: var(--secondary-dark); transform: translateY(-2px); }
+
+        .btn-login {
+            display: inline-block;
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+        .btn-login:hover { text-decoration: underline; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* മാസ്റ്റർ ഹെഡർ അഡ്ജസ്റ്റ്‌മെന്റ് */
+        .logo-img { height: 75px !important; }
+        .logo-text { font-size: 1.8em !important; font-weight: 700; color: white; }
+
+        @media (max-width: 768px) {
+            .logo-img { height: 60px !important; }
+            .logo-text { font-size: 1.4em !important; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" alt="Logo" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+        </div>
+    </div>
+</header>
+
+<main class="logout-section">
+    <div class="logout-card">
+        <div class="card-header-brand">
+            <img src="assets/cover/logo.png" alt="Logo" class="card-logo-img">
+            <span class="card-brand-text">THRIPUDI LIBRARY</span>
+        </div>
+
+        <div class="card-content">
+            <div class="icon-box"><i class="fas fa-check-circle"></i></div>
+            <h1>ലോഗൗട്ട് വിജയിച്ചു!</h1>
+            <p>തൃപുടി ഡിജിറ്റൽ ലൈബ്രറി സന്ദർശിച്ചതിന് നന്ദി. വായനയുടെ ലോകത്തേക്ക് ഇനിയും കടന്നുവരിക.</p>
+            
+            <a class="btn-home" href="dashboard.html">ഹോം പേജിലേക്ക്</a>
+            <a class="btn-login" href="login.html">വീണ്ടും ലോഗിൻ ചെയ്യുക</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script>
+    // ലോഗൗട്ട് ആയതിനാൽ സ്റ്റോറേജ് ക്ലിയർ ചെയ്യുന്നു
+    localStorage.clear();
+    sessionStorage.clear();
+</script>
+
+</body>
+</html>
