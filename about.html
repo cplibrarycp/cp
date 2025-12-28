@@ -125,7 +125,9 @@
             dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്ത്";
             userAvatarImg.src = user.photoURL ? user.photoURL : defaultUserImg;
         } else {
-            window.location.href = "login.html";
+            // ലോഗിൻ ചെയ്തില്ലെങ്കിലും പേജ് കാണാൻ അനുവദിക്കുന്നു
+            dName.innerText = "അതിഥി";
+            userAvatarImg.src = defaultUserImg;
         }
     });
 
