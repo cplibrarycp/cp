@@ -26,12 +26,17 @@
             color: white; width: 32px; height: 32px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; border: 2px solid white;
         }
+        .progress-container { margin-bottom: 25px; text-align: left; background: #f0f0f0; padding: 15px; border-radius: 12px; }
+        .progress-label { display: flex; justify-content: space-between; font-size: 0.8em; font-weight: bold; margin-bottom: 5px; }
+        .progress-bar-bg { width: 100%; height: 8px; background: #ddd; border-radius: 10px; overflow: hidden; }
+        .progress-bar-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #20c997, #007bff); transition: width 0.4s ease; }
         .form-group { margin-bottom: 15px; text-align: left; }
         .form-row { display: flex; gap: 10px; }
         .form-row .form-group { flex: 1; }
         label { display: block; margin-bottom: 5px; font-weight: 700; color: var(--secondary-dark); font-size: 0.85em; }
         input, select, textarea { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; outline: none; transition: 0.3s; font-family: inherit; }
-        .btn-update { background: var(--primary-teal); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; }
+        .btn-update { background: var(--primary-teal); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        .btn-update:hover { background: var(--secondary-dark); }
         #fileInput { display: none; }
     </style>
 </head>
@@ -43,12 +48,40 @@
             <span class="logo-text">THRIPUDI LIBRARY</span>
             <img src="assets/cover/logo.png" alt="Logo" class="logo-img">
         </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            
+            <div class="user-profile" id="user-profile-btn">
+                <div class="user-avatar-wrap" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <img id="user-avatar-img" class="user-avatar-small">
+                    <span style="color: white; font-size: 0.85em;"><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="history.html"><i class="fas fa-history"></i> History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
 
 <section class="profile-section">
     <div class="container">
         <div class="profile-card">
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>പ്രൊഫൈൽ പൂർണ്ണത</span>
+                    <span id="progress-val">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-bar"></div>
+                </div>
+            </div>
+
             <div class="avatar-wrapper" onclick="document.getElementById('fileInput').click()">
                 <div class="avatar-circle">
                     <img id="currentPic" src="assets/cover/default_user.jpg">
@@ -65,16 +98,16 @@
             </div>
             <div class="form-group">
                 <label>പേര് (Display Name)</label>
-                <input type="text" id="nameBox" placeholder="നിങ്ങളുടെ പേര്">
+                <input type="text" id="nameBox" placeholder="നിങ്ങളുടെ പേര്" oninput="calculateProgress()">
             </div>
             <div class="form-row">
                 <div class="form-group">
                     <label>വയസ്സ്</label>
-                    <input type="number" id="ageBox" placeholder="വയസ്സ്">
+                    <input type="number" id="ageBox" placeholder="വയസ്സ്" oninput="calculateProgress()">
                 </div>
                 <div class="form-group">
                     <label>ലിംഗഭേദം</label>
-                    <select id="genderBox">
+                    <select id="genderBox" onchange="calculateProgress()">
                         <option value="">തിരഞ്ഞെടുക്കുക</option>
                         <option value="Male">പുരുഷൻ</option>
                         <option value="Female">സ്ത്രീ</option>
@@ -83,15 +116,15 @@
             </div>
             <div class="form-group">
                 <label>ഫോൺ നമ്പർ</label>
-                <input type="tel" id="phoneBox" placeholder="ഫോൺ നമ്പർ">
+                <input type="tel" id="phoneBox" placeholder="ഫോൺ നമ്പർ" oninput="calculateProgress()">
             </div>
             <div class="form-group">
                 <label>വാട്സ്ആപ്പ് നമ്പർ</label>
-                <input type="tel" id="whatsappBox" placeholder="വാട്സ്ആപ്പ് നമ്പർ">
+                <input type="tel" id="whatsappBox" placeholder="വാട്സ്ആപ്പ് നമ്പർ" oninput="calculateProgress()">
             </div>
             <div class="form-group">
                 <label>അഡ്രസ്സ്</label>
-                <textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ് നൽകുക"></textarea>
+                <textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ് നൽകുക" oninput="calculateProgress()"></textarea>
             </div>
             
             <button class="btn-update" id="saveBtn">വിവരങ്ങൾ സേവ് ചെയ്യുക</button>
@@ -100,15 +133,30 @@
     </div>
 </section>
 
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { getAuth, onAuthStateChanged, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
     const firebaseConfig = { apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", authDomain: "thripudilibrary.firebaseapp.com", projectId: "thripudilibrary" };
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqHgxaVZm3AsDz7_uL2rIRM408B-Yfaj6wmnP5vb7kLclzqHPYtvHqWvhhz3nEENZn-A/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyC6pxtlaEC0MVkpiYblfgSAjCALQADU8r2Mh5yAbcYsqAWyhngUJ8--I5bcm9_pUt2BQ/exec";
 
     const nameBox = document.getElementById('nameBox');
     const ageBox = document.getElementById('ageBox');
@@ -117,6 +165,8 @@
     const whatsappBox = document.getElementById('whatsappBox');
     const addressBox = document.getElementById('addressBox');
     const currentPic = document.getElementById('currentPic');
+    const userAvatarImg = document.getElementById('user-avatar-img');
+    const dName = document.getElementById('display-name');
     const msg = document.getElementById('msg');
     const saveBtn = document.getElementById('saveBtn');
 
@@ -126,9 +176,11 @@
         if (user) {
             document.getElementById('emailBox').value = user.email;
             nameBox.value = user.displayName || "";
-            currentPic.src = user.photoURL || 'assets/cover/default_user.jpg';
+            dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്ത്";
+            const photo = user.photoURL || 'assets/cover/default_user.jpg';
+            currentPic.src = photo;
+            userAvatarImg.src = photo;
             
-            // ഷീറ്റിൽ നിന്ന് ഡാറ്റ ലോഡ് ചെയ്യുന്നു
             fetch(`${SCRIPT_URL}?email=${user.email}`)
                 .then(res => res.json())
                 .then(result => {
@@ -139,10 +191,20 @@
                         phoneBox.value = d.phone || "";
                         whatsappBox.value = d.whatsapp || "";
                         addressBox.value = d.address || "";
+                        calculateProgress();
                     }
                 });
-        }
+        } else { location.href = "login.html"; }
     });
+
+    window.calculateProgress = () => {
+        const fields = [nameBox, ageBox, genderBox, phoneBox, whatsappBox, addressBox];
+        let filled = 0;
+        fields.forEach(field => { if (field.value.trim() !== "") filled++; });
+        const percent = Math.round((filled / fields.length) * 100);
+        document.getElementById('progress-bar').style.width = percent + '%';
+        document.getElementById('progress-val').innerText = percent + '%';
+    };
 
     document.getElementById('fileInput').onchange = (e) => {
         const file = e.target.files[0];
@@ -150,39 +212,34 @@
         const reader = new FileReader();
         reader.onload = (ev) => {
             currentPic.src = ev.target.result;
-            fileData = {
-                base64: ev.target.result.split(',')[1],
-                type: file.type,
-                name: file.name // പഴയതുപോലെ ഒറിജിനൽ നെയിം എടുക്കുന്നു
-            };
+            fileData = { base64: ev.target.result.split(',')[1], type: file.type, name: file.name };
         };
         reader.readAsDataURL(file);
     };
 
     saveBtn.onclick = async () => {
         const user = auth.currentUser;
+        if (!user) return;
         saveBtn.disabled = true;
-        msg.innerText = "വിവരങ്ങൾ പുതുക്കുന്നു...";
+        msg.innerText = "സേവ് ചെയ്യുന്നു...";
         msg.style.color = "blue";
 
         try {
             let finalPhotoUrl = user.photoURL;
 
-            // 1. ഫോട്ടോ സേവ് (പഴയ രീതിയിൽ മാത്രം)
+            // ഫോട്ടോ പഴയ രീതിയിൽ ഡ്രൈവിലേക്ക് മാത്രം
             if (fileData) {
                 const photoParams = new URLSearchParams();
                 photoParams.append('fileData', fileData.base64);
                 photoParams.append('mimeType', fileData.type);
-                photoParams.append('fileName', fileData.name); // ഒറിജിനൽ ഫയൽ നെയിം
+                photoParams.append('fileName', fileData.name);
 
                 const photoRes = await fetch(SCRIPT_URL, { method: 'POST', body: photoParams });
                 const photoResult = await photoRes.json();
-                if (photoResult.result === "Success") {
-                    finalPhotoUrl = photoResult.url;
-                }
+                if (photoResult.result === "Success") finalPhotoUrl = photoResult.url;
             }
 
-            // 2. ബാക്കി വിവരങ്ങൾ ഷീറ്റിലേക്ക് (PhotoURL ഇല്ലാതെ)
+            // ഷീറ്റിലേക്ക് വിവരങ്ങൾ മാത്രം
             const sheetParams = new URLSearchParams();
             sheetParams.append('action', 'saveProfile');
             sheetParams.append('email', user.email);
@@ -194,12 +251,10 @@
             sheetParams.append('address', addressBox.value);
 
             await fetch(SCRIPT_URL, { method: 'POST', body: sheetParams });
-
-            // 3. ഫയർബേസ് പ്രൊഫൈൽ അപ്ഡേറ്റ്
             await updateProfile(user, { displayName: nameBox.value, photoURL: finalPhotoUrl });
 
             msg.style.color = "green";
-            msg.innerText = "വിവരങ്ങൾ വിജയകരമായി സേവ് ചെയ്തു!";
+            msg.innerText = "വിജയകരമായി സേവ് ചെയ്തു!";
             setTimeout(() => location.reload(), 1000);
 
         } catch (e) {
@@ -208,6 +263,12 @@
             saveBtn.disabled = false;
         }
     };
+
+    window.logoutUser = () => signOut(auth).then(() => location.href = "login.html");
+    const profileBtn = document.getElementById('user-profile-btn');
+    const dropdown = document.getElementById('profile-dropdown');
+    profileBtn.onclick = (e) => { e.stopPropagation(); dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block'; };
+    window.onclick = () => dropdown.style.display = 'none';
 </script>
 </body>
 </html>
