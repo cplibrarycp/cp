@@ -9,31 +9,15 @@
     <link rel="stylesheet" href="assets/styles.css">
     <style>
         .profile-section { padding: 40px 0; flex: 1; }
-        .profile-card { 
-            background: white; padding: 30px; border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 500px; 
-            margin: 0 auto; text-align: center; border: 4px solid var(--outline-color); 
-        }
+        .profile-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; text-align: center; border: 4px solid var(--outline-color); }
         .avatar-wrapper { position: relative; width: 110px; height: 110px; margin: 0 auto 20px; cursor: pointer; }
-        .avatar-circle { 
-            width: 100%; height: 100%; background: #f0f0f0; 
-            border-radius: 50%; border: 4px solid var(--primary-teal); 
-            overflow: hidden; display: flex; align-items: center; justify-content: center;
-        }
+        .avatar-circle { width: 100%; height: 100%; background: #f0f0f0; border-radius: 50%; border: 4px solid var(--primary-teal); overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
-        .upload-hint { 
-            position: absolute; bottom: 0; right: 0; background: var(--primary-teal); 
-            color: white; width: 32px; height: 32px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; border: 2px solid white;
-        }
-        .progress-container { margin-bottom: 25px; text-align: left; background: #f0f0f0; padding: 15px; border-radius: 12px; }
-        .progress-label { display: flex; justify-content: space-between; font-size: 0.8em; font-weight: bold; margin-bottom: 5px; }
-        .progress-bar-bg { width: 100%; height: 8px; background: #ddd; border-radius: 10px; overflow: hidden; }
-        .progress-bar-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #20c997, #007bff); transition: width 0.4s ease; }
+        .upload-hint { position: absolute; bottom: 0; right: 0; background: var(--primary-teal); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
         .form-group { margin-bottom: 15px; text-align: left; }
         label { display: block; margin-bottom: 5px; font-weight: 700; color: var(--secondary-dark); font-size: 0.85em; }
         input, select, textarea { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; outline: none; transition: 0.3s; font-family: inherit; }
-        .btn-update { background: var(--primary-teal); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        .btn-update { background: var(--primary-teal); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; }
         #fileInput { display: none; }
     </style>
 </head>
@@ -61,20 +45,21 @@
 <section class="profile-section">
     <div class="container">
         <div class="profile-card">
-            <div class="progress-container">
-                <div class="progress-label"><span>പ്രൊഫൈൽ പൂർണ്ണത</span><span id="progress-val">0%</span></div>
-                <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-bar"></div></div>
-            </div>
             <div class="avatar-wrapper" onclick="document.getElementById('fileInput').click()">
-                <div class="avatar-circle"><img id="currentPic" src="assets/cover/logo.png"></div>
+                <div class="avatar-circle">
+                    <img id="currentPic" src="assets/cover/logo.png">
+                </div>
                 <div class="upload-hint"><i class="fas fa-camera"></i></div>
                 <input type="file" id="fileInput" accept="image/*">
             </div>
+
+            <h2 style="color: var(--secondary-dark); margin-bottom: 20px;">പ്രൊഫൈൽ ക്രമീകരണങ്ങൾ</h2>
             <div class="form-group"><label>ഇമെയിൽ</label><input type="text" id="emailBox" disabled></div>
-            <div class="form-group"><label>പേര് (Display Name)</label><input type="text" id="nameBox" placeholder="പേര്" oninput="calculateProgress()"></div>
-            <div class="form-group"><label>വയസ്സ്</label><input type="number" id="ageBox" placeholder="വയസ്സ്" oninput="calculateProgress()"></div>
-            <div class="form-group"><label>ഫോൺ നമ്പർ</label><input type="tel" id="phoneBox" placeholder="ഫോൺ" oninput="calculateProgress()"></div>
-            <div class="form-group"><label>അഡ്രസ്സ്</label><textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ്" oninput="calculateProgress()"></textarea></div>
+            <div class="form-group"><label>പേര്</label><input type="text" id="nameBox" placeholder="പേര്"></div>
+            <div class="form-group"><label>വയസ്സ്</label><input type="number" id="ageBox" placeholder="വയസ്സ്"></div>
+            <div class="form-group"><label>ഫോൺ</label><input type="tel" id="phoneBox" placeholder="ഫോൺ"></div>
+            <div class="form-group"><label>അഡ്രസ്സ്</label><textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ്"></textarea></div>
+            
             <button class="btn-update" id="saveBtn">വിവരങ്ങൾ സേവ് ചെയ്യുക</button>
             <div id="msg" style="margin-top:15px; font-size:0.85em; font-weight:600;"></div>
         </div>
@@ -82,7 +67,6 @@
 </section>
 
 <script src="assets/scripts.js"></script>
-
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
     import { getAuth, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
@@ -91,7 +75,7 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // താങ്കളുടെ പുതിയ Apps Script URL
+    // പുതിയ URL - ഇവിടെയാണ് ഫോട്ടോ അപ്‌ലോഡ് നടക്കേണ്ടത്
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwone2MeuhMzyFXTYFKHW0OOherDw4wo517f7daK1bs6VxV7A2XvQkpRaKVBO4_FHSjGw/exec";
 
     const nameBox = document.getElementById('nameBox'), ageBox = document.getElementById('ageBox'), phoneBox = document.getElementById('phoneBox'), addressBox = document.getElementById('addressBox'), currentPic = document.getElementById('currentPic'), userAvatarImg = document.getElementById('user-avatar-img'), dName = document.getElementById('display-name'), msg = document.getElementById('msg'), saveBtn = document.getElementById('saveBtn');
@@ -104,17 +88,10 @@
             nameBox.value = user.displayName || "";
             dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്ത്";
             const photo = user.photoURL || 'assets/cover/default_user.jpg';
-            currentPic.src = photo; userAvatarImg.src = photo;
-        } else { location.href = "login.html"; }
+            currentPic.src = photo;
+            userAvatarImg.src = photo;
+        }
     });
-
-    window.calculateProgress = () => {
-        const fields = [nameBox, ageBox, phoneBox, addressBox];
-        let filled = fields.filter(f => f.value.trim() !== "").length;
-        const percent = Math.round((filled / 4) * 100);
-        document.getElementById('progress-bar').style.width = percent + '%';
-        document.getElementById('progress-val').innerText = percent + '%';
-    };
 
     document.getElementById('fileInput').onchange = (e) => {
         const file = e.target.files[0];
@@ -129,34 +106,40 @@
 
     saveBtn.onclick = async () => {
         const user = auth.currentUser; if (!user) return;
-        saveBtn.disabled = true; msg.innerText = "അപ്‌ലോഡ് ചെയ്യുന്നു..."; msg.style.color = "blue";
+        saveBtn.disabled = true; msg.innerText = "വിവരങ്ങൾ സേവ് ചെയ്യുന്നു..."; msg.style.color = "blue";
 
         try {
-            let finalPhotoUrl = user.photoURL;
+            let photoUrl = user.photoURL;
 
-            // ഫോട്ടോ മാത്രം അപ്‌ലോഡ് ചെയ്യുന്നു (പഴയ മാജിക് ലോജിക്)
+            // 1. ഫോട്ടോ അപ്‌ലോഡ് (പഴയ രീതിയിലുള്ള മാജിക്)
             if (fileData) {
-                const formData = new FormData();
-                formData.append('fileData', fileData.base64);
-                formData.append('mimeType', fileData.type);
-                formData.append('fileName', fileData.name);
-
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    body: new URLSearchParams(formData)
-                });
+                const p = new URLSearchParams();
+                p.append('fileData', fileData.base64);
+                p.append('mimeType', fileData.type);
+                p.append('fileName', fileData.name);
                 
-                const result = await response.json();
-                if (result.result === "Success") {
-                    finalPhotoUrl = result.url; 
+                const r = await fetch(SCRIPT_URL, { method: 'POST', body: p });
+                const j = await r.json();
+                if (j.result === "Success") {
+                    photoUrl = j.url; // ഇത് കൃത്യമായി പ്രൊഫൈലിലേക്ക് തിരികെ വരും
                 }
             }
 
-            // ഫയർബേസ് അപ്ഡേറ്റ് മാത്രം
-            await updateProfile(user, { displayName: nameBox.value, photoURL: finalPhotoUrl });
+            // 2. ഫയർബേസ് പ്രൊഫൈൽ അപ്‌ഡേറ്റ്
+            await updateProfile(user, { displayName: nameBox.value, photoURL: photoUrl });
 
-            msg.style.color = "green"; msg.innerText = "വിജയകരമായി അപ്‌ഡേറ്റ് ചെയ്തു!";
-            setTimeout(() => location.reload(), 1000);
+            // 3. സന്ദേശവും വിവരങ്ങളും ഷീറ്റിലേക്ക് അയക്കുന്നു
+            const s = new URLSearchParams();
+            s.append('action', 'saveProfile');
+            s.append('email', user.email);
+            s.append('name', nameBox.value);
+            s.append('age', ageBox.value);
+            s.append('phone', phoneBox.value);
+            s.append('address', addressBox.value);
+            fetch(SCRIPT_URL, { method: 'POST', body: s });
+
+            msg.style.color = "green"; msg.innerText = "വിജയകരമായി സേവ് ചെയ്തു!";
+            setTimeout(() => location.reload(), 1200);
 
         } catch (e) {
             msg.style.color = "red"; msg.innerText = "Error!";
