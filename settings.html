@@ -9,23 +9,11 @@
     <link rel="stylesheet" href="assets/styles.css">
     <style>
         .profile-section { padding: 40px 0; flex: 1; }
-        .profile-card { 
-            background: white; padding: 30px; border-radius: 20px; 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 500px; 
-            margin: 0 auto; text-align: center; border: 4px solid var(--outline-color); 
-        }
+        .profile-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 500px; margin: 0 auto; text-align: center; border: 4px solid var(--outline-color); }
         .avatar-wrapper { position: relative; width: 110px; height: 110px; margin: 0 auto 20px; cursor: pointer; }
-        .avatar-circle { 
-            width: 100%; height: 100%; background: #f0f0f0; 
-            border-radius: 50%; border: 4px solid var(--primary-teal); 
-            overflow: hidden; display: flex; align-items: center; justify-content: center;
-        }
+        .avatar-circle { width: 100%; height: 100%; background: #f0f0f0; border-radius: 50%; border: 4px solid var(--primary-teal); overflow: hidden; display: flex; align-items: center; justify-content: center; }
         .avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
-        .upload-hint { 
-            position: absolute; bottom: 0; right: 0; background: var(--primary-teal); 
-            color: white; width: 32px; height: 32px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; border: 2px solid white;
-        }
+        .upload-hint { position: absolute; bottom: 0; right: 0; background: var(--primary-teal); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
         .progress-container { margin-bottom: 25px; text-align: left; background: #f0f0f0; padding: 15px; border-radius: 12px; }
         .progress-label { display: flex; justify-content: space-between; font-size: 0.8em; font-weight: bold; margin-bottom: 5px; }
         .progress-bar-bg { width: 100%; height: 8px; background: #ddd; border-radius: 10px; overflow: hidden; }
@@ -36,11 +24,9 @@
         label { display: block; margin-bottom: 5px; font-weight: 700; color: var(--secondary-dark); font-size: 0.85em; }
         input, select, textarea { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; outline: none; font-family: inherit; }
         .btn-update { background: var(--primary-teal); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; }
-        #fileInput { display: none; }
     </style>
 </head>
 <body>
-<audio id="bgMusic" loop preload="auto"><source src="assets/cover/bg.mp3" type="audio/mpeg"></audio>
 
 <header>
     <div class="container navbar">
@@ -59,11 +45,6 @@
                     <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
                     <span style="color: white; font-size: 0.85em;"><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
                 </div>
-                <div class="profile-dropdown" id="profile-dropdown">
-                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
-                    <a href="history.html"><i class="fas fa-history"></i> History</a>
-                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                </div>
             </div>
         </div>
     </div>
@@ -73,19 +54,12 @@
     <div class="container">
         <div class="profile-card">
             <div class="progress-container">
-                <div class="progress-label">
-                    <span>പ്രൊഫൈൽ പൂർണ്ണത</span>
-                    <span id="progress-val">0%</span>
-                </div>
-                <div class="progress-bar-bg">
-                    <div class="progress-bar-fill" id="progress-bar"></div>
-                </div>
+                <div class="progress-label"><span>പ്രൊഫൈൽ പൂർണ്ണത</span><span id="progress-val">0%</span></div>
+                <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-bar"></div></div>
             </div>
 
             <div class="avatar-wrapper" onclick="document.getElementById('fileInput').click()">
-                <div class="avatar-circle">
-                    <img id="currentPic" src="assets/cover/default_user.jpg">
-                </div>
+                <div class="avatar-circle"><img id="currentPic" src="assets/cover/default_user.jpg"></div>
                 <div class="upload-hint"><i class="fas fa-camera"></i></div>
                 <input type="file" id="fileInput" accept="image/*" style="display: none;">
             </div>
@@ -93,7 +67,7 @@
             <h2 style="color: var(--secondary-dark); margin-bottom: 20px;">പ്രൊഫൈൽ ക്രമീകരണങ്ങൾ</h2>
             
             <div class="form-group"><label>ഇമെയിൽ</label><input type="text" id="emailBox" disabled></div>
-            <div class="form-group"><label>പേര്</label><input type="text" id="nameBox" placeholder="നിങ്ങളുടെ പേര്" oninput="calculateProgress()"></div>
+            <div class="form-group"><label>പേര്</label><input type="text" id="nameBox" placeholder="പേര്" oninput="calculateProgress()"></div>
             <div class="form-row">
                 <div class="form-group"><label>വയസ്സ്</label><input type="number" id="ageBox" placeholder="വയസ്സ്" oninput="calculateProgress()"></div>
                 <div class="form-group"><label>ലിംഗഭേദം</label>
@@ -104,7 +78,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group"><label>ഫോൺ നമ്പർ</label><input type="tel" id="phoneBox" placeholder="ഫോൺ" oninput="calculateProgress()"></div>
+            <div class="form-group"><label>ഫോൺ</label><input type="tel" id="phoneBox" placeholder="ഫോൺ" oninput="calculateProgress()"></div>
             <div class="form-group"><label>വാട്സ്ആപ്പ്</label><input type="tel" id="whatsappBox" placeholder="വാട്സ്ആപ്പ്" oninput="calculateProgress()"></div>
             <div class="form-group"><label>അഡ്രസ്സ്</label><textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ്" oninput="calculateProgress()"></textarea></div>
             
@@ -114,24 +88,18 @@
     </div>
 </section>
 
-<footer>
-    <div class="container footer-content">
-        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
-    </div>
-</footer>
-
-<script src="assets/scripts.js"></script>
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { getAuth, onAuthStateChanged, updateProfile } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
     const firebaseConfig = { apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", authDomain: "thripudilibrary.firebaseapp.com", projectId: "thripudilibrary" };
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
+    // താങ്കളുടെ ഏറ്റവും പുതിയ സ്ക്രിപ്റ്റ് URL
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwone2MeuhMzyFXTYFKHW0OOherDw4wo517f7daK1bs6VxV7A2XvQkpRaKVBO4_FHSjGw/exec";
 
-    const nameBox = document.getElementById('nameBox'), ageBox = document.getElementById('ageBox'), genderBox = document.getElementById('genderBox'), phoneBox = document.getElementById('phoneBox'), whatsappBox = document.getElementById('whatsappBox'), addressBox = document.getElementById('addressBox'), currentPic = document.getElementById('currentPic'), userAvatarImg = document.getElementById('user-avatar-img'), dName = document.getElementById('display-name'), msg = document.getElementById('msg'), saveBtn = document.getElementById('saveBtn'), fileInput = document.getElementById('fileInput');
+    const nameBox = document.getElementById('nameBox'), ageBox = document.getElementById('ageBox'), genderBox = document.getElementById('genderBox'), phoneBox = document.getElementById('phoneBox'), whatsappBox = document.getElementById('whatsappBox'), addressBox = document.getElementById('addressBox'), currentPic = document.getElementById('currentPic'), userAvatarImg = document.getElementById('user-avatar-img'), dName = document.getElementById('display-name'), msg = document.getElementById('msg'), saveBtn = document.getElementById('saveBtn');
 
     let fileData = null;
 
@@ -140,30 +108,36 @@
             document.getElementById('emailBox').value = user.email;
             nameBox.value = user.displayName || "";
             dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്ത്";
-            const photo = user.photoURL || 'assets/cover/default_user.jpg';
-            currentPic.src = photo; userAvatarImg.src = photo;
-            
-            fetch(`${SCRIPT_URL}?email=${user.email}`).then(res => res.json()).then(res => {
-                if(res.result === "Success") {
-                    const d = res.data;
-                    ageBox.value = d.age || ""; genderBox.value = d.gender || ""; phoneBox.value = d.phone || ""; whatsappBox.value = d.whatsapp || ""; addressBox.value = d.address || "";
-                    calculateProgress();
-                }
-            });
-        } else { location.href = "login.html"; }
+            currentPic.src = user.photoURL || 'assets/cover/default_user.jpg';
+            userAvatarImg.src = user.photoURL || 'assets/cover/default_user.jpg';
+
+            // ഷീറ്റിൽ നിന്ന് ഡാറ്റ ലോഡ് ചെയ്യുന്നു
+            fetch(`${SCRIPT_URL}?email=${user.email}`)
+                .then(res => res.json())
+                .then(res => {
+                    if(res.result === "Success") {
+                        ageBox.value = res.data.age || "";
+                        genderBox.value = res.data.gender || "";
+                        phoneBox.value = res.data.phone || "";
+                        whatsappBox.value = res.data.whatsapp || "";
+                        addressBox.value = res.data.address || "";
+                        calculateProgress();
+                    }
+                });
+        }
     });
 
     window.calculateProgress = () => {
         const fields = [nameBox, ageBox, genderBox, phoneBox, whatsappBox, addressBox];
-        let filled = 0;
-        fields.forEach(field => { if (field.value.trim() !== "") filled++; });
+        let filled = fields.filter(f => f.value.trim() !== "").length;
         const percent = Math.round((filled / fields.length) * 100);
         document.getElementById('progress-bar').style.width = percent + '%';
         document.getElementById('progress-val').innerText = percent + '%';
     };
 
-    fileInput.onchange = (e) => {
-        const file = e.target.files[0]; if (!file) return;
+    document.getElementById('fileInput').onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
         const reader = new FileReader();
         reader.onload = (ev) => {
             currentPic.src = ev.target.result;
@@ -173,39 +147,51 @@
     };
 
     saveBtn.onclick = async () => {
-        const user = auth.currentUser; if (!user) return;
-        saveBtn.disabled = true; msg.innerText = "സേവ് ചെയ്യുന്നു...";
+        const user = auth.currentUser;
+        if (!user) return;
+        saveBtn.disabled = true;
+        msg.innerText = "സേവ് ചെയ്യുന്നു...";
 
         try {
             let finalPhotoUrl = user.photoURL;
+
+            // ഫോട്ടോ അപ്‌ലോഡ്
             if (fileData) {
                 const p = new URLSearchParams();
-                p.append('fileData', fileData.base64); p.append('mimeType', fileData.type);
-                // ഫയൽ നെയിം ക്ലീൻ ചെയ്യുന്നു
+                p.append('fileData', fileData.base64);
+                p.append('mimeType', fileData.type);
                 p.append('fileName', fileData.name.replace(/[^a-zA-Z0-9.]/g, "_"));
                 const r = await fetch(SCRIPT_URL, { method: 'POST', body: p });
                 const j = await r.json();
                 if (j.result === "Success") finalPhotoUrl = j.photoUrl || j.url;
             }
 
+            // ഷീറ്റിലേക്ക് വിവരങ്ങൾ അയക്കുന്നു
             const s = new URLSearchParams();
-            s.append('action', 'saveProfile'); s.append('email', user.email); s.append('name', nameBox.value); s.append('age', ageBox.value); s.append('gender', genderBox.value); s.append('phone', phoneBox.value); s.append('whatsapp', whatsappBox.value); s.append('address', addressBox.value);
+            s.append('action', 'saveProfile');
+            s.append('email', user.email);
+            s.append('name', nameBox.value);
+            s.append('age', ageBox.value);
+            s.append('gender', genderBox.value);
+            s.append('phone', phoneBox.value);
+            s.append('whatsapp', whatsappBox.value);
+            s.append('address', addressBox.value);
 
-            const res = await fetch(SCRIPT_URL, { method: 'POST', body: s });
-            const result = await res.json();
+            const response = await fetch(SCRIPT_URL, { method: 'POST', body: s });
+            const result = await response.json();
 
             if (result.result === "Success") {
                 await updateProfile(user, { displayName: nameBox.value, photoURL: finalPhotoUrl });
-                msg.style.color = "green"; msg.innerText = "വിജയകരമായി സേവ് ചെയ്തു!";
+                msg.style.color = "green";
+                msg.innerText = "വിജയകരമായി സേവ് ചെയ്തു!";
                 setTimeout(() => location.reload(), 1000);
             }
         } catch (e) {
-            msg.style.color = "red"; msg.innerText = "Error: സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല.";
+            msg.style.color = "red";
+            msg.innerText = "പിശക് സംഭവിച്ചു!";
             saveBtn.disabled = false;
         }
     };
-
-    window.logoutUser = () => signOut(auth).then(() => location.href = "login.html");
 </script>
 </body>
 </html>
