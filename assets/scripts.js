@@ -16,7 +16,7 @@
         .upload-hint { position: absolute; bottom: 0; right: 0; background: var(--primary-teal); color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; }
         .form-group { margin-bottom: 15px; text-align: left; }
         label { display: block; margin-bottom: 5px; font-weight: 700; color: var(--secondary-dark); font-size: 0.85em; }
-        input, textarea { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; outline: none; font-family: inherit; }
+        input { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; outline: none; font-family: inherit; }
         .btn-update { background: var(--primary-teal); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; }
         #fileInput { display: none; }
     </style>
@@ -49,13 +49,9 @@
                 <div class="upload-hint"><i class="fas fa-camera"></i></div>
                 <input type="file" id="fileInput" accept="image/*" style="display: none;">
             </div>
-            <h2 style="color: var(--secondary-dark); margin-bottom: 20px;">പ്രൊഫൈൽ ക്രമീകരണങ്ങൾ</h2>
-            <div class="form-group"><label>ഇമെയിൽ</label><input type="text" id="emailBox" disabled></div>
+            <h2 style="color: var(--secondary-dark); margin-bottom: 20px;">പ്രൊഫൈൽ ഫോട്ടോ മാറ്റുക</h2>
             <div class="form-group"><label>പേര്</label><input type="text" id="nameBox"></div>
-            <div class="form-group"><label>വയസ്സ്</label><input type="number" id="ageBox"></div>
-            <div class="form-group"><label>ഫോൺ</label><input type="tel" id="phoneBox"></div>
-            <div class="form-group"><label>അഡ്രസ്സ്</label><textarea id="addressBox" rows="2"></textarea></div>
-            <button class="btn-update" id="saveBtn">വിവരങ്ങൾ സേവ് ചെയ്യുക</button>
+            <button class="btn-update" id="saveBtn">ഫോട്ടോ അപ്‌ലോഡ് ചെയ്യുക</button>
             <div id="msg" style="margin-top:15px; font-size:0.85em; font-weight:600;"></div>
         </div>
     </div>
@@ -66,47 +62,51 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 
 <script>
+    // താങ്കളുടെ പുതിയ Apps Script URL
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwone2MeuhMzyFXTYFKHW0OOherDw4wo517f7daK1bs6VxV7A2XvQkpRaKVBO4_FHSjGw/exec";
 
-    // scripts.js-ൽ പവർ ഉപയോഗിച്ച് auth ഇവിടെ ലഭ്യമാണ്
-    const nameBox = document.getElementById('nameBox'), ageBox = document.getElementById('ageBox'), phoneBox = document.getElementById('phoneBox'), addressBox = document.getElementById('addressBox'), currentPic = document.getElementById('currentPic'), msg = document.getElementById('msg'), saveBtn = document.getElementById('saveBtn');
+    const nameBox = document.getElementById('nameBox'),
+          currentPic = document.getElementById('currentPic'),
+          msg = document.getElementById('msg'),
+          saveBtn = document.getElementById('saveBtn');
 
     let fileData = null;
 
+    // ലോഗിൻ സ്റ്റാറ്റസ് ചെക്ക് ചെയ്യുന്നു
     auth.onAuthStateChanged((user) => {
         if (user) {
-            document.getElementById('emailBox').value = user.email;
             nameBox.value = user.displayName || "";
-            // കാർഡിലെ ഫോട്ടോ ലോഡ് ചെയ്യുന്നു
             currentPic.src = user.photoURL || 'assets/cover/default_user.jpg';
-
-            // ഷീറ്റിൽ നിന്ന് ഡാറ്റ എടുക്കുന്നു
-            fetch(`${SCRIPT_URL}?email=${user.email}`).then(r => r.json()).then(res => {
-                if(res.result === "Success") {
-                    ageBox.value = res.data.age || ""; phoneBox.value = res.data.phone || ""; addressBox.value = res.data.address || "";
-                }
-            });
         }
     });
 
+    // ഫോട്ടോ സെലക്ട് ചെയ്യുമ്പോൾ
     document.getElementById('fileInput').onchange = (e) => {
         const file = e.target.files[0];
         const reader = new FileReader();
         reader.onload = (ev) => {
             currentPic.src = ev.target.result;
-            fileData = { base64: ev.target.result.split(',')[1], type: file.type, name: file.name };
+            fileData = { 
+                base64: ev.target.result.split(',')[1], 
+                type: file.type, 
+                name: file.name 
+            };
         };
         reader.readAsDataURL(file);
     };
 
+    // സേവ് ബട്ടൺ ക്ലിക്ക് ചെയ്യുമ്പോൾ
     saveBtn.onclick = async () => {
-        const user = auth.currentUser; if (!user) return;
-        saveBtn.disabled = true; msg.innerText = "വിവരങ്ങൾ പുതുക്കുന്നു..."; msg.style.color = "blue";
+        const user = auth.currentUser;
+        if (!user) return;
+        saveBtn.disabled = true;
+        msg.innerText = "അപ്‌ലോഡ് ചെയ്യുന്നു...";
+        msg.style.color = "blue";
 
         try {
-            let photoUrl = user.photoURL;
+            let finalPhotoUrl = user.photoURL;
 
-            // 1. ഫോട്ടോ അപ്‌ലോഡ് ലോജിക് (പഴയ മാജിക്)
+            // 1. ഫോട്ടോ മാത്രം അപ്‌ലോഡ് ചെയ്യുന്നു (പഴയ മാജിക് ലോജിക്)
             if (fileData) {
                 const p = new URLSearchParams();
                 p.append('fileData', fileData.base64);
@@ -115,31 +115,27 @@
                 
                 const r = await fetch(SCRIPT_URL, { method: 'POST', body: p });
                 const j = await r.json();
-                if (j.result === "Success") photoUrl = j.url;
+                
+                if (j.result === "Success") {
+                    finalPhotoUrl = j.url; // ഡ്രൈവ് ലിങ്ക് ഇവിടെ വരുന്നു
+                }
             }
 
-            // 2. ഫയർബേസ് അപ്‌ഡേറ്റ്
+            // 2. ഫയർബേസ് പ്രൊഫൈൽ മാത്രം അപ്‌ഡേറ്റ് ചെയ്യുന്നു
             await user.updateProfile({
                 displayName: nameBox.value,
-                photoURL: photoUrl
+                photoURL: finalPhotoUrl
             });
 
-            // 3. ബലമായി ഹെഡറിലെ ഫോട്ടോ മാറ്റുന്നു (Force Update)
-            const headerAvatar = document.getElementById('user-avatar-img');
-            const headerName = document.getElementById('display-name');
-            if(headerAvatar) headerAvatar.src = photoUrl;
-            if(headerName) headerName.innerText = nameBox.value.split(' ')[0];
-
-            // 4. ഷീറ്റിലേക്ക് വിവരങ്ങൾ അയക്കുന്നു
-            const s = new URLSearchParams();
-            s.append('action', 'saveProfile'); s.append('email', user.email); s.append('name', nameBox.value); s.append('age', ageBox.value); s.append('phone', phoneBox.value); s.append('address', addressBox.value);
-            await fetch(SCRIPT_URL, { method: 'POST', body: s });
-
-            msg.style.color = "green"; msg.innerText = "വിജയകരമായി സേവ് ചെയ്തു!";
+            msg.style.color = "green";
+            msg.innerText = "വിജയകരമായി മാറി!";
+            
+            // റീലോഡ് ചെയ്യുന്നു
             setTimeout(() => { location.reload(); }, 1200);
 
         } catch (e) {
-            msg.style.color = "red"; msg.innerText = "Error!";
+            msg.style.color = "red";
+            msg.innerText = "Error!";
             saveBtn.disabled = false;
         }
     };
