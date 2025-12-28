@@ -7,7 +7,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
 </head>
-<body> 
+<body>
 <header><div class="container navbar"><a href="dashboard.html" class="logo-container"><span class="logo-text">THRIPUDI LIBRARY</span><img src="assets/cover/logo.png" class="logo-img"></a><div class="nav-links"><a class="nav-item" href="dashboard.html">Home</a><a class="nav-item" href="collection.html">ശേഖരം</a><a class="nav-item" href="about.html">About</a><a class="nav-item" href="contact.html">Contact</a><div class="user-profile" id="user-profile-btn"><img id="user-avatar-img" class="user-avatar-small"><span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span><div class="profile-dropdown" id="profile-dropdown"><a href="settings.html">Settings</a><a href="history.html">History</a><a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a></div></div></div></div></header>
 <section class="collection-section"><div class="container"><h1 style="color:#004D40; text-align:center;">Video Books</h1><div class="library-container"><div class="book-card" id="card-1ziJSP1Zbq02uagrdym9Wkb5m_2YWXNhf"><div class="image-wrapper"><img class="book-cover" src="https://lh3.googleusercontent.com/d/1ziJSP1Zbq02uagrdym9Wkb5m_2YWXNhf=s400"><div class="read-overlay"><button class="overlay-btn" onclick="checkAccess('1ziJSP1Zbq02uagrdym9Wkb5m_2YWXNhf', 'video', 'card-1ziJSP1Zbq02uagrdym9Wkb5m_2YWXNhf')">കാണാം</button></div><div class="audio-player-box" id="player-1ziJSP1Zbq02uagrdym9Wkb5m_2YWXNhf"></div></div><div class="book-title">സുഭാഷിതം (100)</div></div>
 <div class="book-card" id="card-1Ui9Gp6goW-i2Bmi8QV2mKLWnvh6jVCd0"><div class="image-wrapper"><img class="book-cover" src="https://lh3.googleusercontent.com/d/1Ui9Gp6goW-i2Bmi8QV2mKLWnvh6jVCd0=s400"><div class="read-overlay"><button class="overlay-btn" onclick="checkAccess('1Ui9Gp6goW-i2Bmi8QV2mKLWnvh6jVCd0', 'video', 'card-1Ui9Gp6goW-i2Bmi8QV2mKLWnvh6jVCd0')">കാണാം</button></div><div class="audio-player-box" id="player-1Ui9Gp6goW-i2Bmi8QV2mKLWnvh6jVCd0"></div></div><div class="book-title">സുഭാഷിതം (10)</div></div>
@@ -141,38 +141,4 @@
 <div class="book-card" id="card-1Z7QrCW0K9kCeUplhj9u_s_WYa-tDEdtu"><div class="image-wrapper"><img class="book-cover" src="https://lh3.googleusercontent.com/d/1Z7QrCW0K9kCeUplhj9u_s_WYa-tDEdtu=s400"><div class="read-overlay"><button class="overlay-btn" onclick="checkAccess('1Z7QrCW0K9kCeUplhj9u_s_WYa-tDEdtu', 'video', 'card-1Z7QrCW0K9kCeUplhj9u_s_WYa-tDEdtu')">കാണാം</button></div><div class="audio-player-box" id="player-1Z7QrCW0K9kCeUplhj9u_s_WYa-tDEdtu"></div></div><div class="book-title">സുഭാഷിതം (4)</div></div>
 <div class="book-card" id="card-1ObCyHFPsaBLXfjKBrskzRZQ9tS3MKQGa"><div class="image-wrapper"><img class="book-cover" src="https://lh3.googleusercontent.com/d/1ObCyHFPsaBLXfjKBrskzRZQ9tS3MKQGa=s400"><div class="read-overlay"><button class="overlay-btn" onclick="checkAccess('1ObCyHFPsaBLXfjKBrskzRZQ9tS3MKQGa', 'video', 'card-1ObCyHFPsaBLXfjKBrskzRZQ9tS3MKQGa')">കാണാം</button></div><div class="audio-player-box" id="player-1ObCyHFPsaBLXfjKBrskzRZQ9tS3MKQGa"></div></div><div class="book-title">സുഭാഷിതം (5)</div></div>
 <div class="book-card" id="card-1PimpYllEq2bmG9EAaUAZs2xfkjKlNLEy"><div class="image-wrapper"><img class="book-cover" src="https://lh3.googleusercontent.com/d/1PimpYllEq2bmG9EAaUAZs2xfkjKlNLEy=s400"><div class="read-overlay"><button class="overlay-btn" onclick="checkAccess('1PimpYllEq2bmG9EAaUAZs2xfkjKlNLEy', 'video', 'card-1PimpYllEq2bmG9EAaUAZs2xfkjKlNLEy')">കാണാം</button></div><div class="audio-player-box" id="player-1PimpYllEq2bmG9EAaUAZs2xfkjKlNLEy"></div></div><div class="book-title">സുഭാഷിതം (3)</div></div></div></div></section>
-<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div><div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div><div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div><footer><div class="container footer-content"><div class="footer-line-one"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a><span class="footer-divider">|</span><a href="privacy.html">സ്വകാര്യതാ നയം</a><span class="footer-divider">|</span><a href="terms.html">നിബന്ധനകൾ</a></div><div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div></div></footer><script src="assets/scripts.js"></script></body></html> <script>
-// --- മൊബൈൽ ബാക്ക് ബട്ടൺ ലോജിക് (ത്രിപുടി മാസ്റ്റർ ടെമ്പ്ലറ്റ്) ---
-
-// 1. വീഡിയോ തുറക്കുമ്പോൾ ഹിസ്റ്ററി സേവ് ചെയ്യാൻ
-const originalCheckAccess = checkAccess;
-checkAccess = function(id, type, cardId) {
-    // ബ്രൗസർ ഹിസ്റ്ററിയിൽ ഒരു സ്റ്റെപ്പ് ചേർക്കുന്നു
-    window.history.pushState({playerOpen: true}, "");
-    // നിങ്ങളുടെ നിലവിലുള്ള പ്ലെയർ തുറക്കുന്ന ഫങ്ക്ഷൻ പ്രവർത്തിപ്പിക്കുന്നു
-    originalCheckAccess(id, type, cardId);
-};
-
-// 2. പ്ലെയർ ക്ലോസ് ചെയ്യുന്ന ഫങ്ക്ഷൻ പുതുക്കുന്നു
-function closeVideo() {
-    var overlay = document.getElementById("videoOverlay");
-    if (overlay) {
-        overlay.style.display = "none";
-        document.getElementById("videoFrameContainer").innerHTML = ""; 
-    }
-    
-    // യൂസർ ക്ലോസ് ബട്ടൺ അമർത്തിയാൽ ഹിസ്റ്ററി ഒരു സ്റ്റെപ്പ് ബാക്കിലേക്ക് വിടുന്നു
-    if (window.history.state && window.history.state.playerOpen) {
-        window.history.back();
-    }
-}
-
-// 3. ഫോണിലെ ബാക്ക് ബട്ടൺ അമർത്തിയാൽ പ്ലെയർ ക്ലോസ് ചെയ്യാൻ
-window.onpopstate = function(event) {
-    var overlay = document.getElementById("videoOverlay");
-    if (overlay && overlay.style.display === "block") {
-        overlay.style.display = "none";
-        document.getElementById("videoFrameContainer").innerHTML = ""; 
-    }
-};
-</script>
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div><div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div><div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div><footer><div class="container footer-content"><div class="footer-line-one"><a href="#" class="social-icon"><i class="fab fa-facebook"></i></a><a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a><span class="footer-divider">|</span><a href="privacy.html">സ്വകാര്യതാ നയം</a><span class="footer-divider">|</span><a href="terms.html">നിബന്ധനകൾ</a></div><div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div></div></footer><script src="assets/scripts.js"></script></body></html>

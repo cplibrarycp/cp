@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Welcome to Thripudi</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <style>
+    body {
+      background-color: #004d40;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      color: white;
+    }
+    .welcome-container {
+      text-align: center;
+      animation: fadeIn 1.5s ease-in-out;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .welcome-logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    }
+    .welcome-text {
+      color: #ffbe33;
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .sub-text {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      letter-spacing: 1px;
+    }
+    .loader {
+      margin-top: 25px;
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      border-top: 3px solid #ffbe33;
+      width: 25px;
+      height: 25px;
+      animation: spin 1s linear infinite;
+    }
+    /* Footer Style */
+    .footer-credit {
+      padding-bottom: 20px;
+      font-size: 0.7rem;
+      opacity: 0.6;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="welcome-container">
+    <img src="assets/cover/logo.png" alt="Logo" class="welcome-logo">
+    <div class="welcome-text">ത്രിപുടി ലൈബ്രറി</div>
+    <div class="sub-text">വായനയുടെ പുതിയ ലോകം</div>
+    <div class="loader"></div>
+  </div>
+
+  <div class="footer-credit">
+    Created by Nandakumar Chedappuram
+  </div>
+
+  <script>
+    // 3 സെക്കന്റിന് ശേഷം index.html-ലേക്ക് മാറുന്നു
+    setTimeout(function() {
+      window.location.href = "index.html";
+    }, 3000);
+  </script>
+
+</body>
+</html>
