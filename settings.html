@@ -129,7 +129,7 @@
 
             <div class="form-group">
                 <label>അഡ്രസ്സ്</label>
-                <textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ് നൽകുക" oninput="calculateProgress()"></textarea>
+                <textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ് ഇവിടെ നൽകുക" oninput="calculateProgress()"></textarea>
             </div>
             
             <button class="btn-update" id="saveBtn">വിവരങ്ങൾ സേവ് ചെയ്യുക</button>
@@ -161,35 +161,20 @@
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
 
-    // താങ്കൾ നൽകിയ ഏറ്റവും പുതിയ URL
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyC6pxtlaEC0MVkpiYblfgSAjCALQADU8r2Mh5yAbcYsqAWyhngUJ8--I5bcm9_pUt2BQ/exec";
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwone2MeuhMzyFXTYFKHW0OOherDw4wo517f7daK1bs6VxV7A2XvQkpRaKVBO4_FHSjGw/exec";
 
-    const nameBox = document.getElementById('nameBox');
-    const ageBox = document.getElementById('ageBox');
-    const genderBox = document.getElementById('genderBox');
-    const phoneBox = document.getElementById('phoneBox');
-    const whatsappBox = document.getElementById('whatsappBox');
-    const addressBox = document.getElementById('addressBox');
-    const currentPic = document.getElementById('currentPic');
-    const userAvatarImg = document.getElementById('user-avatar-img');
-    const dName = document.getElementById('display-name');
-    const msg = document.getElementById('msg');
-    const saveBtn = document.getElementById('saveBtn');
+    const nameBox = document.getElementById('nameBox'), ageBox = document.getElementById('ageBox'), genderBox = document.getElementById('genderBox'), phoneBox = document.getElementById('phoneBox'), whatsappBox = document.getElementById('whatsappBox'), addressBox = document.getElementById('addressBox'), currentPic = document.getElementById('currentPic'), userAvatarImg = document.getElementById('user-avatar-img'), dName = document.getElementById('display-name'), msg = document.getElementById('msg'), saveBtn = document.getElementById('saveBtn');
 
     let fileData = null;
 
-    // ഷീറ്റിൽ നിന്ന് ഡാറ്റ ലോഡ് ചെയ്യുന്നു
+    // ഷീറ്റിൽ നിന്ന് വിവരങ്ങൾ ലോഡ് ചെയ്യുന്നു
     const loadFromSheet = async (email) => {
         try {
             const res = await fetch(`${SCRIPT_URL}?email=${email}`);
             const result = await res.json();
             if (result.result === "Success") {
                 const d = result.data;
-                ageBox.value = d.age || "";
-                genderBox.value = d.gender || "";
-                phoneBox.value = d.phone || "";
-                whatsappBox.value = d.whatsapp || "";
-                addressBox.value = d.address || "";
+                ageBox.value = d.age || ""; genderBox.value = d.gender || ""; phoneBox.value = d.phone || ""; whatsappBox.value = d.whatsapp || ""; addressBox.value = d.address || "";
                 calculateProgress();
             }
         } catch (e) { console.log("Load error"); }
@@ -201,8 +186,7 @@
             nameBox.value = user.displayName || "";
             dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്ത്";
             const photo = user.photoURL || 'assets/cover/default_user.jpg';
-            currentPic.src = photo;
-            userAvatarImg.src = photo;
+            currentPic.src = photo; userAvatarImg.src = photo;
             loadFromSheet(user.email);
         } else { location.href = "login.html"; }
     });
@@ -217,8 +201,7 @@
     };
 
     document.getElementById('fileInput').onchange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
+        const file = e.target.files[0]; if (!file) return;
         const reader = new FileReader();
         reader.onload = (ev) => {
             currentPic.src = ev.target.result;
@@ -228,28 +211,24 @@
     };
 
     saveBtn.onclick = async () => {
-        const user = auth.currentUser;
-        if (!user) return;
-        saveBtn.disabled = true;
-        msg.innerText = "വിവരങ്ങൾ പുതുക്കുന്നു...";
-        msg.style.color = "blue";
+        const user = auth.currentUser; if (!user) return;
+        saveBtn.disabled = true; msg.innerText = "വിവരങ്ങൾ പുതുക്കുന്നു..."; msg.style.color = "blue";
 
         try {
             let finalPhotoUrl = user.photoURL;
 
-            // ഫോട്ടോ അപ്‌ലോഡ് (പഴയ വർക്കിംഗ് രീതി - No Action Parameter)
+            // 1. ഫോട്ടോ അപ്‌ലോഡ് (പഴയ വർക്കിംഗ് രീതി - No action parameter)
             if (fileData) {
                 const p = new URLSearchParams();
                 p.append('fileData', fileData.base64);
                 p.append('mimeType', fileData.type);
                 p.append('fileName', fileData.name);
-
                 const r = await fetch(SCRIPT_URL, { method: 'POST', body: p });
                 const j = await r.json();
-                if (j.result === "Success") finalPhotoUrl = j.photoUrl || j.url;
+                if (j.result === "Success") finalPhotoUrl = j.photoUrl;
             }
 
-            // ഷീറ്റിലേക്ക് വിവരങ്ങൾ (ഇവിടെ action വേണം)
+            // 2. ബാക്കി വിവരങ്ങൾ ഷീറ്റിലേക്ക് (Action: saveProfile)
             const s = new URLSearchParams();
             s.append('action', 'saveProfile');
             s.append('email', user.email);
@@ -260,16 +239,17 @@
             s.append('whatsapp', whatsappBox.value);
             s.append('address', addressBox.value);
 
-            await fetch(SCRIPT_URL, { method: 'POST', body: s });
-            await updateProfile(user, { displayName: nameBox.value, photoURL: finalPhotoUrl });
+            const res = await fetch(SCRIPT_URL, { method: 'POST', body: s });
+            const result = await res.json();
 
-            msg.style.color = "green";
-            msg.innerText = "വിവരങ്ങൾ വിജയകരമായി സേവ് ചെയ്തു!";
-            setTimeout(() => location.reload(), 1000);
+            if (result.result === "Success") {
+                await updateProfile(user, { displayName: nameBox.value, photoURL: finalPhotoUrl });
+                msg.style.color = "green"; msg.innerText = "വിജയകരമായി സേവ് ചെയ്തു!";
+                setTimeout(() => location.reload(), 1000);
+            } else { throw new Error(); }
 
         } catch (e) {
-            msg.style.color = "red";
-            msg.innerText = "Error: സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല.";
+            msg.style.color = "red"; msg.innerText = "Error: സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല.";
             saveBtn.disabled = false;
         }
     };
