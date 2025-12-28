@@ -14,7 +14,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 500px; 
             margin: 0 auto; text-align: center; border: 4px solid var(--outline-color); 
         }
-        
         .avatar-wrapper { position: relative; width: 110px; height: 110px; margin: 0 auto 20px; cursor: pointer; }
         .avatar-circle { 
             width: 100%; height: 100%; background: var(--background-light); 
@@ -27,28 +26,16 @@
             color: white; width: 32px; height: 32px; border-radius: 50%; 
             display: flex; align-items: center; justify-content: center; border: 2px solid white;
         }
-
         .progress-container { margin-bottom: 25px; text-align: left; background: #f0f0f0; padding: 15px; border-radius: 12px; }
         .progress-label { display: flex; justify-content: space-between; font-size: 0.8em; font-weight: bold; margin-bottom: 5px; }
         .progress-bar-bg { width: 100%; height: 8px; background: #ddd; border-radius: 10px; overflow: hidden; }
         .progress-bar-fill { width: 0%; height: 100%; background: linear-gradient(90deg, #20c997, #007bff); transition: width 0.4s ease; }
-
         .form-group { margin-bottom: 15px; text-align: left; }
         .form-row { display: flex; gap: 10px; }
         .form-row .form-group { flex: 1; }
-        
         label { display: block; margin-bottom: 5px; font-weight: 700; color: var(--secondary-dark); font-size: 0.85em; }
         input, select, textarea { width: 100%; padding: 12px; border: 2px solid var(--outline-color); border-radius: 8px; outline: none; transition: 0.3s; font-family: inherit; }
-        input:focus, select:focus, textarea:focus { border-color: var(--primary-teal); }
-        input:disabled { background: #f9f9f9; cursor: not-allowed; }
-
-        .btn-update { 
-            background: var(--primary-teal); color: white; border: none; 
-            padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; 
-            cursor: pointer; margin-top: 10px; transition: 0.3s;
-        }
-        .btn-update:hover { background: var(--secondary-dark); }
-        .btn-update:disabled { background: #ccc; cursor: not-allowed; }
+        .btn-update { background: var(--primary-teal); color: white; border: none; padding: 12px; border-radius: 8px; width: 100%; font-weight: 700; cursor: pointer; margin-top: 10px; transition: 0.3s; }
         #fileInput { display: none; }
     </style>
 </head>
@@ -108,12 +95,10 @@
                 <label>ഇമെയിൽ</label>
                 <input type="text" id="emailBox" disabled>
             </div>
-
             <div class="form-group">
                 <label>പേര് (Display Name)</label>
                 <input type="text" id="nameBox" placeholder="നിങ്ങളുടെ പേര്" oninput="calculateProgress()">
             </div>
-
             <div class="form-row">
                 <div class="form-group">
                     <label>വയസ്സ്</label>
@@ -128,20 +113,17 @@
                     </select>
                 </div>
             </div>
-
             <div class="form-group">
                 <label>ഫോൺ നമ്പർ</label>
                 <input type="tel" id="phoneBox" placeholder="ഫോൺ നമ്പർ" oninput="calculateProgress()">
             </div>
-
             <div class="form-group">
                 <label>വാട്സ്ആപ്പ് നമ്പർ</label>
                 <input type="tel" id="whatsappBox" placeholder="വാട്സ്ആപ്പ് നമ്പർ" oninput="calculateProgress()">
             </div>
-
             <div class="form-group">
                 <label>അഡ്രസ്സ്</label>
-                <textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ് ഇവിടെ നൽകുക" oninput="calculateProgress()"></textarea>
+                <textarea id="addressBox" rows="2" placeholder="അഡ്രസ്സ് നൽകുക" oninput="calculateProgress()"></textarea>
             </div>
             
             <button class="btn-update" id="saveBtn">വിവരങ്ങൾ സേവ് ചെയ്യുക</button>
@@ -181,7 +163,6 @@
     const phoneBox = document.getElementById('phoneBox');
     const whatsappBox = document.getElementById('whatsappBox');
     const addressBox = document.getElementById('addressBox');
-    
     const currentPic = document.getElementById('currentPic');
     const userAvatarImg = document.getElementById('user-avatar-img');
     const dName = document.getElementById('display-name');
@@ -189,23 +170,6 @@
     const saveBtn = document.getElementById('saveBtn');
 
     let fileData = null;
-
-    // ഷീറ്റിൽ നിന്ന് ഡാറ്റ ലോഡ് ചെയ്യുന്നു
-    const loadExtraData = async (email) => {
-        try {
-            const response = await fetch(`${SCRIPT_URL}?email=${email}`);
-            const result = await response.json();
-            if (result.result === "Success") {
-                const d = result.data;
-                ageBox.value = d.age || "";
-                genderBox.value = d.gender || "";
-                phoneBox.value = d.phone || "";
-                whatsappBox.value = d.whatsapp || "";
-                addressBox.value = d.address || "";
-                calculateProgress();
-            }
-        } catch (e) { console.log("Load error"); }
-    };
 
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -215,7 +179,21 @@
             const photo = user.photoURL || 'assets/cover/default_user.jpg';
             currentPic.src = photo;
             userAvatarImg.src = photo;
-            loadExtraData(user.email);
+            
+            // ഷീറ്റിൽ നിന്ന് വിവരങ്ങൾ ലോഡ് ചെയ്യുന്നു
+            fetch(`${SCRIPT_URL}?email=${user.email}`)
+                .then(res => res.json())
+                .then(result => {
+                    if (result.result === "Success") {
+                        const d = result.data;
+                        ageBox.value = d.age || "";
+                        genderBox.value = d.gender || "";
+                        phoneBox.value = d.phone || "";
+                        whatsappBox.value = d.whatsapp || "";
+                        addressBox.value = d.address || "";
+                        calculateProgress();
+                    }
+                }).catch(e => console.log("Load Error"));
         } else { location.href = "login.html"; }
     });
 
@@ -243,25 +221,27 @@
         const user = auth.currentUser;
         if (!user) return;
         saveBtn.disabled = true;
-        msg.innerText = "സേവ് ചെയ്യുന്നു...";
+        msg.innerText = "വിവരങ്ങൾ സേവ് ചെയ്യുന്നു...";
         msg.style.color = "blue";
 
         try {
             let finalPhotoUrl = user.photoURL;
 
-            // ഫോട്ടോ അപ്‌ലോഡ് (പഴയ രീതിയിൽ മാത്രം)
+            // 1. ഫോട്ടോ അപ്‌ലോഡ് (പഴയ രീതിയിൽ ഡ്രൈവിലേക്ക് മാത്രം)
             if (fileData) {
                 const photoParams = new URLSearchParams();
                 photoParams.append('fileData', fileData.base64);
                 photoParams.append('mimeType', fileData.type);
-                photoParams.append('fileName', fileData.name);
+                photoParams.append('fileName', fileData.name); // Original Name
 
                 const photoRes = await fetch(SCRIPT_URL, { method: 'POST', body: photoParams });
                 const photoResult = await photoRes.json();
-                if (photoResult.result === "Success") finalPhotoUrl = photoResult.url;
+                if (photoResult.result === "Success") {
+                    finalPhotoUrl = photoResult.photoUrl || photoResult.url;
+                }
             }
 
-            // ഷീറ്റിലേക്ക് വിവരങ്ങൾ മാത്രം
+            // 2. ബാക്കി വിവരങ്ങൾ ഷീറ്റിലേക്ക്
             const sheetParams = new URLSearchParams();
             sheetParams.append('action', 'saveProfile');
             sheetParams.append('email', user.email);
@@ -272,16 +252,21 @@
             sheetParams.append('whatsapp', whatsappBox.value);
             sheetParams.append('address', addressBox.value);
 
-            await fetch(SCRIPT_URL, { method: 'POST', body: sheetParams });
-            await updateProfile(user, { displayName: nameBox.value, photoURL: finalPhotoUrl });
+            const finalRes = await fetch(SCRIPT_URL, { method: 'POST', body: sheetParams });
+            const finalResult = await finalRes.json();
 
-            msg.style.color = "green";
-            msg.innerText = "വിജയകരമായി സേവ് ചെയ്തു!";
-            setTimeout(() => location.reload(), 1000);
+            if (finalResult.result === "Success") {
+                await updateProfile(user, { displayName: nameBox.value, photoURL: finalPhotoUrl });
+                msg.style.color = "green";
+                msg.innerText = "വിജയകരമായി സേവ് ചെയ്തു!";
+                setTimeout(() => location.reload(), 1000);
+            } else {
+                throw new Error("Sheet Error");
+            }
 
         } catch (e) {
             msg.style.color = "red";
-            msg.innerText = "Error: സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല.";
+            msg.innerText = "Error: സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.";
             saveBtn.disabled = false;
         }
     };
