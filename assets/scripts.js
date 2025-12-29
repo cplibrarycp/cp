@@ -7,138 +7,99 @@ const firebaseConfig = {
     appId: "1:887018912750:web:cc05190a72b13db816acff" 
 };
 
-if (typeof firebase !== 'undefined' && !firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
-const auth = (typeof firebase !== 'undefined') ? firebase.auth() : null;
-let currentAudioId = null;
+if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 let bgMusic;
+let activeAudioCard = null;
 
-// 1. മ്യൂസിക് സിസ്റ്റം - ഹോം ബട്ടണ് മുൻപിലായി
-function injectMusicSystem() {
+// മ്യൂസിക് ഇഞ്ചക്ഷൻ
+function injectMusic() {
     if (document.getElementById('bgMusic')) return;
-    const audioHTML = `<audio id="bgMusic" loop preload="auto"><source src="assets/cover/bg.mp3" type="audio/mpeg"></audio>`;
-    document.body.insertAdjacentHTML('afterbegin', audioHTML);
+    document.body.insertAdjacentHTML('afterbegin', `<audio id="bgMusic" loop><source src="assets/cover/bg.mp3" type="audio/mpeg"></audio>`);
     bgMusic = document.getElementById("bgMusic");
-    if (bgMusic) bgMusic.volume = 0.2;
-
-    const navSearch = setInterval(() => {
-        const navItems = document.querySelectorAll('.nav-item');
-        let homeBtn = null;
-        navItems.forEach(item => {
-            if(item.innerText.trim() === 'Home' || item.getAttribute('href') === 'dashboard.html') {
-                homeBtn = item;
-            }
-        });
-
-        if (homeBtn && !document.getElementById('music-nav-item')) {
-            const musicBtnHTML = `<a class="nav-item" id="music-nav-item" href="javascript:void(0)" onclick="toggleBGMusic()" style="font-weight:bold; color:#004D40; cursor:pointer; display:inline-flex; align-items:center; gap:5px; margin-right:10px;"><i id="music-icon" class="fas fa-volume-mute"></i> Music</a>`;
-            homeBtn.insertAdjacentHTML('beforebegin', musicBtnHTML);
-            clearInterval(navSearch);
-        }
-    }, 500);
+    const nav = document.querySelector('.nav-links');
+    if (nav) nav.insertAdjacentHTML('afterbegin', `<a class="nav-item" href="javascript:void(0)" onclick="toggleMusic()"><i id="m-icon" class="fas fa-volume-mute"></i> Music</a>`);
 }
 
-window.toggleBGMusic = function() {
-    const icon = document.getElementById("music-icon");
-    if (!bgMusic) bgMusic = document.getElementById("bgMusic");
-    if (bgMusic.paused) {
-        bgMusic.play().then(() => { if(icon) icon.className = "fas fa-volume-up"; });
-    } else {
-        bgMusic.pause();
-        if(icon) icon.className = "fas fa-volume-mute";
-    }
+window.toggleMusic = function() {
+    const icon = document.getElementById("m-icon");
+    if (bgMusic.paused) { bgMusic.play(); icon.className = "fas fa-volume-up"; } 
+    else { bgMusic.pause(); icon.className = "fas fa-volume-mute"; }
 };
 
+// പുസ്തകങ്ങൾ JSON-ൽ നിന്ന് ലോഡ് ചെയ്യുന്നു (രാവിലെ ചെയ്ത പൈത്തൺ ലോജിക് അനുസരിച്ച്)
+async function loadBooks() {
+    try {
+        const response = await fetch('assets/library_data.json'); // രാവിലെ ഉണ്ടാക്കിയ JSON
+        const data = await response.json();
+        const container = document.querySelector('.library-container');
+        if (!container) return;
+
+        container.innerHTML = data.books.map(book => `
+            <div class="book-card" id="card-${book.id}">
+                <div class="image-wrapper">
+                    <img class="book-cover" src="${book.cover}">
+                    <div class="read-overlay">
+                        <button class="overlay-btn" onclick="checkAccess('${book.id}', '${book.type}', 'card-${book.id}')">
+                            ${book.type === 'pdf' ? 'വായിക്കാം' : (book.type === 'video' ? 'കാണാം' : 'കേൾക്കാം')}
+                        </button>
+                    </div>
+                    <div class="audio-player-box" id="player-${book.id}"></div>
+                </div>
+                <div class="book-title">${book.title}</div>
+            </div>
+        `).join('');
+    } catch (e) { console.error("JSON ലോഡ് ചെയ്യുന്നതിൽ പരാജയം", e); }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    injectMusicSystem();
-    const userAvatarImg = document.getElementById('user-avatar-img');
-    const dName = document.getElementById('display-name');
+    injectMusic();
+    loadBooks(); // പുസ്തകങ്ങൾ ലോഡ് ചെയ്യുന്നു
+    
+    // പ്രൊഫൈൽ ലോജിക്
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            document.getElementById('display-name').innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ";
+            document.getElementById('user-avatar-img').src = user.photoURL || 'assets/cover/default_user.jpg';
+        }
+    });
 
-    if (auth) {
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                if(dName) dName.innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്തേ";
-                if(userAvatarImg) userAvatarImg.src = user.photoURL || 'assets/cover/default_user.jpg';
-            }
-        });
-    }
-
-    const profileBtn = document.getElementById('user-profile-btn');
+    const profBtn = document.getElementById('user-profile-btn');
     const dropdown = document.getElementById('profile-dropdown');
-    if (profileBtn) {
-        profileBtn.onclick = (e) => {
-            e.stopPropagation();
-            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-        };
-    }
-    window.onclick = () => { if(dropdown) dropdown.style.display = 'none'; };
+    if (profBtn) profBtn.onclick = (e) => { e.stopPropagation(); dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block'; };
+    document.onclick = () => { if(dropdown) dropdown.style.display = 'none'; };
 });
 
-// 2. ആക്സസ് & പ്ലെയർ ലോജിക്
 window.checkAccess = function(id, type, cardId) {
-    if (!auth || !auth.currentUser) {
-        document.getElementById('loginAlertModal').style.setProperty('display', 'flex', 'important');
+    if (!auth.currentUser) {
+        document.getElementById('loginMsg').innerText = "ഈ പുസ്തകം ലഭിക്കാൻ ലോഗിൻ ചെയ്യൂ";
+        document.getElementById('loginAlertModal').style.display = 'flex';
         return;
     }
-
-    const cardElement = document.getElementById(cardId);
-    const bName = cardElement.querySelector('.book-title').innerText;
-    const bThumb = cardElement.querySelector('.book-cover').src;
-    const uid = auth.currentUser.uid;
-
-    let history = JSON.parse(localStorage.getItem('thripudi_history_' + uid)) || [];
-    history = history.filter(item => item.id !== id);
-    history.push({ id, name: bName, thumb: bThumb, date: new Date().toLocaleDateString('ml-IN') });
-    localStorage.setItem('thripudi_history_' + uid, JSON.stringify(history.slice(-20)));
 
     if(type !== 'pdf' && bgMusic) bgMusic.pause();
 
     if (type === 'audio') {
-        if (currentAudioId && currentAudioId !== id) {
-            const oldPlayer = document.getElementById('player-' + currentAudioId);
-            if(oldPlayer) oldPlayer.innerHTML = "";
-            const oldCard = document.getElementById('card-' + currentAudioId);
-            if(oldCard) oldCard.classList.remove('audio-active');
+        if (activeAudioCard && activeAudioCard !== cardId) {
+            document.getElementById(activeAudioCard).classList.remove('audio-active');
+            document.getElementById('player-' + activeAudioCard.replace('card-','')).innerHTML = '';
         }
-        document.getElementById('player-' + id).innerHTML = `<div class="player-mask" style="width:80px;height:50px;position:absolute;z-index:9;"></div><iframe src="https://drive.google.com/file/d/${id}/preview?rm=minimal" style="width:100%; height:100%; border:none;" scrolling="no"></iframe>`;
+        const player = document.getElementById('player-' + id);
+        player.innerHTML = `<div class="player-mask" style="position:absolute;top:0;right:0;width:100px;height:100%;z-index:20;"></div><iframe src="https://drive.google.com/file/d/${id}/preview" style="width:100%; height:100%; border:none;"></iframe>`;
         document.getElementById(cardId).classList.add('audio-active');
-        currentAudioId = id;
-    } else if (type === 'video') {
-        window.history.pushState({modalOpen: "video"}, ""); 
-        document.getElementById('videoFrameContainer').innerHTML = `
-            <div class="player-mask" style="width:60px;height:60px;position:absolute;top:0;right:0;z-index:99;"></div>
-            <button onclick="window.closeVideo()" style="position:absolute; top:15px; left:15px; z-index:1000; background:white; border:none; border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,0.5); cursor:pointer;">
-                <i class="fas fa-arrow-left" style="color:#333; font-size:20px;"></i>
-            </button>
-            <iframe src="https://drive.google.com/file/d/${id}/preview?rm=minimal" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe>`;
-        document.getElementById('videoOverlay').style.display = 'flex';
-        // SCROLL LOCK REMOVED
+        activeAudioCard = cardId;
     } else if (type === 'pdf') {
-        window.history.pushState({modalOpen: "pdf"}, "");
-        document.getElementById('pdfFrame').src = `https://drive.google.com/file/d/${id}/preview?rm=minimal`;
-        document.getElementById('pdfModal').style.display = 'flex';
-        // SCROLL LOCK REMOVED
+        const modal = document.getElementById('pdfModal');
+        document.getElementById('pdfFrame').src = `https://drive.google.com/file/d/${id}/preview`;
+        modal.style.display = 'flex';
+    } else if (type === 'video') {
+        const vFrame = document.getElementById('videoFrameContainer');
+        vFrame.innerHTML = `<div class="player-mask" style="position:absolute;top:0;right:0;width:100px;height:80px;z-index:20;"></div><iframe src="https://drive.google.com/file/d/${id}/preview" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe>`;
+        document.getElementById('videoOverlay').style.display = 'flex';
     }
 };
 
-window.onpopstate = function() {
-    closeVideoLogic();
-    closePdfLogic();
-};
-
-function closeVideoLogic() {
-    document.getElementById('videoOverlay').style.display = 'none';
-    document.getElementById('videoFrameContainer').innerHTML = "";
-    if (bgMusic && document.getElementById("music-icon") && document.getElementById("music-icon").classList.contains("fa-volume-up")) bgMusic.play();
-}
-
-function closePdfLogic() {
-    document.getElementById('pdfModal').style.display = 'none';
-    document.getElementById('pdfFrame').src = "";
-}
-
-window.logoutUser = () => { if(auth) auth.signOut().then(() => { window.location.href = "logout_success.html"; }); };
-window.closeLoginPopup = () => { document.getElementById('loginAlertModal').style.setProperty('display', 'none', 'important'); };
-window.closeVideo = () => { if (window.history.state && window.history.state.modalOpen === "video") window.history.back(); else closeVideoLogic(); };
-window.closePdfModal = () => { if (window.history.state && window.history.state.modalOpen === "pdf") window.history.back(); else closePdfLogic(); };
+window.closePdfModal = () => { document.getElementById('pdfModal').style.display = 'none'; document.getElementById('pdfFrame').src = ""; };
+window.closeVideo = () => { document.getElementById('videoOverlay').style.display = 'none'; document.getElementById('videoFrameContainer').innerHTML = ""; };
+window.closeLoginPopup = () => { document.getElementById('loginAlertModal').style.display = 'none'; };
+window.logoutUser = () => auth.signOut().then(() => window.location.href = "login.html");
