@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>പ്രൊഫൈൽ അപ്ഡേറ്റ് | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        body {
+            background: url('assets/cover/bi.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .profile-section { 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex: 1; 
+            padding: 40px 20px;
+        }
+        /* താങ്കൾ ആവശ്യപ്പെട്ട വീതിയുള്ളതും ഉയരം കുറഞ്ഞതുമായ കാർഡ് */
+        .profile-card { 
+            background: white; 
+            padding: 0; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4); 
+            max-width: 550px; 
+            width: 100%;
+            text-align: center; 
+            overflow: hidden;
+            border: 2px solid #00897B;
+        }
+        .card-header-green {
+            background: #00897B;
+            padding: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .card-header-green img { width: 30px; }
+        .card-header-green h1 { margin: 0; font-size: 1.1em; letter-spacing: 1px; }
+        
+        .card-body { padding: 15px 25px; text-align: left; }
+        
+        .form-group { margin-bottom: 8px; }
+        .form-row { display: flex; gap: 12px; }
+        .form-row .form-group { flex: 1; }
+        
+        label { display: block; margin-bottom: 3px; font-weight: 700; color: #004D40; font-size: 0.8em; }
+        input, select, textarea { 
+            width: 100%; padding: 8px; border: 1px solid #ccc; 
+            border-radius: 6px; outline: none; font-family: inherit; font-size: 0.85em;
+            box-sizing: border-box;
+        }
+        #addressBox { resize: vertical; min-height: 80px; }
+        input:disabled { background: #f9f9f9; color: #888; }
+        
+        .btn-update { 
+            background: #00897B; color: white; border: none; 
+            padding: 10px; border-radius: 8px; width: 100%; font-weight: 700; 
+            cursor: pointer; margin-top: 5px; transition: 0.3s;
+            font-size: 0.9em;
+        }
+        .btn-back { background: #333; margin-top: 8px; }
+        #dataMsg { margin-top: 5px; font-weight: bold; font-size: 0.8em; text-align: center; min-height: 1em; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-item" href="collection.html"><i class="fas fa-book"></i> ശേഖരം</a>
+            <a class="nav-item" href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            <a class="nav-item" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="profile-section">
+    <div class="profile-card">
+        <div class="card-header-green">
+            <img src="assets/cover/logo.png" alt="Logo">
+            <h1>THRIPUDI LIBRARY</h1>
+        </div>
+
+        <div class="card-body">
+            <div class="form-row">
+                <div class="form-group" style="flex: 1.5;"><label>ഇമെയിൽ</label><input type="text" id="emailBox" disabled></div>
+                <div class="form-group" style="flex: 2;"><label>പേര്</label><input type="text" id="nameBox"></div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group"><label>വയസ്സ്</label><input type="number" id="ageBox"></div>
+                <div class="form-group">
+                    <label>ലിംഗഭേദം</label>
+                    <select id="genderBox">
+                        <option value="">തിരഞ്ഞെടുക്കുക</option>
+                        <option value="Male">പുരുഷൻ</option>
+                        <option value="Female">സ്ത്രീ</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group"><label>ഫോൺ</label><input type="tel" id="phoneBox"></div>
+                <div class="form-group"><label>വാട്സ്ആപ്പ്</label><input type="tel" id="whatsappBox"></div>
+            </div>
+            
+            <div class="form-group"><label>അഡ്രസ്സ്</label><textarea id="addressBox" rows="3"></textarea></div>
+
+            <div id="dataMsg"></div>
+            <button class="btn-update" id="dataSaveBtn">വിവരങ്ങൾ സേവ് ചെയ്യുക</button>
+            <button class="btn-update btn-back" onclick="location.href='settings.html'">തിരികെ പോകാം</button>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal">...</div>
+<div id="videoOverlay" class="video-popup-overlay">...</div>
+<div id="pdfModal">...</div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, updateProfile, signOut } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
+    const firebaseConfig = { apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA", authDomain: "thripudilibrary.firebaseapp.com", projectId: "thripudilibrary" };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwone2MeuhMzyFXTYFKHW0OOherDw4wo517f7daK1bs6VxV7A2XvQkpRaKVBO4_FHSjGw/exec";
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            document.getElementById('emailBox').value = user.email;
+            document.getElementById('nameBox').value = user.displayName || "";
+            document.getElementById('display-name').innerText = user.displayName ? user.displayName.split(' ')[0] : "സുഹൃത്ത്";
+            document.getElementById('user-avatar-img').src = user.photoURL || 'assets/cover/default_user.jpg';
+
+            try {
+                const r = await fetch(`${SCRIPT_URL}?email=${user.email}`);
+                const res = await r.json();
+                if (res.result === "Success") {
+                    document.getElementById('ageBox').value = res.data.age || "";
+                    document.getElementById('genderBox').value = res.data.gender || "";
+                    document.getElementById('phoneBox').value = res.data.phone || "";
+                    document.getElementById('whatsappBox').value = res.data.whatsapp || "";
+                    document.getElementById('addressBox').value = res.data.address || "";
+                }
+            } catch (e) { console.log("Load error"); }
+        } else {
+            location.href = "login.html";
+        }
+    });
+
+    document.getElementById('dataSaveBtn').onclick = async () => {
+        const user = auth.currentUser;
+        const msg = document.getElementById('dataMsg');
+        const btn = document.getElementById('dataSaveBtn');
+        btn.disabled = true;
+        msg.innerText = "സേവ് ചെയ്യുന്നു..."; msg.style.color = "blue";
+
+        try {
+            await updateProfile(user, { displayName: document.getElementById('nameBox').value });
+            const s = new URLSearchParams();
+            s.append('action', 'saveProfile');
+            s.append('email', user.email);
+            s.append('name', document.getElementById('nameBox').value);
+            s.append('age', document.getElementById('ageBox').value);
+            s.append('gender', document.getElementById('genderBox').value);
+            s.append('phone', document.getElementById('phoneBox').value);
+            s.append('whatsapp', document.getElementById('whatsappBox').value);
+            s.append('address', document.getElementById('addressBox').value);
+
+            await fetch(SCRIPT_URL, { method: 'POST', body: s, mode: 'no-cors' });
+            msg.style.color = "green"; msg.innerText = "വിവരങ്ങൾ സേവ് ചെയ്തു!";
+            setTimeout(() => location.href = 'settings.html', 1500);
+        } catch (e) { 
+            msg.innerText = "Error!"; 
+            btn.disabled = false; 
+        }
+    };
+
+    window.logoutUser = () => signOut(auth).then(() => location.href = "login.html");
+</script>
+<script src="assets/scripts.js"></script>
+</body>
+</html>
