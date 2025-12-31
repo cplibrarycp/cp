@@ -173,6 +173,7 @@
 
     window.logoutUser = () => { signOut(auth).then(() => { window.location.href = "logout_success.html"; }); };
 
+    // ഡ്രോപ്പ് ഡൗൺ ലോജിക്
     if(userProfileBtn) {
         userProfileBtn.onclick = (e) => {
             e.stopPropagation();
@@ -181,7 +182,6 @@
     }
     window.onclick = () => { if(dropdown) dropdown.style.display = 'none'; };
 
-    // --- പുതുക്കിയ ലോജിക് ---
     const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyyQJiEMzmOm6-jnY3sOZnw9_wO_jwCxi-vfR-ko15mY4t-hev3w8ABerI-ppK7GvDTrg/exec"; 
 
     document.getElementById('contactForm').addEventListener('submit', function(e) {
@@ -196,17 +196,10 @@
         }
 
         const btn = document.getElementById('submitBtn');
-        btn.innerHTML = 'അയക്കുന്നു... <i class="fas fa-spinner fa-spin"></i>';
+        btn.innerHTML = 'അയക്കുന്നു...';
         btn.disabled = true;
 
-        // സ്ക്രിപ്റ്റിലേക്ക് സന്ദേശം അയക്കുന്നു
-        const formData = new URLSearchParams(new FormData(this));
-        formData.append('action', 'contact'); 
-
-        fetch(APPS_SCRIPT_URL, { 
-            method: "POST", 
-            body: formData 
-        })
+        fetch(APPS_SCRIPT_URL, { method: "POST", body: new URLSearchParams(new FormData(this)) })
         .then(res => res.json())
         .then(result => {
             if(result.result === 'Success') {
@@ -217,9 +210,8 @@
             }
             statusModal.style.display = 'flex';
         })
-        .catch((err) => {
-            console.error("Fetch Error:", err);
-            statusMsg.innerText = "❌ കണക്ഷൻ തകരാർ! വീണ്ടും ശ്രമിക്കുക.";
+        .catch(() => {
+            statusMsg.innerText = "❌ കണക്ഷൻ തകരാർ!";
             statusModal.style.display = 'flex';
         })
         .finally(() => { 
@@ -232,6 +224,3 @@
 </script>
 </body>
 </html>
-
-
-
