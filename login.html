@@ -3,55 +3,31 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Login / Register | THRIPUDI LIBRARY</title>
+    <title>Login | THRIPUDI LIBRARY</title>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
     <style>
         :root { --primary-teal: #00897B; --secondary-dark: #004D40; --text-white: #FFFFFF; }
         * { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; box-sizing: border-box; }
-        
-        .hero { 
-            height: 100vh; width: 100%; 
-            background-image: linear-gradient(rgba(0, 77, 64, 0.8), rgba(0, 77, 64, 0.8)), url(assets/cover/bi.jpg); 
-            background-position: center; background-size: cover; 
-            display: flex; align-items: center; justify-content: center; padding: 20px; 
-        }
-
-        /* കാർഡിന്റെ വലിപ്പം കുറച്ചു, വെള്ള നിറം നൽകി, പച്ച ഔട്ട്ലൈൻ ചേർത്തു */
-        .form-box { 
-            width: 100%; max-width: 350px; /* വലിപ്പം അല്പം കുറച്ചു */
-            min-height: 480px; position: relative; 
-            background: #FFFFFF; /* കാർഡ് വെള്ള നിറം */
-            border: 2px solid var(--primary-teal); /* നേരിയ പച്ച ഔട്ട്ലൈൻ */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); 
-            overflow: hidden; border-radius: 20px; text-align: center; 
-        }
-
-        /* ഹെഡർ ഭാഗം പച്ച നിറത്തിലാക്കി */
-        .form-header { 
-            background: var(--secondary-dark); 
-            padding: 20px 10px; 
-            margin-bottom: 0; 
-        }
+        .hero { height: 100vh; width: 100%; background-image: url(assets/cover/bi.jpg); background-position: center; background-size: cover; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .form-box { width: 100%; max-width: 350px; min-height: 520px; position: relative; background: #FFFFFF; border: 2px solid var(--primary-teal); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); overflow: hidden; border-radius: 20px; text-align: center; }
+        .form-header { background: var(--secondary-dark); padding: 20px 10px; }
         .form-logo { height: 45px; width: auto; margin-bottom: 8px; }
         .form-header h2 { color: white; font-size: 1.2em; font-weight: 700; }
-
         .button-box { width: 220px; margin: 20px auto; position: relative; border-radius: 30px; background: #f0f0f0; display: flex; padding: 5px; }
         .toggle-btn { padding: 8px 0; cursor: pointer; background: transparent; border: 0; outline: none; position: relative; font-weight: 600; color: #666; flex: 1; z-index: 1; font-size: 13px; }
         #btn { top: 5px; left: 5px; position: absolute; width: 105px; height: calc(100% - 10px); background: var(--primary-teal); border-radius: 25px; transition: .5s; }
-        
-        /* ആക്ടീവ് ബട്ടണിലെ ടെക്സ്റ്റ് വെള്ളയാക്കാൻ */
         .active-text { color: white !important; }
-
         .input-group { position: absolute; width: 85%; transition: .5s; left: 25px; margin-top: 10px; }
         .input-field { width: 100%; padding: 10px 5px; margin: 5px 0; border: none; border-bottom: 1px solid #ccc; outline: none; background: transparent; color: #333; }
-        .input-field::placeholder { color: #999; }
-        
         .submit-btn { width: 100%; padding: 10px 0; cursor: pointer; display: block; margin: 20px auto; background: var(--primary-teal); border: 0; border-radius: 30px; color: #fff; font-weight: bold; transition: 0.3s; }
         .submit-btn:hover { background: var(--secondary-dark); }
-
+        .notif-wrapper { margin-top: 25px; padding-top: 15px; border-top: 1px dashed #ccc; }
+        .notif-btn { background: none; border: 1px solid var(--primary-teal); color: var(--primary-teal); padding: 6px 12px; border-radius: 20px; font-size: 10px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .notif-modal { display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 85%; background: #fff; border: 2px solid var(--primary-teal); border-radius: 15px; padding: 20px; z-index: 1000; box-shadow: 0 5px 20px rgba(0,0,0,0.3); text-align: center; }
+        .close-notif { background: var(--primary-teal); color: white; border: none; padding: 7px 20px; border-radius: 20px; cursor: pointer; font-size: 11px; font-weight: 600; }
         #messageBox { position: absolute; bottom: 10px; width: 100%; left: 0; text-align: center; font-size: 12px; font-weight: 600; }
         .success { color: #2E7D32; }
         .error { color: #C62828; }
@@ -66,27 +42,30 @@
             <img src="assets/cover/logo.png" class="form-logo" alt="Logo">
             <h2>THRIPUDI LIBRARY</h2>
         </div>
-
         <div class="button-box">
             <div id="btn"></div>
-            <button class="toggle-btn active-text" id="loginToggle" onclick="openLogin()">Log In</button>
-            <button class="toggle-btn" id="regToggle" onclick="openRegister()">Register</button>
+            <button class="toggle-btn active-text" id="lToggle" onclick="openLogin()">Log In</button>
+            <button class="toggle-btn" id="rToggle" onclick="openRegister()">Register</button>
         </div>
-
         <form class="input-group" id="login">
             <input class="input-field" id="loginEmail" placeholder="Email Id" required type="email"/>
             <input class="input-field" id="loginPassword" placeholder="Password" required type="password"/>
-            <button class="submit-btn" id="loginBtn" type="button">Log In</button>
-            <a style="color:var(--secondary-dark); font-size:11px; cursor:pointer; font-weight:600;" onclick="handleForgot()">Forgot Password?</a>
+            <button class="submit-btn" type="button" onclick="handleLogin()">Log In</button>
+            <div class="notif-wrapper">
+                <button type="button" class="notif-btn" id="notif-btn">🔔 Subscribe for Notification</button>
+            </div>
         </form>
-
         <form class="input-group" id="register">
             <input class="input-field" id="regUser" placeholder="Full Name" required type="text"/>
             <input class="input-field" id="regEmail" placeholder="Email Id" required type="email"/>
             <input class="input-field" id="regPassword" placeholder="Password" required type="password"/>
-            <button class="submit-btn" id="regBtn" type="button">Register</button>
+            <button class="submit-btn" type="button" onclick="handleRegister()">Register</button>
         </form>
-
+        <div id="customNotif" class="notif-modal">
+            <h3 style="color:var(--primary-teal)">THRIPUDI</h3>
+            <p id="notifMsg" style="font-size: 12px; margin: 15px 0;"></p>
+            <button class="close-notif" onclick="closeCustomNotif()">ശരി</button>
+        </div>
         <div id="messageBox"></div>
     </div>
 </div>
@@ -96,73 +75,65 @@
         apiKey: "AIzaSyBzwhpHmeZdLf_nZrcPQirlnpj3Vhg9EqA",
         authDomain: "thripudilibrary.firebaseapp.com",
         projectId: "thripudilibrary",
-        storageBucket: "thripudilibrary.firebasestorage.app",
         messagingSenderId: "887018912750",
         appId: "1:887018912750:web:cc05190a72b13db816acff"
     };
     firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const messaging = firebase.messaging();
 
-    const x = document.getElementById("login");
-    const y = document.getElementById("register");
-    const z = document.getElementById("btn");
-    const lToggle = document.getElementById("loginToggle");
-    const rToggle = document.getElementById("regToggle");
+    const x = document.getElementById("login"), y = document.getElementById("register"), z = document.getElementById("btn");
     const messageBox = document.getElementById("messageBox");
 
-    function showMessage(msg, type) {
-        messageBox.textContent = msg;
-        messageBox.className = type;
-        setTimeout(() => { messageBox.textContent = ""; }, 5000);
-    }
+    function showMessage(msg, type) { messageBox.textContent = msg; messageBox.className = type; setTimeout(() => { messageBox.textContent = ""; }, 5000); }
+    function showCustomNotif(msg) { document.getElementById('notifMsg').innerText = msg; document.getElementById('customNotif').style.display = 'block'; }
+    function closeCustomNotif() { document.getElementById('customNotif').style.display = 'none'; }
+    function openRegister() { x.style.left = "-400px"; y.style.left = "25px"; z.style.left = "110px"; }
+    function openLogin() { x.style.left = "25px"; y.style.left = "400px"; z.style.left = "5px"; }
 
-    function openRegister() { 
-        x.style.left = "-400px"; y.style.left = "25px"; z.style.left = "110px"; 
-        rToggle.classList.add("active-text"); lToggle.classList.remove("active-text");
-    }
-    function openLogin() { 
-        x.style.left = "25px"; y.style.left = "400px"; z.style.left = "5px"; 
-        lToggle.classList.add("active-text"); rToggle.classList.remove("active-text");
-    }
-
-    function handleRedirect() {
-        const returnTo = localStorage.getItem('return_to');
-        if (returnTo) {
-            localStorage.removeItem('return_to');
-            window.location.href = returnTo;
-        } else {
-            window.location.href = "dashboard.html";
-        }
-    }
-
-    document.getElementById("loginBtn").onclick = function() {
-        const email = document.getElementById("loginEmail").value;
-        const pass = document.getElementById("loginPassword").value;
-        if(!email || !pass) return showMessage("Fields required", "error");
-        firebase.auth().signInWithEmailAndPassword(email, pass)
-            .then(() => { showMessage("Success!", "success"); handleRedirect(); })
+    function handleLogin() {
+        const email = document.getElementById("loginEmail").value, pass = document.getElementById("loginPassword").value;
+        if(!email || !pass) return showMessage("വിവരങ്ങൾ നൽകുക", "error");
+        auth.signInWithEmailAndPassword(email, pass)
+            .then(() => { window.location.href = "dashboard.html"; })
             .catch(err => showMessage("Error: " + err.message, "error"));
-    };
+    }
 
-    document.getElementById("regBtn").onclick = function() {
-        const name = document.getElementById("regUser").value;
-        const email = document.getElementById("regEmail").value;
-        const pass = document.getElementById("regPassword").value;
-        if(!name || !email || !pass) return showMessage("Fields required", "error");
-        firebase.auth().createUserWithEmailAndPassword(email, pass)
-            .then(res => {
-                res.user.updateProfile({ displayName: name }).then(() => {
-                    showMessage("Created!", "success");
-                    handleRedirect();
-                });
-            })
-            .catch(err => showMessage("Failed!", "error"));
-    };
+    function handleRegister() {
+        const name = document.getElementById("regUser").value, email = document.getElementById("regEmail").value, pass = document.getElementById("regPassword").value;
+        if(!name || !email || !pass) return showMessage("വിവരങ്ങൾ നൽകുക", "error");
+        auth.createUserWithEmailAndPassword(email, pass)
+            .then(res => res.user.updateProfile({ displayName: name }).then(() => { window.location.href = "dashboard.html"; }))
+            .catch(err => showMessage("Failed: " + err.message, "error"));
+    }
 
-    window.handleForgot = function() {
+    document.getElementById('notif-btn').onclick = function() {
         const email = document.getElementById("loginEmail").value;
-        if(!email) return showMessage("Enter email", "error");
-        firebase.auth().sendPasswordResetEmail(email).then(() => showMessage("Check Email!", "success"));
+        if(!email) { showCustomNotif('ദയവായി ലോഗിൻ ഇമെയിൽ ടൈപ്പ് ചെയ്യുക.'); return; }
+
+        navigator.serviceWorker.register('firebase-messaging-sw.js')
+        .then((reg) => {
+            Notification.requestPermission().then(permission => {
+                if (permission === 'granted') {
+                    showCustomNotif('ടോക്കൺ എടുക്കുന്നു...');
+                    messaging.getToken({ serviceWorkerRegistration: reg, vapidKey: 'BARro1CiWzP3_RaJid9CWnmcwzQYi116jkhOcqGckdmb57c8TkwsSbDiZv2m7dH9DJ5bDksD91M5x56MXs0MyVw' })
+                    .then((token) => {
+                        sendTokenToServer(email, token);
+                    }).catch(err => showCustomNotif('ടോക്കൺ പരാജയപ്പെട്ടു.'));
+                } else showCustomNotif('അനുവാദം നൽകിയിട്ടില്ല.');
+            });
+        }).catch(err => showCustomNotif('ഫയൽ പരാജയപ്പെട്ടു.'));
     };
+
+    function sendTokenToServer(email, token) {
+        const url = "https://script.google.com/macros/s/AKfycbyyQJiEMzmOm6-jnY3sOZnw9_wO_jwCxi-vfR-ko15mY4t-hev3w8ABerI-ppK7GvDTrg/exec"; 
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('token', token);
+        fetch(url, { method: 'POST', body: formData, mode: 'no-cors' })
+            .then(() => showCustomNotif('വിജയിച്ചു! അറിയിപ്പുകൾ സജീവമാക്കി.'))
+            .catch(() => showCustomNotif('Error saving token.'));
+    }
 </script>
 </body>
 </html>
