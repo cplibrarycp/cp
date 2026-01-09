@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A | THRIPUDI LIBRARY</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <a href="dashboard.html" class="logo-container">
+            <span class="logo-text">THRIPUDI LIBRARY</span>
+            <img src="assets/cover/logo.png" class="logo-img">
+        </a>
+        <div class="nav-links">
+            <a class="nav-item" href="dashboard.html">Home</a>
+            <a class="nav-item" href="collection.html">ശേഖരം</a>
+            <a class="nav-item" href="about.html">About</a>
+            <a class="nav-item" href="contact.html">Contact</a>
+            <div class="user-profile" id="user-profile-btn">
+                <img id="user-avatar-img" class="user-avatar-small" src="assets/cover/default_user.jpg">
+                <span><span id="display-name">...</span> <i class="fas fa-caret-down"></i></span>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <a href="settings.html">Settings</a>
+                    <a href="history.html">History</a>
+                    <a href="javascript:void(0)" onclick="logoutUser()" style="color:red;">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="collection-section">
+    <div class="container">
+        <h1 style="color:#004D40; text-align:center; margin-bottom:30px;">A</h1>
+        <div class="library-container">
+            
+      <div class="book-card" id="card-1K5RNdXzEOxtgsnVW0mcYyPu85T2AlGUL">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1K5RNdXzEOxtgsnVW0mcYyPu85T2AlGUL&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1K5RNdXzEOxtgsnVW0mcYyPu85T2AlGUL', 'pdf', 'card-1K5RNdXzEOxtgsnVW0mcYyPu85T2AlGUL')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1K5RNdXzEOxtgsnVW0mcYyPu85T2AlGUL"></div>
+        </div>
+        <div class="book-title">Albert Einstein  (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1i_9saapQfx8a7kjb9oNID8-3YS-T79dt">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1i_9saapQfx8a7kjb9oNID8-3YS-T79dt&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1i_9saapQfx8a7kjb9oNID8-3YS-T79dt', 'pdf', 'card-1i_9saapQfx8a7kjb9oNID8-3YS-T79dt')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1i_9saapQfx8a7kjb9oNID8-3YS-T79dt"></div>
+        </div>
+        <div class="book-title">Ati Prabhav Kari Logon Ki Saat Aadaten Hindi</div>
+      </div>
+
+      <div class="book-card" id="card-1RqE7EIVYM9_2JFAI3tOrEJunwNfhGuBF">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1RqE7EIVYM9_2JFAI3tOrEJunwNfhGuBF&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1RqE7EIVYM9_2JFAI3tOrEJunwNfhGuBF', 'pdf', 'card-1RqE7EIVYM9_2JFAI3tOrEJunwNfhGuBF')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1RqE7EIVYM9_2JFAI3tOrEJunwNfhGuBF"></div>
+        </div>
+        <div class="book-title">Ati Prabhavkari Logon ki 7 Aadtein</div>
+      </div>
+
+      <div class="book-card" id="card-1QE18_y53cFWfNZa0E-IDOe2ioMkYc7f6">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1QE18_y53cFWfNZa0E-IDOe2ioMkYc7f6&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1QE18_y53cFWfNZa0E-IDOe2ioMkYc7f6', 'pdf', 'card-1QE18_y53cFWfNZa0E-IDOe2ioMkYc7f6')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1QE18_y53cFWfNZa0E-IDOe2ioMkYc7f6"></div>
+        </div>
+        <div class="book-title">Aap Garib Kyon He</div>
+      </div>
+
+      <div class="book-card" id="card-1IPJhdBx2GoN_SnGMDkIcdWL8N3lJrDmg">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1IPJhdBx2GoN_SnGMDkIcdWL8N3lJrDmg&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1IPJhdBx2GoN_SnGMDkIcdWL8N3lJrDmg', 'pdf', 'card-1IPJhdBx2GoN_SnGMDkIcdWL8N3lJrDmg')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1IPJhdBx2GoN_SnGMDkIcdWL8N3lJrDmg"></div>
+        </div>
+        <div class="book-title">Aapka Bhavishya Aapke Haath Me</div>
+      </div>
+
+      <div class="book-card" id="card-1kaA7-QCup8QFZah4l6mcB8jdjkildDVH">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1kaA7-QCup8QFZah4l6mcB8jdjkildDVH&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1kaA7-QCup8QFZah4l6mcB8jdjkildDVH', 'pdf', 'card-1kaA7-QCup8QFZah4l6mcB8jdjkildDVH')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1kaA7-QCup8QFZah4l6mcB8jdjkildDVH"></div>
+        </div>
+        <div class="book-title">Ayurvedic_Uniani_Homeopathy_Medicine</div>
+      </div>
+
+      <div class="book-card" id="card-1KHxvdy6I0psIxSwAa86zuQYuryJYte7P">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1KHxvdy6I0psIxSwAa86zuQYuryJYte7P&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1KHxvdy6I0psIxSwAa86zuQYuryJYte7P', 'pdf', 'card-1KHxvdy6I0psIxSwAa86zuQYuryJYte7P')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1KHxvdy6I0psIxSwAa86zuQYuryJYte7P"></div>
+        </div>
+        <div class="book-title">Ashwin Sandhi - Acche Ank Paane Ke 13 Pakke Tarike</div>
+      </div>
+
+      <div class="book-card" id="card-1URtzbY1Tbh_l8vLZxRcWkaChDd88Fg2x">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1URtzbY1Tbh_l8vLZxRcWkaChDd88Fg2x&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1URtzbY1Tbh_l8vLZxRcWkaChDd88Fg2x', 'pdf', 'card-1URtzbY1Tbh_l8vLZxRcWkaChDd88Fg2x')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1URtzbY1Tbh_l8vLZxRcWkaChDd88Fg2x"></div>
+        </div>
+        <div class="book-title">Apni_Personality_Ko_Pehchane_Hindi</div>
+      </div>
+
+      <div class="book-card" id="card-1eWu0sg7l-kSHYJf330zpkQykJLr-hmYN">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1eWu0sg7l-kSHYJf330zpkQykJLr-hmYN&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1eWu0sg7l-kSHYJf330zpkQykJLr-hmYN', 'pdf', 'card-1eWu0sg7l-kSHYJf330zpkQykJLr-hmYN')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1eWu0sg7l-kSHYJf330zpkQykJLr-hmYN"></div>
+        </div>
+        <div class="book-title">Azad_Hind_Fauj_Ki_Kahani</div>
+      </div>
+
+      <div class="book-card" id="card-1mOVRItPMo0oSt_XnBGSm-B7kSd-AY7AZ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1mOVRItPMo0oSt_XnBGSm-B7kSd-AY7AZ&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1mOVRItPMo0oSt_XnBGSm-B7kSd-AY7AZ', 'pdf', 'card-1mOVRItPMo0oSt_XnBGSm-B7kSd-AY7AZ')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1mOVRItPMo0oSt_XnBGSm-B7kSd-AY7AZ"></div>
+        </div>
+        <div class="book-title">Agni-Ki-udan-Hindi</div>
+      </div>
+
+      <div class="book-card" id="card-1fDjnLeJvdAH0RWbVkfTQacwRK-PIBCUJ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1fDjnLeJvdAH0RWbVkfTQacwRK-PIBCUJ&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1fDjnLeJvdAH0RWbVkfTQacwRK-PIBCUJ', 'pdf', 'card-1fDjnLeJvdAH0RWbVkfTQacwRK-PIBCUJ')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1fDjnLeJvdAH0RWbVkfTQacwRK-PIBCUJ"></div>
+        </div>
+        <div class="book-title">ALL_IS_WELL_BY_DR_SANEH_DESAI</div>
+      </div>
+
+      <div class="book-card" id="card-1ftSxbM4rvpmYqPPgGvlHk222rHKIcSkI">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1ftSxbM4rvpmYqPPgGvlHk222rHKIcSkI&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ftSxbM4rvpmYqPPgGvlHk222rHKIcSkI', 'pdf', 'card-1ftSxbM4rvpmYqPPgGvlHk222rHKIcSkI')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ftSxbM4rvpmYqPPgGvlHk222rHKIcSkI"></div>
+        </div>
+        <div class="book-title">Atomic Habits (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1nq4AmPaHCgf5dLqEUZihUkHXyt-xKEYd">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1nq4AmPaHCgf5dLqEUZihUkHXyt-xKEYd&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1nq4AmPaHCgf5dLqEUZihUkHXyt-xKEYd', 'pdf', 'card-1nq4AmPaHCgf5dLqEUZihUkHXyt-xKEYd')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1nq4AmPaHCgf5dLqEUZihUkHXyt-xKEYd"></div>
+        </div>
+        <div class="book-title">Apni Team ke Leaders ko Viksit Kaise Karen</div>
+      </div>
+
+      <div class="book-card" id="card-1_CfOXQpfHrRKGet8ZlnHOEC6kmTkfNvY">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1_CfOXQpfHrRKGet8ZlnHOEC6kmTkfNvY&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1_CfOXQpfHrRKGet8ZlnHOEC6kmTkfNvY', 'pdf', 'card-1_CfOXQpfHrRKGet8ZlnHOEC6kmTkfNvY')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1_CfOXQpfHrRKGet8ZlnHOEC6kmTkfNvY"></div>
+        </div>
+        <div class="book-title">Azadi Ki Khoj - Jiddu Krishnamurti</div>
+      </div>
+
+      <div class="book-card" id="card-17F4EzAsyLQUEGDx1Rz-uuPLSyciLqYjZ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=17F4EzAsyLQUEGDx1Rz-uuPLSyciLqYjZ&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('17F4EzAsyLQUEGDx1Rz-uuPLSyciLqYjZ', 'pdf', 'card-17F4EzAsyLQUEGDx1Rz-uuPLSyciLqYjZ')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-17F4EzAsyLQUEGDx1Rz-uuPLSyciLqYjZ"></div>
+        </div>
+        <div class="book-title">A Selfmade Millioner</div>
+      </div>
+
+      <div class="book-card" id="card-1rtxYvDl1WpnuvY85cIJ2mPzv6l1bq82M">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1rtxYvDl1WpnuvY85cIJ2mPzv6l1bq82M&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rtxYvDl1WpnuvY85cIJ2mPzv6l1bq82M', 'pdf', 'card-1rtxYvDl1WpnuvY85cIJ2mPzv6l1bq82M')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rtxYvDl1WpnuvY85cIJ2mPzv6l1bq82M"></div>
+        </div>
+        <div class="book-title">Apne Ko Pahechane</div>
+      </div>
+
+      <div class="book-card" id="card-1DbiIvbC74wrl67hlXfE2DhHDETYaPbO3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1DbiIvbC74wrl67hlXfE2DhHDETYaPbO3&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1DbiIvbC74wrl67hlXfE2DhHDETYaPbO3', 'pdf', 'card-1DbiIvbC74wrl67hlXfE2DhHDETYaPbO3')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1DbiIvbC74wrl67hlXfE2DhHDETYaPbO3"></div>
+        </div>
+        <div class="book-title">Apna Drashtikon Thik Rakhe</div>
+      </div>
+
+      <div class="book-card" id="card-1WVn3V0HGE4ohvwxRQ0r6tL6KBm6cR_ge">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1WVn3V0HGE4ohvwxRQ0r6tL6KBm6cR_ge&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1WVn3V0HGE4ohvwxRQ0r6tL6KBm6cR_ge', 'pdf', 'card-1WVn3V0HGE4ohvwxRQ0r6tL6KBm6cR_ge')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1WVn3V0HGE4ohvwxRQ0r6tL6KBm6cR_ge"></div>
+        </div>
+        <div class="book-title">Apna Sudhar Sansaar Ki Sabse Badi Seva</div>
+      </div>
+
+      <div class="book-card" id="card-1YKTGWY7iE1HLrjvGJZRpHvhreR0QmpBU">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1YKTGWY7iE1HLrjvGJZRpHvhreR0QmpBU&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1YKTGWY7iE1HLrjvGJZRpHvhreR0QmpBU', 'pdf', 'card-1YKTGWY7iE1HLrjvGJZRpHvhreR0QmpBU')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1YKTGWY7iE1HLrjvGJZRpHvhreR0QmpBU"></div>
+        </div>
+        <div class="book-title">Aapka USP Kya He</div>
+      </div>
+
+      <div class="book-card" id="card-10xcYrt0FhWaG0HO2hgkfh_t6mj0-W8i3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=10xcYrt0FhWaG0HO2hgkfh_t6mj0-W8i3&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('10xcYrt0FhWaG0HO2hgkfh_t6mj0-W8i3', 'pdf', 'card-10xcYrt0FhWaG0HO2hgkfh_t6mj0-W8i3')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-10xcYrt0FhWaG0HO2hgkfh_t6mj0-W8i3"></div>
+        </div>
+        <div class="book-title">ANNE - H</div>
+      </div>
+
+      <div class="book-card" id="card-1fyeGEREvdrWpExD5Ejwo1Gb8Gsc9Ep-t">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1fyeGEREvdrWpExD5Ejwo1Gb8Gsc9Ep-t&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1fyeGEREvdrWpExD5Ejwo1Gb8Gsc9Ep-t', 'pdf', 'card-1fyeGEREvdrWpExD5Ejwo1Gb8Gsc9Ep-t')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1fyeGEREvdrWpExD5Ejwo1Gb8Gsc9Ep-t"></div>
+        </div>
+        <div class="book-title">Amazon की सफलता</div>
+      </div>
+
+      <div class="book-card" id="card-1Zg5JMyZvfpAkI-gVigusP6_Uj2pqXjJk">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1Zg5JMyZvfpAkI-gVigusP6_Uj2pqXjJk&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Zg5JMyZvfpAkI-gVigusP6_Uj2pqXjJk', 'pdf', 'card-1Zg5JMyZvfpAkI-gVigusP6_Uj2pqXjJk')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Zg5JMyZvfpAkI-gVigusP6_Uj2pqXjJk"></div>
+        </div>
+        <div class="book-title">attitude is everything</div>
+      </div>
+
+      <div class="book-card" id="card-1pnLwhBfqR69MtUeXWNTWmaABpht5mBYC">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1pnLwhBfqR69MtUeXWNTWmaABpht5mBYC&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1pnLwhBfqR69MtUeXWNTWmaABpht5mBYC', 'pdf', 'card-1pnLwhBfqR69MtUeXWNTWmaABpht5mBYC')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1pnLwhBfqR69MtUeXWNTWmaABpht5mBYC"></div>
+        </div>
+        <div class="book-title">ANAAM-Krantikari Technician _ Steve Jobs</div>
+      </div>
+
+      <div class="book-card" id="card-1F6Qw18j4UiJpobl0ibMx_Ue0NF79e5De">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1F6Qw18j4UiJpobl0ibMx_Ue0NF79e5De&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1F6Qw18j4UiJpobl0ibMx_Ue0NF79e5De', 'pdf', 'card-1F6Qw18j4UiJpobl0ibMx_Ue0NF79e5De')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1F6Qw18j4UiJpobl0ibMx_Ue0NF79e5De"></div>
+        </div>
+        <div class="book-title">as a man thinks</div>
+      </div>
+
+      <div class="book-card" id="card-1Co8MzbirJ1u7SKHJTYQ44kQor2xF9H-d">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1Co8MzbirJ1u7SKHJTYQ44kQor2xF9H-d&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Co8MzbirJ1u7SKHJTYQ44kQor2xF9H-d', 'pdf', 'card-1Co8MzbirJ1u7SKHJTYQ44kQor2xF9H-d')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Co8MzbirJ1u7SKHJTYQ44kQor2xF9H-d"></div>
+        </div>
+        <div class="book-title">Atithi (Hindi) by Shivani</div>
+      </div>
+
+      <div class="book-card" id="card-1z8wqhgcUJLU6unrmnE_k4kfdMloK6YOk">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1z8wqhgcUJLU6unrmnE_k4kfdMloK6YOk&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1z8wqhgcUJLU6unrmnE_k4kfdMloK6YOk', 'pdf', 'card-1z8wqhgcUJLU6unrmnE_k4kfdMloK6YOk')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1z8wqhgcUJLU6unrmnE_k4kfdMloK6YOk"></div>
+        </div>
+        <div class="book-title">Adhiktam Se Bhi Adhik (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-18h4yQpClSjtpu5E7w-8Z1jFLYcRItMuY">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=18h4yQpClSjtpu5E7w-8Z1jFLYcRItMuY&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('18h4yQpClSjtpu5E7w-8Z1jFLYcRItMuY', 'pdf', 'card-18h4yQpClSjtpu5E7w-8Z1jFLYcRItMuY')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-18h4yQpClSjtpu5E7w-8Z1jFLYcRItMuY"></div>
+        </div>
+        <div class="book-title">Amar Shaheed Bhagat Singh</div>
+      </div>
+
+      <div class="book-card" id="card-1ZDQgnLVl9nfwDWbsxeMfd5yPxhlXauDg">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1ZDQgnLVl9nfwDWbsxeMfd5yPxhlXauDg&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1ZDQgnLVl9nfwDWbsxeMfd5yPxhlXauDg', 'pdf', 'card-1ZDQgnLVl9nfwDWbsxeMfd5yPxhlXauDg')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1ZDQgnLVl9nfwDWbsxeMfd5yPxhlXauDg"></div>
+        </div>
+        <div class="book-title">ATMANUBHUTI KE KHULE RAHASYA</div>
+      </div>
+
+      <div class="book-card" id="card-1J39ddI1PkYtWCbDCBNstCx5E7E_r1Q0y">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1J39ddI1PkYtWCbDCBNstCx5E7E_r1Q0y&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1J39ddI1PkYtWCbDCBNstCx5E7E_r1Q0y', 'pdf', 'card-1J39ddI1PkYtWCbDCBNstCx5E7E_r1Q0y')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1J39ddI1PkYtWCbDCBNstCx5E7E_r1Q0y"></div>
+        </div>
+        <div class="book-title">Aao Urdu Padna Likhna Seekhen</div>
+      </div>
+
+      <div class="book-card" id="card-1WueWegu2rkAtFlS8V2oayvIfF1pzBuWq">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1WueWegu2rkAtFlS8V2oayvIfF1pzBuWq&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1WueWegu2rkAtFlS8V2oayvIfF1pzBuWq', 'pdf', 'card-1WueWegu2rkAtFlS8V2oayvIfF1pzBuWq')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1WueWegu2rkAtFlS8V2oayvIfF1pzBuWq"></div>
+        </div>
+        <div class="book-title">Anko Me Chhipa Bhavishya</div>
+      </div>
+
+      <div class="book-card" id="card-1zG7b4MjEk0HXhGM5B3lkOkdPsBuxIPnh">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1zG7b4MjEk0HXhGM5B3lkOkdPsBuxIPnh&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1zG7b4MjEk0HXhGM5B3lkOkdPsBuxIPnh', 'pdf', 'card-1zG7b4MjEk0HXhGM5B3lkOkdPsBuxIPnh')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1zG7b4MjEk0HXhGM5B3lkOkdPsBuxIPnh"></div>
+        </div>
+        <div class="book-title">Aughad (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1MOErYWIau7gHbe-suN5lYVfBJtxyzTU1">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1MOErYWIau7gHbe-suN5lYVfBJtxyzTU1&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1MOErYWIau7gHbe-suN5lYVfBJtxyzTU1', 'pdf', 'card-1MOErYWIau7gHbe-suN5lYVfBJtxyzTU1')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1MOErYWIau7gHbe-suN5lYVfBJtxyzTU1"></div>
+        </div>
+        <div class="book-title">Agnidiksha upanyas - How the steel was tempered by Nikolai Ostrovsky</div>
+      </div>
+
+      <div class="book-card" id="card-1mnQbZuH8RtOyjQZBCKSjgh0ROLLyRRBR">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1mnQbZuH8RtOyjQZBCKSjgh0ROLLyRRBR&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1mnQbZuH8RtOyjQZBCKSjgh0ROLLyRRBR', 'pdf', 'card-1mnQbZuH8RtOyjQZBCKSjgh0ROLLyRRBR')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1mnQbZuH8RtOyjQZBCKSjgh0ROLLyRRBR"></div>
+        </div>
+        <div class="book-title">Adividrohi - Spartacus by Howard Fast</div>
+      </div>
+
+      <div class="book-card" id="card-1nGJ70vM9tGT1X9eyrCZP5mfwfmtLJUWx">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1nGJ70vM9tGT1X9eyrCZP5mfwfmtLJUWx&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1nGJ70vM9tGT1X9eyrCZP5mfwfmtLJUWx', 'pdf', 'card-1nGJ70vM9tGT1X9eyrCZP5mfwfmtLJUWx')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1nGJ70vM9tGT1X9eyrCZP5mfwfmtLJUWx"></div>
+        </div>
+        <div class="book-title">Articles on women liberation</div>
+      </div>
+
+      <div class="book-card" id="card-10xXbXZ2Wa8aPdCTI4K-_Aio_hB_pNxCJ">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=10xXbXZ2Wa8aPdCTI4K-_Aio_hB_pNxCJ&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('10xXbXZ2Wa8aPdCTI4K-_Aio_hB_pNxCJ', 'pdf', 'card-10xXbXZ2Wa8aPdCTI4K-_Aio_hB_pNxCJ')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-10xXbXZ2Wa8aPdCTI4K-_Aio_hB_pNxCJ"></div>
+        </div>
+        <div class="book-title">Apki Zindagi Sirf Ek Minute Mein Badal Sakti Hai(Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-16G49nZnGzEFAqgOoYtufRtXEh6miNGvP">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=16G49nZnGzEFAqgOoYtufRtXEh6miNGvP&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('16G49nZnGzEFAqgOoYtufRtXEh6miNGvP', 'pdf', 'card-16G49nZnGzEFAqgOoYtufRtXEh6miNGvP')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-16G49nZnGzEFAqgOoYtufRtXEh6miNGvP"></div>
+        </div>
+        <div class="book-title">Adhiktam Safalata (Hindi Edition)</div>
+      </div>
+
+      <div class="book-card" id="card-1Aajbqq_-nMSSR5RUtg1FHMhFa6cMEGwe">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1Aajbqq_-nMSSR5RUtg1FHMhFa6cMEGwe&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Aajbqq_-nMSSR5RUtg1FHMhFa6cMEGwe', 'pdf', 'card-1Aajbqq_-nMSSR5RUtg1FHMhFa6cMEGwe')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Aajbqq_-nMSSR5RUtg1FHMhFa6cMEGwe"></div>
+        </div>
+        <div class="book-title">Anant Chetna Ki Khoj Mein  (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1BcQFVY8voimv3vP_5C-N49ErT4DXVfHo">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1BcQFVY8voimv3vP_5C-N49ErT4DXVfHo&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1BcQFVY8voimv3vP_5C-N49ErT4DXVfHo', 'pdf', 'card-1BcQFVY8voimv3vP_5C-N49ErT4DXVfHo')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1BcQFVY8voimv3vP_5C-N49ErT4DXVfHo"></div>
+        </div>
+        <div class="book-title">A Message to Garcia</div>
+      </div>
+
+      <div class="book-card" id="card-1BlLI2CSaXRDCvdkhFvAb6N8DEl6Z7nA-">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1BlLI2CSaXRDCvdkhFvAb6N8DEl6Z7nA-&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1BlLI2CSaXRDCvdkhFvAb6N8DEl6Z7nA-', 'pdf', 'card-1BlLI2CSaXRDCvdkhFvAb6N8DEl6Z7nA-')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1BlLI2CSaXRDCvdkhFvAb6N8DEl6Z7nA-"></div>
+        </div>
+        <div class="book-title">Aatm-Vishwas Aur Aatm-Samman Badhye</div>
+      </div>
+
+      <div class="book-card" id="card-1BqQ2lNQ4KP4PWThQsdFoAhrL1IPF0KpU">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1BqQ2lNQ4KP4PWThQsdFoAhrL1IPF0KpU&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1BqQ2lNQ4KP4PWThQsdFoAhrL1IPF0KpU', 'pdf', 'card-1BqQ2lNQ4KP4PWThQsdFoAhrL1IPF0KpU')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1BqQ2lNQ4KP4PWThQsdFoAhrL1IPF0KpU"></div>
+        </div>
+        <div class="book-title">Albert Einstein  (Hindi)(1)</div>
+      </div>
+
+      <div class="book-card" id="card-1KMr1BjdZiOptBvWm6wPIXI6MOSPzq5ob">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1KMr1BjdZiOptBvWm6wPIXI6MOSPzq5ob&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1KMr1BjdZiOptBvWm6wPIXI6MOSPzq5ob', 'pdf', 'card-1KMr1BjdZiOptBvWm6wPIXI6MOSPzq5ob')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1KMr1BjdZiOptBvWm6wPIXI6MOSPzq5ob"></div>
+        </div>
+        <div class="book-title">Apani Soch Se Ameer Baniye</div>
+      </div>
+
+      <div class="book-card" id="card-1Mh8jWdCUy24C4wx40KeBeo3IuSWwy5rV">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1Mh8jWdCUy24C4wx40KeBeo3IuSWwy5rV&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Mh8jWdCUy24C4wx40KeBeo3IuSWwy5rV', 'pdf', 'card-1Mh8jWdCUy24C4wx40KeBeo3IuSWwy5rV')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Mh8jWdCUy24C4wx40KeBeo3IuSWwy5rV"></div>
+        </div>
+        <div class="book-title">Andrew Carnegie</div>
+      </div>
+
+      <div class="book-card" id="card-1RjC-CK0wN5xlV8Pe0uMDwEj74UGjha6y">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1RjC-CK0wN5xlV8Pe0uMDwEj74UGjha6y&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1RjC-CK0wN5xlV8Pe0uMDwEj74UGjha6y', 'pdf', 'card-1RjC-CK0wN5xlV8Pe0uMDwEj74UGjha6y')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1RjC-CK0wN5xlV8Pe0uMDwEj74UGjha6y"></div>
+        </div>
+        <div class="book-title">ATI PRABHAVKARI LOGON KI 7 ADATEIN</div>
+      </div>
+
+      <div class="book-card" id="card-1_vb3u1jizpVu6WxNXcO2c1saCO9DNbhD">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1_vb3u1jizpVu6WxNXcO2c1saCO9DNbhD&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1_vb3u1jizpVu6WxNXcO2c1saCO9DNbhD', 'pdf', 'card-1_vb3u1jizpVu6WxNXcO2c1saCO9DNbhD')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1_vb3u1jizpVu6WxNXcO2c1saCO9DNbhD"></div>
+        </div>
+        <div class="book-title">Abraham Lincoln  (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1alUDo79a--3B8BXjonB7LpwtQCU1itC_">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1alUDo79a--3B8BXjonB7LpwtQCU1itC_&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1alUDo79a--3B8BXjonB7LpwtQCU1itC_', 'pdf', 'card-1alUDo79a--3B8BXjonB7LpwtQCU1itC_')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1alUDo79a--3B8BXjonB7LpwtQCU1itC_"></div>
+        </div>
+        <div class="book-title">Aap Bhi Leader Ban Sakte Hain</div>
+      </div>
+
+      <div class="book-card" id="card-1bW8SUXZR3TWspW21IuNsHhkP4vdPuHc4">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1bW8SUXZR3TWspW21IuNsHhkP4vdPuHc4&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1bW8SUXZR3TWspW21IuNsHhkP4vdPuHc4', 'pdf', 'card-1bW8SUXZR3TWspW21IuNsHhkP4vdPuHc4')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1bW8SUXZR3TWspW21IuNsHhkP4vdPuHc4"></div>
+        </div>
+        <div class="book-title">Anand Ka Saral Marg (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1f_yleh6dvpeK-f-PsInDL3atHM6ZitU9">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1f_yleh6dvpeK-f-PsInDL3atHM6ZitU9&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1f_yleh6dvpeK-f-PsInDL3atHM6ZitU9', 'pdf', 'card-1f_yleh6dvpeK-f-PsInDL3atHM6ZitU9')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1f_yleh6dvpeK-f-PsInDL3atHM6ZitU9"></div>
+        </div>
+        <div class="book-title">Aakhiri kitaab jo apki zindagi badal de (Hindi Edition)_nodrm</div>
+      </div>
+
+      <div class="book-card" id="card-1iX8EulRDXITmaRAet98WA5sAhe0XTb45">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1iX8EulRDXITmaRAet98WA5sAhe0XTb45&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1iX8EulRDXITmaRAet98WA5sAhe0XTb45', 'pdf', 'card-1iX8EulRDXITmaRAet98WA5sAhe0XTb45')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1iX8EulRDXITmaRAet98WA5sAhe0XTb45"></div>
+        </div>
+        <div class="book-title">Atmavishwas (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1lja-kgMrh9KlbUSmr0n-z4on6JYTY5RT">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1lja-kgMrh9KlbUSmr0n-z4on6JYTY5RT&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1lja-kgMrh9KlbUSmr0n-z4on6JYTY5RT', 'pdf', 'card-1lja-kgMrh9KlbUSmr0n-z4on6JYTY5RT')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1lja-kgMrh9KlbUSmr0n-z4on6JYTY5RT"></div>
+        </div>
+        <div class="book-title">Apne Bheetar Chhupe Leader ko Kaise Jagayein</div>
+      </div>
+
+      <div class="book-card" id="card-1n5gCCVzJtIvLVowMMF_i4HTYRoq8jE6M">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1n5gCCVzJtIvLVowMMF_i4HTYRoq8jE6M&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1n5gCCVzJtIvLVowMMF_i4HTYRoq8jE6M', 'pdf', 'card-1n5gCCVzJtIvLVowMMF_i4HTYRoq8jE6M')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1n5gCCVzJtIvLVowMMF_i4HTYRoq8jE6M"></div>
+        </div>
+        <div class="book-title">Apani Aatmashakti Ko Pahchanen</div>
+      </div>
+
+      <div class="book-card" id="card-1pfYB07H824N2Xw8hx2SAXXAfiCBrnuPY">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1pfYB07H824N2Xw8hx2SAXXAfiCBrnuPY&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1pfYB07H824N2Xw8hx2SAXXAfiCBrnuPY', 'pdf', 'card-1pfYB07H824N2Xw8hx2SAXXAfiCBrnuPY')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1pfYB07H824N2Xw8hx2SAXXAfiCBrnuPY"></div>
+        </div>
+        <div class="book-title">Aap Khud Hi Best Hain  (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1qhKCHSxUv4-3Aw4YWjCfoioO2_5hgIWO">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1qhKCHSxUv4-3Aw4YWjCfoioO2_5hgIWO&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qhKCHSxUv4-3Aw4YWjCfoioO2_5hgIWO', 'pdf', 'card-1qhKCHSxUv4-3Aw4YWjCfoioO2_5hgIWO')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qhKCHSxUv4-3Aw4YWjCfoioO2_5hgIWO"></div>
+        </div>
+        <div class="book-title">As A Man Thinketh (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1r5ow_nNC-CkOD6sbXKs-ARzjb0lGU5L2">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1r5ow_nNC-CkOD6sbXKs-ARzjb0lGU5L2&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1r5ow_nNC-CkOD6sbXKs-ARzjb0lGU5L2', 'pdf', 'card-1r5ow_nNC-CkOD6sbXKs-ARzjb0lGU5L2')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1r5ow_nNC-CkOD6sbXKs-ARzjb0lGU5L2"></div>
+        </div>
+        <div class="book-title">Aisi Vani Boliye</div>
+      </div>
+
+      <div class="book-card" id="card-1rwIbzknsl2kTdl6_fkWZkJkHakW24hVK">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1rwIbzknsl2kTdl6_fkWZkJkHakW24hVK&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1rwIbzknsl2kTdl6_fkWZkJkHakW24hVK', 'pdf', 'card-1rwIbzknsl2kTdl6_fkWZkJkHakW24hVK')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1rwIbzknsl2kTdl6_fkWZkJkHakW24hVK"></div>
+        </div>
+        <div class="book-title">Apreshit Patra (Hindi)</div>
+      </div>
+
+      <div class="book-card" id="card-1Wle3bGhSOU9NTcaYSO4uaSQ8M0x9hL55">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1Wle3bGhSOU9NTcaYSO4uaSQ8M0x9hL55&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1Wle3bGhSOU9NTcaYSO4uaSQ8M0x9hL55', 'pdf', 'card-1Wle3bGhSOU9NTcaYSO4uaSQ8M0x9hL55')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1Wle3bGhSOU9NTcaYSO4uaSQ8M0x9hL55"></div>
+        </div>
+        <div class="book-title">Achha Bolne Ki Kala Aur Kamyabi</div>
+      </div>
+
+      <div class="book-card" id="card-1iJfsQPb43lu3Q1vDFwi_rY3KVpWEyP38">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1iJfsQPb43lu3Q1vDFwi_rY3KVpWEyP38&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1iJfsQPb43lu3Q1vDFwi_rY3KVpWEyP38', 'pdf', 'card-1iJfsQPb43lu3Q1vDFwi_rY3KVpWEyP38')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1iJfsQPb43lu3Q1vDFwi_rY3KVpWEyP38"></div>
+        </div>
+        <div class="book-title">Ameer Banne Ke 13 Pakke Tareeke</div>
+      </div>
+
+      <div class="book-card" id="card-17DzqpiJZeVxrQopgNUq3vcSvfHoKCriH">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=17DzqpiJZeVxrQopgNUq3vcSvfHoKCriH&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('17DzqpiJZeVxrQopgNUq3vcSvfHoKCriH', 'pdf', 'card-17DzqpiJZeVxrQopgNUq3vcSvfHoKCriH')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-17DzqpiJZeVxrQopgNUq3vcSvfHoKCriH"></div>
+        </div>
+        <div class="book-title">Aakrshan Ka Niyam</div>
+      </div>
+
+      <div class="book-card" id="card-1QNz-H36cT-o8BUrgq7ZfK5z3_znLQKYA">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1QNz-H36cT-o8BUrgq7ZfK5z3_znLQKYA&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1QNz-H36cT-o8BUrgq7ZfK5z3_znLQKYA', 'pdf', 'card-1QNz-H36cT-o8BUrgq7ZfK5z3_znLQKYA')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1QNz-H36cT-o8BUrgq7ZfK5z3_znLQKYA"></div>
+        </div>
+        <div class="book-title">Ameer Aadmi Ameer Soch</div>
+      </div>
+
+      <div class="book-card" id="card-1lkRzV04uq0KX_em3PfBtm0Sb1GZpHeEz">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1lkRzV04uq0KX_em3PfBtm0Sb1GZpHeEz&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1lkRzV04uq0KX_em3PfBtm0Sb1GZpHeEz', 'pdf', 'card-1lkRzV04uq0KX_em3PfBtm0Sb1GZpHeEz')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1lkRzV04uq0KX_em3PfBtm0Sb1GZpHeEz"></div>
+        </div>
+        <div class="book-title">Arise, Awake</div>
+      </div>
+
+      <div class="book-card" id="card-110Pz7TT8WSaFwYgkrSYBh-QZHoBBCTKa">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=110Pz7TT8WSaFwYgkrSYBh-QZHoBBCTKa&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('110Pz7TT8WSaFwYgkrSYBh-QZHoBBCTKa', 'pdf', 'card-110Pz7TT8WSaFwYgkrSYBh-QZHoBBCTKa')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-110Pz7TT8WSaFwYgkrSYBh-QZHoBBCTKa"></div>
+        </div>
+        <div class="book-title">Antar Shanti Ki Awaaz - Stillness Speaks</div>
+      </div>
+
+      <div class="book-card" id="card-1qv2Ndtrtg3KGRhWkayBNhbW8R8hpdcS2">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1qv2Ndtrtg3KGRhWkayBNhbW8R8hpdcS2&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qv2Ndtrtg3KGRhWkayBNhbW8R8hpdcS2', 'pdf', 'card-1qv2Ndtrtg3KGRhWkayBNhbW8R8hpdcS2')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qv2Ndtrtg3KGRhWkayBNhbW8R8hpdcS2"></div>
+        </div>
+        <div class="book-title">aakanksha ka mehatv</div>
+      </div>
+
+      <div class="book-card" id="card-1qSRZUlVRHeN6RBKknpCJ1eNzvM1Fufs3">
+        <div class="image-wrapper">
+          <img class="book-cover" src="https://drive.google.com/thumbnail?id=1qSRZUlVRHeN6RBKknpCJ1eNzvM1Fufs3&sz=w600" loading="lazy">
+          <div class="read-overlay">
+            <button class="overlay-btn" onclick="checkAccess('1qSRZUlVRHeN6RBKknpCJ1eNzvM1Fufs3', 'pdf', 'card-1qSRZUlVRHeN6RBKknpCJ1eNzvM1Fufs3')">വായിക്കാം</button>
+          </div>
+          <div class="audio-player-box" id="player-1qSRZUlVRHeN6RBKknpCJ1eNzvM1Fufs3"></div>
+        </div>
+        <div class="book-title">aapke avchetan man ki shakti</div>
+      </div>
+        </div>
+    </div>
+</section>
+
+<div id="loginAlertModal"><div class="popup-box"><img src="assets/cover/logo.png" style="height:45px; margin-bottom:10px;"><h3 style="color:#004D40; margin:5px 0;">ത്രിപുടി ലൈബ്രറി</h3><p id="loginMsg" style="font-weight:600;"></p><br><div style="display:flex; justify-content:center; gap:15px;"><a href="login.html" id="login-btn-link" style="padding:10px 25px; background:#00897B; color:white; text-decoration:none; border-radius:5px; font-weight:600;">ലോഗിൻ ചെയ്യൂ</a><button onclick="closeLoginPopup()" style="padding:10px 25px; border:none; background:#eee; border-radius:5px; cursor:pointer; color:#555;">ഇപ്പോൾ വേണ്ട</button></div></div></div>
+<div id="videoOverlay" class="video-popup-overlay"><div class="video-window"><button class="close-video-btn" onclick="closeVideo()"><i class="fas fa-arrow-left"></i></button><div id="videoFrameContainer" style="width:100%; height:100%; position:relative;"></div></div></div>
+<div id="pdfModal"><div id="modalHeader"><span>ത്രിപുടി ലൈബ്രറി - വായനമുറി</span><button onclick="closePdfModal()" style="color:white; background:none; border:none; cursor:pointer; font-size:1.5em;"><i class="fas fa-times"></i></button></div><div class="iframe-container"><div class="player-mask" style="width:60px; height:60px;"></div><iframe id="pdfFrame" style="width:100%; height:100%; border:none;" allow="autoplay"></iframe></div></div>
+
+<footer>
+    <div class="container footer-content">
+        <div class="footer-line-one">
+            <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919447333333" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            <span class="footer-divider">|</span>
+            <a href="privacy.html">സ്വകാര്യതാ നയം</a>
+            <span class="footer-divider">|</span>
+            <a href="terms.html">നിബന്ധനകൾ</a>
+        </div>
+        <div class="footer-line-two">© 2025 THRIPUDI LIBRARY. എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</div>
+    </div>
+</footer>
+
+<script src="assets/scripts.js"></script>
+</body>
+</html>
